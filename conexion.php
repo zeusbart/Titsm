@@ -7,4 +7,7 @@ $bdnombre="Cerberus";
 $bdhost="localhost";
 $bd =new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost);
 
+consulta(){
+    $bd ->query($query);
+}
  ?>

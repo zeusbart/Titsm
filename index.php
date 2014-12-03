@@ -28,7 +28,7 @@
                                 </div>
                             </div>
                             <div class="panel-body">
-                                <form accept-charset="UTF-8" role="form" class="form-signin">
+                                <form accept-charset="UTF-8" role="form" action="Conexion.php" class="form-signin">
                                     <fieldset>
                                         <label class="panel-login">
                                             <div class="login_result"></div>

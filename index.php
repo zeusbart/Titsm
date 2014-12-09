@@ -30,7 +30,7 @@
                                         <input class="form-control" placeholder="Password" id="password" required name="password" type="password">
                                        <br>
                                         <?php
-                                        include_once './Conexion.php';
+                                        include_once './Variables_Conexion.php';
                                             $bd =new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost);
                                             $username=$_POST[username];
                                             $password=$_POST[password];

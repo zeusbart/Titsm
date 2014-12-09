@@ -13,6 +13,20 @@
 	<body>
 
 			<div class="container">
+			<!--Encabezado -->
+				<div class="page-header">
+				<div class="row">
+				<div class=" col-md-3">
+					<img src="../img/logo_OSH.png" height="451" width="300" class="img-responsive" alt="Image">
+				</div>
+					<div class="col-md-6">
+					<p><h1>Cerberus	<br>	<small>Sistema de control de acceso</small></h1></p>
+						
+					</div>
+				</div>
+				</div><!--Fin Encabezado-->
+
+					<!--Barra de navegacion-->
 				<nav class="navbar navbar-default" role="navigation">
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<div class="navbar-header">
@@ -50,30 +64,32 @@
 							</li>
 						</ul>
 					</div><!-- /.navbar-collapse -->
-				</nav>
+				</nav><!-- Fin Barra de navegación-->
+				
+			<div class="contenido"><!--Inicio Contenido-->
+				
+			</div><!--Fin Contenido-->
 
-				<div class="row">
-					<div class="col-md-3">
-						Nombre;
-					</div>
-					<div class="col-md-4">
-						<input type="text" name="nombre" id="inputNombre" class="form-control" value="" required="required" pattern="" title="">
+			<div class="footer">	<!--Inicio pie de pagina-->
+			<div class="row">
+				<div class=" col-md-2">
+					<img src="../img/OSH-LOGO-FONDO-TRANSPAR-RUEDA.png" class="img-responsive" alt="Responsive image">
+				</div>
+					<div class="col-md-6">
+					<p><h1>Pie de pagina	<br>	<small>Sistema de control de acceso</small></h1></p>
+						
 					</div>
 				</div>
-
-
-
-
+				
+			</div><!--Fin pie de pagina-->
+			
+				
+			
 </div>
-<div id="logo">
 
-			</div>
 
-				<!--	<div id="logo">
-				<div class="col-xs-5 col-sm-7 col-md-8 col-lg-12">
-				 <img src="../img/OSH-LOGO-FONDO-TRANSPAR-RUEDA.png" class="img-responsive" alt="Responsive image">
-				</div>
-					 </div>-->
+				
+
 
 		<!-- jQuery -->
                 <script src="../js/jquery-1.10.2.js"></script>

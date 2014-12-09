@@ -2,20 +2,12 @@
 <html lang="es">
 	<head>
 		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Title Page</title>
-
+		<title>Cerberus</title>
 		<!-- Bootstrap CSS -->
                 <link href="bootstrap_css/bootstrap.min.css" rel="stylesheet">
                 <link href="css/login.css" rel="stylesheet">
-
-		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
 	</head>
 	<body>
 		 <div class="container">
@@ -28,15 +20,35 @@
                                 </div>
                             </div>
                             <div class="panel-body">
-                                <form accept-charset="UTF-8" role="form" action="Conexion.php" class="form-signin">
+                                <form accept-charset="UTF-8" role="form" action="index.php" method="post" class="form-signin">
                                     <fieldset>
                                         <label class="panel-login">
                                             <div class="login_result"></div>
                                         </label>
-                                        <input class="form-control" placeholder="Username" id="username" type="text">
-                                        <input class="form-control" placeholder="Password" id="password" type="password">
-                                        <br></br>
-                                        <input class="btn btn-lg btn-success btn-block" type="submit" id="login" value="Login »">
+
+                                        <input class="form-control" placeholder="Username" id="username" required name="username" type="text">
+                                        <input class="form-control" placeholder="Password" id="password" required name="password" type="password">
+                                       <br>
+                                        <?php
+                                        include_once './Conexion.php';
+                                            $bd =new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost);
+                                            $username=$_POST[username];
+                                            $password=$_POST[password];
+
+
+                                                $msql_usuario= $bd ->get_results("select * from usuarios where Usuario='$username' and Contrasena='$password'");
+
+                                                if($msql_usuario != NULL){
+                                                    echo 'Acceso consebido';
+                                                }else if($username != NULL){
+                                                    echo '<div class="alert alert-danger">
+                                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                                        <strong>Acceso Denegado!</strong> </br> Pongase en contacto con recusos humanos
+                                                    </div>';
+                                                }
+                                                 ?>
+                                        <br>
+                                        <button type="submit" class="btn btn-lg btn-block btn-success">Accesar <span class="glyphicon glyphicon-log-in"></span></button>
                                     </fieldset>
                                 </form>
                             </div>
@@ -50,3 +62,4 @@
                 <script src="bootstrap_js/bootstrap.min.js"></script>
 	</body>
 </html>
+

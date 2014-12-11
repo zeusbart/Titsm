@@ -30,16 +30,18 @@
                                         <input class="form-control" placeholder="Password" id="password" required name="password" type="password">
                                        <br>
                                         <?php
-                                        include_once './Variables_Conexion.php';
+                                        include_once 'Variables_Conexion.php';
                                             $bd =new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost);
                                             $username=$_POST[username];
                                             $password=$_POST[password];
 
 
-                                                $msql_usuario= $bd ->get_results("select * from usuarios where Usuario='$username' and Contrasena='$password'");
+                                                $msql_usuario= $bd ->get_row("select * from usuarios where Usuario='$username' and Contrasena='$password'");
 
                                                 if($msql_usuario != NULL){
-                                                    echo 'Acceso consebido';
+
+                                                  echo "<script language='javascript'>window.location='Contenido_Administrador/Menu_Administrador.php'</script>;";
+
                                                 }else if($username != NULL){
                                                     echo '<div class="alert alert-danger">
                                                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>

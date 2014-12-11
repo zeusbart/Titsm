@@ -43,8 +43,21 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse navbar-ex1-collapse">
 						<ul class="nav navbar-nav">
+
+							<li class="dropdown">
+				              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Usuario <span class="caret"></span></a>
+				              <ul class="dropdown-menu" role="menu">
+
+				                	<li><a onclick="CambiarContenido('#contenido','Registro_Usuarios.php')" href="#">Registrar</a></li>
+				                	<li class="divider"></li>
+				                	<li><a href="#">Consultar</a></li>
+				                	<li class="divider"></li>
+				                	<li><a href="#">Modificar</a></li>
+				              </ul>
+				            </li>
+
 							<li class="active"><a href="#">Reportes</a></li>
-                               <li><a onclick="CambiarContenido('#contenido','Registro_Usuario.php')" href="#">Registrar</a></li>
+
 						</ul>
 
 						 <ul class="nav navbar-nav navbar-right">

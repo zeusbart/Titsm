@@ -9,10 +9,14 @@
 		</div>
 		<div class="col-sm-4 col-md-3 col-lg-3">
 			<?php
-
+                                include_once '../Variables_Conexion.php';
+                                $Conexion=new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost);
+                                $Consulta=$Conexion ->get_row("Select Usuario from usuarios ORDER BY usuarios.Usuario DESC");
+                                $ID=$Consulta -> Usuario+1;
+                                echo "<input type='text' name='usuario' id='inputUsuario'  class='form-control' value='$ID' disabled>";
 			 ?>
 
-			<input type="text" name="usuario" id="inputUsuario"  class="form-control" value="" required="required" disabled>
+
 		</div>
 	</div>
 	<br>

@@ -6,7 +6,7 @@
 </head>
 <body>
 <?php
-    include_once './Variables_Conexion.php';
+    include_once '../Variables_Conexion.php';
     $bd =new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost);
 
     $usuario= $bd ->get_results("select * from usuarios where Usuario='1'");

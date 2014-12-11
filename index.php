@@ -29,7 +29,11 @@
                                         <input class="form-control" placeholder="Username" id="username" required name="username" type="text">
                                         <input class="form-control" placeholder="Password" id="password" required name="password" type="password">
                                        <br>
-                                        <?php
+                                      
+                                      
+                                        <button type="submit" class="btn btn-lg btn-block btn-success">Accesar <span class="glyphicon glyphicon-log-in"></span></button>
+                                        <br>
+                                            <?php
                                         include_once 'Variables_Conexion.php';
                                             $bd =new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost);
                                             $username=$_POST[username];
@@ -49,8 +53,6 @@
                                                     </div>';
                                                 }
                                                  ?>
-                                        <br>
-                                        <button type="submit" class="btn btn-lg btn-block btn-success">Accesar <span class="glyphicon glyphicon-log-in"></span></button>
                                     </fieldset>
                                 </form>
                             </div>

@@ -2,8 +2,10 @@
 include_once 'lib/ez_sql_core.php';
 include_once 'lib/ez_sql_mysql.php';
 
-        $bdusuario="root"; 
+        $bdusuario="root";
         $bdpass="1";
-        $bdnombre="Cerberus"; 
+        $bdnombre="Cerberus";
         $bdhost="localhost";
+        $encoding="utf8";
+
 ?>

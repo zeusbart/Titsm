@@ -1,21 +1,31 @@
 <?php
             include_once '../Variables_Conexion.php';
-	    $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost);
+	    $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost,$encoding);
 	    $Nombre=$_POST[Nombre];
             $Appat=$_POST[Appat];
             $Apmat=$_POST[Apmat];
             $Pass=$_POST[Pass];
             $Tipo=$_POST[Tipo];
-           echo $Tipo;
-            echo $Appat;
-            echo $Nombre;
-            echo $Apmat;
-            echo $Pass;
             $Agregar_Usuario=$Conexion ->query("Insert into usuarios set Contrasena='$Pass',Tipo='$Tipo',Nombre='$Nombre',Appat='$Appat',Apmat='$Apmat'");
 
             if($Agregar_Usuario==1){
-                echo "Datos agregados con exito";
+              echo "  <div class='row'>
+                    <div class='col-sm-5 col-md-offset-4 col-lg-5'>
+                        <div class='alert alert-success'>
+                    <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                    <strong>Datos agregados con exito!</strong>
+                    </div>
+                     </div>
+                </div> ";
+
             }else{
-                echo "Problemas al insertar los datos";
+                echo "<div class='row'>
+                <div class='col-sm-5 col-md-offset-4 col-lg-5'>
+                <div class='alert alert-danger'>
+                    <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                    <strong>Problemas al insertar los datos!</strong>
+                </div>
+                </div>
+                </div>";
            }
  ?>

@@ -9,6 +9,8 @@
                 <link rel="stylesheet" href="../css/contenido.css"/>
 		<!-- Bootstrap CSS -->
                 <link href="../bootstrap_css/bootstrap.min.css" rel="stylesheet">
+
+
                 <script src="menu.js"></script>
 	</head>
 	<body>
@@ -37,7 +39,7 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Administrador</a>
+                                            <a class="navbar-brand" onclick="CambiarContenido('#contenido','Principal.php')" href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Administrador</a>
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
@@ -67,9 +69,12 @@
 					</div><!-- /.navbar-collapse -->
 				</nav><!-- Fin Barra de navegación-->
 
-			<div id="contenido"><!--Inicio Contenido-->
+                                <div id="contenido"><!--Inicio Contenido-->
+
+
 
 			</div><!--Fin Contenido-->
+
 
 			<div class="footer">	<!--Inicio pie de pagina-->
 			<div class="row">
@@ -78,24 +83,17 @@
 				</div>
 					<div class="col-md-6">
 					<p><h1>Pie de pagina	<br>	<small>Sistema de control de acceso</small></h1></p>
-
 					</div>
 				</div>
-
 			</div><!--Fin pie de pagina-->
-
-
-
 </div>
-
-
-
-
-
-		<!-- jQuery -->
-
+				<!-- jQuery -->
                 <script src="../js/jquery-1.10.2.js"></script>
-		<!-- Bootstrap JavaScript -->
+				<!-- Bootstrap JavaScript -->
                 <script src="../bootstrap_js/bootstrap.min.js"></script>
+                <!--Jquery Form -->
+                <script src="../js/jquery.form.js" type="text/javascript"></script>
+                <!--carga el contenido principal de la pagina al inicio-->
+                <script>$('#contenido').load('Principal.php')</script>
 	</body>
 </html>

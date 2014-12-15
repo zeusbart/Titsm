@@ -52,7 +52,7 @@
 
 				                	<li><a onclick="CambiarContenido('#contenido','Registro_Usuarios.php')" href="#">Registrar</a></li>
 				                	<li class="divider"></li>
-				                	<li><a href="#">Consultar</a></li>
+				                	<li><a href="#" onclick="CambiarContenido('#contenido','Consulta_Usuarios.php')">Consultar</a></li>
 				                	<li class="divider"></li>
 				                	<li><a href="#">Modificar</a></li>
 				              </ul>

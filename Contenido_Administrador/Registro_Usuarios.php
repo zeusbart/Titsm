@@ -2,21 +2,22 @@
 <legend><b>Registro Usuario</b></legend>
 
 <div class="form-group">
-    <div class="row">
+   <!-- <div class="row">
         <div class=" col-sm-3 col-md-offset-2 col-lg-2">
                 <label>ID Usuario:</label>
         </div>
         <div class="col-sm-4 col-md-3 col-lg-3">
-                <?php
-        include_once '../Variables_Conexion.php';
-        $Conexion=new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost,$encoding);
-        $Consulta=$Conexion ->get_row("Select Usuario from usuarios ORDER BY usuarios.Usuario DESC");
-        $ID=$Consulta -> Usuario+1;
-        echo "<input type='text' name='usuario' id='inputUsuario'  class='form-control' value='$ID' disabled>";
-                 ?>
+              #  <?php
+       # include_once '../Variables_Conexion.php';
+        #$Conexion=new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost,$encoding);
+        #$Consulta=$Conexion ->get_row("Select IDUsuarios from usuarios ORDER BY IDUsuarios DESC");
+        #$ID=$Consulta -> Usuario+1;
+
+       # echo "<input type='text' name='usuario' id='inputUsuario'  class='form-control' value='$ID' disabled>";
+               #  ?>
         </div>
-</div>
-<br>
+    </div>
+<br>-->
 <div class="row">
         <div class="col-sm-3 col-md-offset-2 col-lg-2">
                 <label>Nombre:</label>
@@ -96,9 +97,9 @@
 
 		$("#FormRegistro").ajaxForm({
 
-                        type:"POST",
+            type:"POST",
 			target:"#resultado",
-                        resetForm:true
+            resetForm:true
 		});
 	});
 </script>

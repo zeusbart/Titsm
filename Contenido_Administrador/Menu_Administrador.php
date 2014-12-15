@@ -9,7 +9,8 @@
                 <link rel="stylesheet" href="../css/contenido.css"/>
 		<!-- Bootstrap CSS -->
                 <link href="../bootstrap_css/bootstrap.min.css" rel="stylesheet">
-
+				<!-- jQuery -->
+                <script src="../js/jquery-1.10.2.js"></script>
 
                 <script src="menu.js"></script>
 	</head>
@@ -70,9 +71,7 @@
 				</nav><!-- Fin Barra de navegación-->
 
                                 <div id="contenido"><!--Inicio Contenido-->
-
-
-
+                                <script>$('#contenido').load('Principal.php')</script>
 			</div><!--Fin Contenido-->
 
 
@@ -87,13 +86,12 @@
 				</div>
 			</div><!--Fin pie de pagina-->
 </div>
-				<!-- jQuery -->
-                <script src="../js/jquery-1.10.2.js"></script>
+
 				<!-- Bootstrap JavaScript -->
                 <script src="../bootstrap_js/bootstrap.min.js"></script>
                 <!--Jquery Form -->
                 <script src="../js/jquery.form.js" type="text/javascript"></script>
                 <!--carga el contenido principal de la pagina al inicio-->
-                <script>$('#contenido').load('Principal.php')</script>
+
 	</body>
 </html>

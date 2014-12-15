@@ -4,11 +4,15 @@
 		<meta charset="utf-8">
 		<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Administrador</title>
+		<title>Seguridad</title>
                 <!--contenido css-->
                 <link rel="stylesheet" href="../css/contenido.css"/>
 		<!-- Bootstrap CSS -->
                 <link href="../bootstrap_css/bootstrap.min.css" rel="stylesheet">
+				<!-- jQuery -->
+                <script src="../js/jquery-1.10.2.js"></script>
+
+                <script src="menu.js"></script>
 	</head>
 	<body>
 
@@ -16,12 +20,12 @@
 			<!--Encabezado -->
 				<div class="page-header">
 				<div class="row">
-				<div class=" col-md-3">
+				<div class="col-sm-5 col-md-3">
 					<img src="../img/logo_OSH.png" height="451" width="300" class="img-responsive" alt="Image">
 				</div>
-					<div class="col-md-6">
-					<p><h1>Cerberus	<br>	<small>Sistema de control de acceso</small></h1></p>
-						
+					<div class="col-sm-6 col-md-6">
+					<h1>Cerberus	<br>	<small>Sistema de control de acceso</small></h1>
+
 					</div>
 				</div>
 				</div><!--Fin Encabezado-->
@@ -36,39 +40,27 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="#">Administrador</a>
+                        <a class="navbar-brand" onclick="CambiarContenido('#contenido','Principal.php')" href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Guardias</a>
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse navbar-ex1-collapse">
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="#">Link</a></li>
-							<li><a href="#">Link</a></li>
+							<li><a onclick="CambiarContenido('#contenido','ESPersonal.php')" href="#">Acceso Personal</a></li>
+							<li><a onclick="CambiarContenido('#contenido','ESEquipo.php')" href="#">Acceso Equipo</a></li>
 						</ul>
-						<form class="navbar-form navbar-left" role="search">
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Search">
-							</div>
-							<button type="submit" class="btn btn-default">Submit</button>
-						</form>
-						<ul class="nav navbar-nav navbar-right">
-							<li><a href="#">Link</a></li>
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-								<ul class="dropdown-menu">
-									<li><a href="#">Action</a></li>
-									<li><a href="#">Another action</a></li>
-									<li><a href="#">Something else here</a></li>
-									<li><a href="#">Separated link</a></li>
-								</ul>
-							</li>
-						</ul>
+
+						 <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">cerrar seción <span class="glyphicon glyphicon-log-out"></span> </a></li>
+
+                </ul>
 					</div><!-- /.navbar-collapse -->
 				</nav><!-- Fin Barra de navegación-->
-				
-			<div class="contenido"><!--Inicio Contenido-->
-				
+
+                                <div id="contenido"><!--Inicio Contenido-->
+                                <script>$('#contenido').load('Principal.php')</script>
 			</div><!--Fin Contenido-->
+
 
 			<div class="footer">	<!--Inicio pie de pagina-->
 			<div class="row">
@@ -77,23 +69,16 @@
 				</div>
 					<div class="col-md-6">
 					<p><h1>Pie de pagina	<br>	<small>Sistema de control de acceso</small></h1></p>
-						
 					</div>
 				</div>
-				
 			</div><!--Fin pie de pagina-->
-			
-				
-			
 </div>
 
-
-				
-
-
-		<!-- jQuery -->
-                <script src="../js/jquery-1.10.2.js"></script>
-		<!-- Bootstrap JavaScript -->
+				<!-- Bootstrap JavaScript -->
                 <script src="../bootstrap_js/bootstrap.min.js"></script>
+                <!--Jquery Form -->
+                <script src="../js/jquery.form.js" type="text/javascript"></script>
+                <!--carga el contenido principal de la pagina al inicio-->
+
 	</body>
 </html>

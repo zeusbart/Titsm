@@ -22,9 +22,7 @@
 
 <script type="text/javascript">
 	$(document).ready(function(){
-
 		$("#FormConsulta").ajaxForm({
-
             type:"POST",
 			target:"#resultado",
             resetForm:true

@@ -8,12 +8,11 @@
 <?php
     include_once '../Variables_Conexion.php';
     $bd =new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost);
-
     $usuario= $bd ->get_results("select * from usuarios where Usuario='1'");
   foreach ($usuario as $datos){
       $valor=$datos -> Usuario;
       $valor2=$datos -> Nombre;
-      
+
        echo "<input type='text' name='texto' id='inputTexto' class='form-control' value='$valor' required='required' title=''>";
        echo "<input type='text' name='texto' id='inputTexto' class='form-control' value='$valor2' required='required' title=''>";
     }

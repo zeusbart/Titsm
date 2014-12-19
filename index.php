@@ -5,6 +5,8 @@
 		<!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Cerberus</title>
+            <!-- jQuery -->
+                <script src="js/jquery-1.10.2.js"></script>
 		<!-- Bootstrap CSS -->
                 <link href="bootstrap_css/bootstrap.min.css" rel="stylesheet">
                 <link href="css/login.css" rel="stylesheet">
@@ -60,8 +62,7 @@
                     </div>
                 </div>
             </div>
-		<!-- jQuery -->
-                <script src="js/jquery-1.10.2.js"></script>
+	
 		<!-- Bootstrap JavaScript -->
                 <script src="bootstrap_js/bootstrap.min.js"></script>
 	</body>

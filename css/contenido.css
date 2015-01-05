@@ -27,4 +27,7 @@
         border-radius: 5px;
 
     }
+    textarea{
+        max-width: 100%;
+    }
 

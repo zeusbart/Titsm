@@ -4,11 +4,11 @@
 	<div class="form-group">
 		<div class="row">
 			<div class="col-sm-3 col-md-2 col-lg-2">
-			<label for="">Hora:</label>
+			<label for="">Tipo:</label>
 			</div>
-			<div class="col-sm-4 col-md-2 col-lg-2">
+<!--			<div class="col-sm-4 col-md-2 col-lg-2">
 				<input type="text" name="Hora" id="inputHora" class="form-control" value="" required="required">
-			</div>
+			</div>-->
 			<div class="col-sm-5 col-md-5 col-lg-5">
 				<div class="radio">
 					<label class="checkbox-inline">

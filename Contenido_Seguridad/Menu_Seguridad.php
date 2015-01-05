@@ -11,7 +11,17 @@
                 <link href="../bootstrap_css/bootstrap.min.css" rel="stylesheet">
 				<!-- jQuery -->
                 <script src="../js/jquery-1.10.2.js"></script>
-
+                <!--jquery dataTable-->
+                <script src="../media/js/jquery.dataTables.min.js"></script>
+        <!--css extencion dataTable bootstrap-->
+        <link href="../media/css/dataTables.bootstrap.css" rel="stylesheet">
+        <!--Extencion dataTable responsivo css-->
+        <link href="../media/css/dataTables.responsive.css" rel="stylesheet">
+        <!--dataTable Responsivo script-->
+        <script src="../media/js/dataTables.responsive.min.js"></script>
+        <!--Extencion bootstrap dataTable js-->
+        <script src="../media/js/dataTables.bootstrap.js"></script>
+        <!--<link rel="stylesheet" href="maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>-->
                 <script src="menu.js"></script>
 	</head>
 	<body>

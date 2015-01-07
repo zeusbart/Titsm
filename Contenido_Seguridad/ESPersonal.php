@@ -1,4 +1,80 @@
-<form action="" method="POST" role="form">
+<script>
+    $(document).ready(function (){
+        
+    $("#EnviarDatos").click(function (){
+        var DatosForm = $('#Form_Persona').serialize();
+           alert(DatosForm);
+           
+       $("#Form_Persona").ajaxForm(
+            {
+                url:"Query_Guarda_Persona.php",
+                type:"POST",
+                data: DatosForm,        
+                target:"#resultado",
+                success: 
+                        function() { 
+                    LimpiarCamposPersona();             
+                         } 
+                
+            });
+        
+        });
+        
+    });
+    function LimpiarCamposPersona(){
+        $("#hiddenidPersona").val("");
+        $("#inputNombre").val("");
+        $("#inputAppat").val("");
+        $("#inputApmat").val("");
+        $("#inputTelefono").val("");
+        $("#inputCompania").val("");
+        $("#Persona_Obs").val("");
+        $("#inputRazon").val("");
+        
+        
+        
+        //habilitamos los campos
+        $("#inputNombre").prop('disabled',false);
+        $("#inputAppat").prop('disabled',false);
+        $("#inputApmat").prop('disabled',false);
+        $("#inputTelefono").prop('disabled',false);
+        $("#inputCompania").prop('disabled',false);
+    
+    }
+ function CargarBusquedaPersona(IDPersona)
+     {
+         var Persona="IDPersona="+IDPersona;
+        
+         $.ajax({
+             url:"Query_Busqueda_Persona.php",
+             data:Persona,
+             type:"POST",
+             dataType:"json",
+             success:
+                     function (respuesta)
+             {
+        // alert(respuesta);
+                     $('#ModalPersona').modal('hide');
+                     $('#hiddenidPersona').val(respuesta.IDPersona);
+                     $("#inputNombre").val(respuesta.Nombre);
+                     $("#inputAppat").val(respuesta.Appat);
+                     $("#inputApmat").val(respuesta.Apmat);
+                     $("#inputTelefono").val(respuesta.Telefono);
+                     $("#inputCompania").val(respuesta.Compania);
+        //         Desabilitamos los campos
+                     $("#inputNombre").prop('disabled',true);
+                     $("#inputAppat").prop('disabled',true);
+                     $("#inputApmat").prop('disabled',true);
+                     $("#inputTelefono").prop('disabled',true);
+                     $("#inputCompania").prop('disabled',true);
+                    
+             }
+                     
+         });
+     }
+</script>
+
+<form role="form" name="Form_Persona" id="Form_Persona">
 	<legend>Acceso Personal</legend>
 
 	<div class="form-group">
@@ -6,9 +82,7 @@
 			<div class="col-sm-3 col-md-2 col-lg-2">
 			<label for="">Tipo:</label>
 			</div>
-<!--			<div class="col-sm-4 col-md-2 col-lg-2">
-				<input type="text" name="Hora" id="inputHora" class="form-control" value="" required="required">
-			</div>-->
+
 			<div class="col-sm-5 col-md-5 col-lg-5">
 				<div class="radio">
 					<label class="checkbox-inline">
@@ -29,7 +103,17 @@
 				<label for="">Nombre:</label>
 			</div>
 			<div class="col-sm-5 col-md-3 col-lg-3">
+                             <input name="hiddenidPersona" id="hiddenidPersona" class="form-control" value="" type="hidden">
 				<input type="text" name="Nombre" id="inputNombre" class="form-control" value="" required="required">
+			</div>
+			<div class="col-sm-5 col-md-1 col-lg-1">
+				<button type="button" class="btn btn-primary" onclick="CambiarContenido('#body_tabla_Persona','Tabla_Busqueda_Persona.php')" data-toggle="modal" data-target="#ModalPersona">
+                                    Buscar
+                                    <span class="glyphicon glyphicon-eye-open"></span>
+                                </button>
+			</div>
+			<div class="col-sm-5 col-md-1 col-lg-1">
+				<button id="inputLimpiarPersona" onclick="LimpiarCamposPersona()" type="button" class="btn btn-default">Limpiar</button>
 			</div>
 		</div><br>
 		<div class="row">
@@ -69,7 +153,7 @@
 				<label for="">Observaciones:</label>
 			</div>
 			<div class="col-sm-7 col-md-5 col-lg-4">
-					<textarea class="form-control" rows="5" name="Observaciones"></textarea>
+                            <textarea class="form-control" id="Persona_Obs" rows="5" name="Persona_Obs"></textarea>
 			</div>
 		</div><br>
 		<div class="row">
@@ -83,12 +167,34 @@
 		<br>
 		<div class="row">
 			<div class="col-sm-5 col-md-5 col-lg-5">
-				<button type="submit" class="btn btn-primary">Submit</button>
+				<button type="submit" id="EnviarDatos" class="btn btn-primary btn-lg">Registrar Entrada/Salida</button>
 			</div>
 		</div>
+                  <div id="resultado"></div>
 	</div>
 
 
 
 
 </form>
+
+ <!-- Modal Persona -->
+    <div class="modal fade" id="ModalPersona" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Buscar Persona</h4>
+          </div>
+          <div class="modal-body" id="body_tabla_Persona">
+                <!--contenido que se carga de la la tabla vehiculo php-->
+          
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+          </div>
+        </div>
+      </div>
+    </div>

@@ -41,19 +41,24 @@
       });
      
     $("#EnviarDatos").click(function (){
-        var queryString = $('#Form_Equipos').serialize();
-           alert(queryString);
+        var DatosForm = $('#Form_Equipos').serialize();
+           alert(DatosForm);
            
        $("#Form_Equipos").ajaxForm(
             {
                 url:"Query_Guarda_Equipo.php",
                 type:"POST",
-                data: queryString,        
+                data: DatosForm,        
                 target:"#resultado",
-                resetForm: true,
                 success:    function() { 
-//                $("#check").prop('checked',true);  
-                  // $('#collapseOne').collapse('hide');
+                    
+//                    $("#check").prop('checked',true);  
+                    
+//                   $('#collapseOne').collapse('hide');
+                    LimpiarCamposEquipos();
+                    LimpiarCamposPersona();        
+                   LimpiarCamposVehiculos();
+                  
                 } 
                 
             });
@@ -62,7 +67,14 @@
 
     });
  
-
+    function LimpiarCamposEquipos(){
+        $("#Descripcion").val("");
+        $("#inputCantidad").val("");
+        $("#inputUnidad").val("");
+        $("#inputRazon").val("");
+        
+        
+    }
   
     function LimpiarCamposVehiculos(){
           $("#hiddenPlaca").val("");
@@ -156,7 +168,7 @@
                     
              }
                      
-         })
+         });
      }
   </script>
   <form  role="form"  name="Form_Equipos" id="Form_Equipos"><!--action="Query_Guarda_Equipo.php"--> <!--method="POST"--> 
@@ -190,7 +202,7 @@
 				<label>Descripcion:</label>
 			</div>
 			<div class=" col-sm-5 col-md-5 col-lg-5">
-				<textarea class="form-control" rows="5" name="Descripcion" required></textarea>
+                            <textarea class="form-control" rows="5" id="Descripcion" name="Descripcion" required></textarea>
 			</div>
 		</div>
 		<br>
@@ -225,7 +237,10 @@
 			<div class=" col-sm-6 col-md-6 col-lg-6">
 					<div class="panel panel-default">
                         <div class="panel-heading">Datos de Persona
-                                <button type="button" class="btn btn-primary" onclick="CambiarContenido('#body_tabla_Persona','Tabla_Busqueda_Persona.php')" data-toggle="modal" data-target="#ModalPersona">Buscar</button>
+                                <button type="button" class="btn btn-primary" onclick="CambiarContenido('#body_tabla_Persona','Tabla_Busqueda_Persona.php')" data-toggle="modal" data-target="#ModalPersona">
+                                    Buscar
+                                    <span class="glyphicon glyphicon-eye-open"></span>
+                                </button>
                                 <button id="inputLimpiarPersona" onclick="LimpiarCamposPersona()" type="button" class="btn btn-default">Limpiar</button>
                         </div>
                             <div class="panel-body">
@@ -302,7 +317,10 @@
       <input id="check" name="check" type="checkbox"> Datos de Vehiculo
     </label>
   </div>
-              <button id="inputBuscar" onclick="CambiarContenido('#body_tabla_vehiculo','Tabla_Busqueda_Vehiculo.php')"  type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Buscar</button> 
+              <button id="inputBuscar" onclick="CambiarContenido('#body_tabla_vehiculo','Tabla_Busqueda_Vehiculo.php')"  type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                  Buscar
+                  <span class="glyphicon glyphicon-eye-open"></span>
+              </button> 
               <button id="inputLimpiar" onclick="LimpiarCamposVehiculos()" type="button" class="btn btn-default">Limpiar</button> 
                   </h4>
         </div>

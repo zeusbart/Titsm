@@ -1,10 +1,6 @@
 <?php
             include_once '../Variables_Conexion.php';
             $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost,$encoding);
-//	    $Conexion_Materiales = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost,$encoding);
-//            $Conexion_Vehiculos = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost,$encoding);
-//            $Conexion_Usuarios = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost,$encoding);
-//	    $Conexion_Log = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost,$encoding);
             
             $Tipo=$_POST["Tipo"];
             $Descripcion=$_POST["Descripcion"];
@@ -31,10 +27,10 @@
             $IDPersona;
            
             
-            //Comprobamos persona
+            
             $Agregar_Materiales=$Conexion ->query("insert into materiales set Descripcion='$Descripcion',Cantidad='$Cantidad',Unidad='$Unidad'");
             $ID_material = mysql_insert_id(); 
-            
+          
                 if($Agregar_Materiales == 1){//comprobamos que se guardo el registro MATERIALES
                         echo "  <div class='row'>
                     <div class='col-sm-5 col-md-offset-4 col-lg-5'>
@@ -55,7 +51,7 @@
                 </div>";
               }//fin else comprobacion registro material
             
-            
+              //Comprobamos persona
               if($hiddenidPersona == null){//Cuando la Persona no existe en la bd se agrega  
                 $Agregar_Persona=$Conexion -> query("insert into personas set Nombre='$Nombre',Appat='$Appat',Apmat='$Apmat',Telefono='$Telefono',Compania='$Compania'");
                 $IDPersona=  mysql_insert_id();
@@ -143,7 +139,7 @@
                     }else{//cuando la persona ya esta registrada en la bd solo obtengo el $hiddenidPersona
                          $Agregar_Log_Materiales=$Conexion ->query("insert into logesmateriales set IDMateriales='$ID_material',IDPersona='$hiddenidPersona', Tipo='$Tipo', Razon='$Razon',Personas_Obs='$Persona_Obs' ");
                     }
-                    //registramos los datos del log
+                    
                     break;
             }//Fin switch  
             

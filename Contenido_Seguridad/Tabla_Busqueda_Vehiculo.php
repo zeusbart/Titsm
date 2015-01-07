@@ -21,7 +21,7 @@
             <table id="example" class="table table-bordered table-striped table-hover"  width="100%">
               <thead>
                 <tr class='info'>
-                    <th></th>
+                  <th>Seleccione</th>
                   <th>Placa</th>
                   <th>Marca</th>
                   <th>Modelo</th>

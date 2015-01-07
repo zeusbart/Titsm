@@ -24,7 +24,7 @@
 	$(document).ready(function(){
 		$("#FormConsulta").ajaxForm({
             type:"POST",
-			target:"#resultado",
+            target:"#resultado",
             resetForm:true
 		});
 	});

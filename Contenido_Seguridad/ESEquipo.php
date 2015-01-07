@@ -1,19 +1,118 @@
-
-<!--<script type="text/javascript" class="init">
+<script>  
+     var Estado_Vehiculos=0;// a la hora de guardar 
+    //1 no hay registros encontrados o se limpian los campos con el boton se rellena manu8almente o el check esta marcado se guardara los campos originales
+    //2Cuando el registro es encontrado en la busqueda y asignado; solo guardara su hiddenPlaca y inputVehiculo_Obs
+    //0 cuando no esta marcado el check lo que indica que esos campos no se guardan
+        var Estado_Persona=1;//1 cuando no se encontro el registro
+        //2 cuando el registro se ayo en la bd
+   
     $(document).ready(function() {
-      $('#example').DataTable({
-        "searching": true, //desabilita la barra de busqueda
-        "paging": true, //Desabilita la paginacion 
-        "ordering": true, //desabilita el ordenado
-        "lengthChange": true //Muestra el total de resultados por pagina paginados
+          $("#inputBuscar").hide();
+          $("#inputLimpiar").hide();
+           $("#check").click(function() {
+        if ($("#check").is(':checked')) {
+          //Activado 
+          $('#collapseOne').collapse('show');
+          $("#hiddenPlaca").val("");
+          $("#inputPlaca").prop('required', true);
+          $("#inputMarca").prop('required', true);
+          $("#inputModelo").prop('required', true);
+          $("#inputColor").prop('required', true);
+//          $("#inputBuscar").prop('disabled', false);
+            $("#inputBuscar").show();
+            $("#inputLimpiar").show();
+        } else {
+          //check No activado
+          $('#collapseOne').collapse('hide');
+          //se limpian los valores
+          $("#hiddenPlaca").val("");
+          $("#inputPlaca").val("");
+          $("#inputMarca").val("");
+          $("#inputModelo").val("");
+          $("#inputColor").val("");
+          $("#inputVehiculo_Obs").val("");
+          //Sehace requeridos los campos para ser llenados
+          $("#inputPlaca").prop('required', false);
+          $("#inputMarca").prop('required', false);
+          $("#inputModelo").prop('required', false);
+          $("#inputColor").prop('required', false);  
+//            habilitamos los campos
+           $("#inputPlaca").prop('disabled',false);
+           $("#inputMarca").prop('disabled',false);
+           $("#inputModelo").prop('disabled',false);
+           $("#inputColor").prop('disabled',false);
 
+          $("#inputBuscar").hide();
+          $("#inputLimpiar").hide()
+        }
       });
+     
+    $("#EnviarDatos").click(function (){
+        var queryString = $('#Form_Equipos').serialize();
+           alert(queryString);
+           
+       $("#Form_Equipos").ajaxForm(
+            {
+                url:"Query_Guarda_Equipo.php",
+                type:"POST",
+                data: queryString,        
+                target:"#resultado",
+                resetForm: true,
+                success:    function() { 
+//                $("#check").prop('checked',true);  
+                  // $('#collapseOne').collapse('hide');
+                } 
+                
+            });
+        
+        });
+
     });
-  </script>-->
-<script>
-      function CargarBusquedaVehiculo(Placa)
+ 
+//          function submit (){
+//       var datos= $("#Form_Equipos").serialize()+"&Estado_Vehiculos="+Estado_Vehiculos;
+//      alert(datos);
+//            $.ajax({
+//                url:"Query_Guarda_Equipo.php",
+//                type: 'POST',
+//                data: datos,
+//                success: function(textStatus) {
+//                        alert(textStatus);
+//                                }
+//            });
+        
+//     }
+  
+    function LimpiarCamposVehiculos(){
+          $("#hiddenPlaca").val("");
+          $("#inputPlaca").val("");
+          $("#inputMarca").val("");
+          $("#inputModelo").val("");
+          $("#inputColor").val("");
+          $("#inputVehiculo_Obs").val("");
+          
+          //         habilitamos los campos
+           $("#inputPlaca").prop('disabled',false);
+           $("#inputMarca").prop('disabled',false);
+           $("#inputModelo").prop('disabled',false);
+           $("#inputColor").prop('disabled',false);
+    }
+    
+    function LimpiarCamposPersona(){
+        $("#hiddenidPersona").val("");
+        $("#inputNombre").val("");
+        $("#inputAppat").val("");
+        $("#inputApmat").val("");
+        $("#inputTelefono").val("");
+        $("#inputCompania").val("");
+        $("#inputPersona_Obs").val("");
+        
+        
+    }
+    function CargarBusquedaVehiculo(Placa)
      {
          var Pla="Placa="+Placa;
+        
          $.ajax({
              url:"Query_Busqueda_Estudiante.php",
              data:Pla,
@@ -25,51 +124,21 @@
         // alert(respuesta);
                     $('#myModal').modal('hide');
                       $("#inputPlaca").val(respuesta.Placa);
+                      $("#hiddenPlaca").val(respuesta.Placa);
                      $("#inputMarca").val(respuesta.Marca);
                     $("#inputModelo").val(respuesta.Modelo);
                      $("#inputColor").val(respuesta.Color);
-                    
+        //         Desabilitamos los campos
+                      $("#inputPlaca").prop('disabled',true);
+                      $("#inputMarca").prop('disabled',true);
+                     $("#inputModelo").prop('disabled',true);
+                     $("#inputColor").prop('disabled',true);
              }
                      
          })
-     } 
-    $(document).ready(function() {
-          $("#inputBuscar").hide();
-      $("#check").click(function() {
-        if ($("#check").is(':checked')) {
-          //Activado 
-          $('#collapseOne').collapse('show');
-          $("#inputPlaca").prop('required', true);
-          $("#inputMarca").prop('required', true);
-          $("#inputModelo").prop('required', true);
-          $("#inputColor").prop('required', true);
-//          $("#inputBuscar").prop('disabled', false);
-            $("#inputBuscar").show();
-        } else {
-          //check No activado
-          $('#collapseOne').collapse('hide');
-          //se limpian los valores
-          $("#inputPlaca").val("");
-          $("#inputMarca").val("");
-          $("#inputModelo").val("");
-          $("#inputColor").val("");
-          $("#inputVehiculo_Obs").val("");
-          
-          
-          //Se hace requeridos los campos para ser llenados
-          $("#inputPlaca").prop('required', false);
-          $("#inputMarca").prop('required', false);
-          $("#inputModelo").prop('required', false);
-          $("#inputColor").prop('required', false);
-          
-          //$("#inputBuscar").prop('disabled', true);
-             $("#inputBuscar").hide();
-        }
-      });
-
-    });
+     }
   </script>
-<form action="#" method="POST" role="form">
+  <form  role="form"  name="Form_Equipos" id="Form_Equipos"><!--action="Query_Guarda_Equipo.php"--> <!--method="POST"--> 
 	<legend>Acceso Equipos</legend>
 
 	<div class="form-group">
@@ -109,7 +178,7 @@
 				<label for="inputCantidad">Cantidad:</label>
 			</div>
 			<div class=" col-sm-5 col-md-5 col-lg-5">
-						<input type="number" name="Cantidad" min="0" id="inputCantidad" class="form-control" required>
+                            <input type="number" name="Cantidad" placeholder="Solo numeros" min="0" id="inputCantidad" class="form-control" required>
 			</div>
 		</div>
 		<br>
@@ -118,7 +187,7 @@
 				<label>Unidad:</label>
 			</div>
 			<div class=" col-sm-5 col-md-5 col-lg-5">
-				<input type="text" name="" id="input" class="form-control" value="" placeholder="Caja,kilo,pieza, etc..." required="required" >
+				<input type="text" name="Unidad" id="inputUnidad" class="form-control" value="" placeholder="Caja,kilo,pieza, etc..." required="required" >
 			</div>
 		</div>
 		<br>
@@ -135,7 +204,8 @@
 			<div class=" col-sm-6 col-md-6 col-lg-6">
 					<div class="panel panel-default">
                         <div class="panel-heading">Datos de Persona
-							<button type="button" class="btn btn-primary">Buscar</button>
+                                <button type="button" class="btn btn-primary">Buscar</button>
+                                <button id="inputLimpiarPersona" onclick="LimpiarCamposPersona()" type="button" class="btn btn-default">Limpiar</button>
                         </div>
                             <div class="panel-body">
 							   <!-- Panel content-->
@@ -144,6 +214,7 @@
 				<label for="">Nombre:</label>
 			</div>
 			<div class="col-sm-5 col-md-8 col-lg-8">
+                                <input name="hiddenidPersona" id="hiddenidPersona" class="form-control" value="" type="hidden">
 				<input type="text" name="Nombre" id="inputNombre" class="form-control" value="" required="required">
 			</div>
 <!--                        <div class="col-sm-4 col-md-2 col-lg-2">
@@ -188,7 +259,7 @@
                             <label for="">Observaciones</label>
                     </div>
                     <div class="col-sm-8 col-md-8 col-lg-8">
-                            <textarea class="form-control" rows="2" name="Persona_Obs"></textarea>
+                        <textarea id="inputPersona_Obs" class="form-control" rows="2" name="Persona_Obs"></textarea>
                     </div>
                 </div>
                 <br>
@@ -211,6 +282,7 @@
     </label>
   </div>
               <button id="inputBuscar" onclick="CambiarContenido('#body_tabla_vehiculo','Tabla_Busqueda_Vehiculo.php')"  type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Buscar</button> 
+              <button id="inputLimpiar" onclick="LimpiarCamposVehiculos()" type="button" class="btn btn-default">Limpiar</button> 
                   </h4>
         </div>
         <div id="collapseOne" class="panel-collapse collapse " role="tabpanel" aria-labelledby="headingOne">
@@ -221,7 +293,8 @@
                 <label for="">Placa:</label>
               </div>
               <div class="col-sm-6 col-md-6 col-lg-6">
-                <input type="text" name="Placa" id="inputPlaca" class="form-control" value="">
+                  <input type="hidden" name="hiddenPlaca" id="hiddenPlaca" class="form-control" value="">
+                  <input type="text" name="Placa" id="inputPlaca" class="form-control" value="">
               </div>
             </div>
             <br>
@@ -230,7 +303,7 @@
                 <label for="">Marca:</label>
               </div>
               <div class="col-sm-6 col-md-6 col-lg-6">
-                <input type="text" name="Marca" id="inputMarca" class="form-control" value="" required="required">
+                <input type="text" name="Marca" id="inputMarca" class="form-control" value="">
               </div>
             </div>
             <br>
@@ -239,7 +312,7 @@
                 <label for="">Modelo:</label>
               </div>
               <div class="col-sm-6 col-md-6 col-lg-6">
-                <input type="text" name="Modelo" id="inputModelo" class="form-control" value="" required="required">
+                <input type="text" name="Modelo" id="inputModelo" class="form-control" value="" >
               </div>
             </div>
             <br>
@@ -248,7 +321,7 @@
                 <label for="">Color:</label>
               </div>
               <div class="col-sm-6 col-md-6 col-lg-6">
-                <input type="text" name="Color" id="inputColor" class="form-control" value="" required="required">
+                <input type="text" name="Color" id="inputColor" class="form-control" value="">
               </div>
             </div>
             <br>
@@ -274,8 +347,11 @@
 
 
 
-	<button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" id="EnviarDatos" class="btn btn-primary btn-lg">Registrar Entrada/Salida</button>
+         <div id="resultado"></div>
 </form>
+  
+ 
 
  <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

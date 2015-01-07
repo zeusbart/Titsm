@@ -20,25 +20,12 @@
                         $Resultado['Color']=$Color;
                         
                         echo json_encode($Resultado);
-                     
-//         			echo "		<tr>
-//                                                                <td><center>
-//                                                                 <button onclick='CargarBusquedaVehiculo()' type='button' class='btn btn-success btn-sm'>
-//                                                                 Seleccionar
-//  <span class='glyphicon glyphicon-share-alt'></span>
-//</button></center>
-//                                                                        </td>
-//								<td>$Placa</td>
-//								<td>$Marca</td>
-//								<td>$Modelo</td>
-//								<td>$Color</td>
-//								
-//							</tr>";
+                 
          	}
          }
-//         }else{
-//                echo 'problemas en la consulta';
-//         }
+         else{
+                echo 'problemas en la consulta';
+         }
 
  ?>
  

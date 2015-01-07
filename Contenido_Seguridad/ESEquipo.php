@@ -1,11 +1,4 @@
 <script>  
-     var Estado_Vehiculos=0;// a la hora de guardar 
-    //1 no hay registros encontrados o se limpian los campos con el boton se rellena manu8almente o el check esta marcado se guardara los campos originales
-    //2Cuando el registro es encontrado en la busqueda y asignado; solo guardara su hiddenPlaca y inputVehiculo_Obs
-    //0 cuando no esta marcado el check lo que indica que esos campos no se guardan
-        var Estado_Persona=1;//1 cuando no se encontro el registro
-        //2 cuando el registro se ayo en la bd
-   
     $(document).ready(function() {
           $("#inputBuscar").hide();
           $("#inputLimpiar").hide();
@@ -69,19 +62,7 @@
 
     });
  
-//          function submit (){
-//       var datos= $("#Form_Equipos").serialize()+"&Estado_Vehiculos="+Estado_Vehiculos;
-//      alert(datos);
-//            $.ajax({
-//                url:"Query_Guarda_Equipo.php",
-//                type: 'POST',
-//                data: datos,
-//                success: function(textStatus) {
-//                        alert(textStatus);
-//                                }
-//            });
-        
-//     }
+
   
     function LimpiarCamposVehiculos(){
           $("#hiddenPlaca").val("");
@@ -107,6 +88,14 @@
         $("#inputCompania").val("");
         $("#inputPersona_Obs").val("");
         
+        //habilitamos los campos
+        $("#inputNombre").prop('disabled',false);
+        $("#inputAppat").prop('disabled',false);
+        $("#inputApmat").prop('disabled',false);
+        $("#inputTelefono").prop('disabled',false);
+        $("#inputCompania").prop('disabled',false);
+        
+        
         
     }
     function CargarBusquedaVehiculo(Placa)
@@ -114,7 +103,7 @@
          var Pla="Placa="+Placa;
         
          $.ajax({
-             url:"Query_Busqueda_Estudiante.php",
+             url:"Query_Busqueda_Vehiculo.php",
              data:Pla,
              type:"POST",
              dataType:"json",
@@ -133,6 +122,38 @@
                       $("#inputMarca").prop('disabled',true);
                      $("#inputModelo").prop('disabled',true);
                      $("#inputColor").prop('disabled',true);
+             }
+                     
+         })
+     }
+
+      function CargarBusquedaPersona(IDPersona)
+     {
+         var Persona="IDPersona="+IDPersona;
+        
+         $.ajax({
+             url:"Query_Busqueda_Persona.php",
+             data:Persona,
+             type:"POST",
+             dataType:"json",
+             success:
+                     function (respuesta)
+             {
+        // alert(respuesta);
+                     $('#ModalPersona').modal('hide');
+                     $('#hiddenidPersona').val(respuesta.IDPersona);
+                     $("#inputNombre").val(respuesta.Nombre);
+                     $("#inputAppat").val(respuesta.Appat);
+                     $("#inputApmat").val(respuesta.Apmat);
+                     $("#inputTelefono").val(respuesta.Telefono);
+                     $("#inputCompania").val(respuesta.Compania);
+        //         Desabilitamos los campos
+      					 $("#inputNombre").prop('disabled',true);
+                     $("#inputAppat").prop('disabled',true);
+                     $("#inputApmat").prop('disabled',true);
+                     $("#inputTelefono").prop('disabled',true);
+                     $("#inputCompania").prop('disabled',true);
+                    
              }
                      
          })
@@ -204,7 +225,7 @@
 			<div class=" col-sm-6 col-md-6 col-lg-6">
 					<div class="panel panel-default">
                         <div class="panel-heading">Datos de Persona
-                                <button type="button" class="btn btn-primary">Buscar</button>
+                                <button type="button" class="btn btn-primary" onclick="CambiarContenido('#body_tabla_Persona','Tabla_Busqueda_Persona.php')" data-toggle="modal" data-target="#ModalPersona">Buscar</button>
                                 <button id="inputLimpiarPersona" onclick="LimpiarCamposPersona()" type="button" class="btn btn-default">Limpiar</button>
                         </div>
                             <div class="panel-body">
@@ -353,7 +374,7 @@
   
  
 
- <!-- Modal -->
+ <!-- Modal vehiculo -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog  modal-lg">
         <div class="modal-content">
@@ -363,51 +384,30 @@
             <h4 class="modal-title" id="myModalLabel">Buscar Vehiculo</h4>
           </div>
           <div class="modal-body" id="body_tabla_vehiculo">
-
+                <!--contenido que se carga de la la tabla vehiculo php-->
           
-<!--           <div class="table-responsive">
-            <table id="example" class="table table-bordered table-striped table-hover"  width="100%">
-              <thead>
-                <tr class='info'>
-                  <th>Placa</th>
-                  <th>Marca</th>
-                  <th>Modelo</th>
-                  <th>Color</th>
-                </tr>
-              </thead>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
-              <tbody id="Tabla_vehiculo">
-              -->
-<?php
-//	//Consulta Usuario
-//        include_once '../Variables_Conexion.php';
-//         $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost,$encoding);
-//         $Consulta=$_POST[Consulta];
-//
-//         $Query= $Conexion -> get_results("select * from vehiculos");
-//
-//         if ($Query!=0) {
-//         	foreach ($Query as $datos) {
-//         		$Placa=$datos -> Placa;
-//         		$Marca=$datos -> Marca;
-//         		$Modelo=$datos -> Modelo;
-//         		$Color=$datos -> Color;
-//         			echo "		<tr>
-//								<td>$Placa</td>
-//								<td>$Marca</td>
-//								<td>$Modelo</td>
-//								<td>$Color</td>
-//								
-//							</tr>";
-//         	}
-//         }else{
-//                echo 'problemas en la consulta';
-//         }
+          </div>
+        </div>
+      </div>
+    </div>
 
- ?>
-<!--              </tbody>
-            </table>
-  </div>-->
+ 
+ <!-- Modal Persona -->
+    <div class="modal fade" id="ModalPersona" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Buscar Persona</h4>
+          </div>
+          <div class="modal-body" id="body_tabla_Persona">
+                <!--contenido que se carga de la la tabla vehiculo php-->
+          
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

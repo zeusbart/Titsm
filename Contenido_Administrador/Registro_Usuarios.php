@@ -50,7 +50,7 @@
                 <label>Contraseña:</label>
         </div>
         <div class="col-sm-6 col-md-5 col-lg-5">
-                <input type="text" name="Pass" id="inputPass" placeholder="Escriba su contraseña" class="form-control" value="" required="required" >
+            <input type="password" name="Pass" id="inputPass" placeholder="Escriba su contraseña" class="form-control" value="" required="required" onchange="form.Confirmpass.pattern = this.value;">
         </div>
 </div>
 <br>
@@ -59,7 +59,7 @@
                 <label>Confirmar Contraseña:</label>
         </div>
         <div class="col-sm-6 col-md-5 col-lg-5">
-                <input type="text" name="Confirmpass" id="inputConfirmpass" placeholder="Repita su contraseña" class="form-control" value="" required="required" >
+            <input type="password" name="Confirmpass" id="inputConfirmpass" placeholder="Repita su contraseña" class="form-control" value="" required="required" >
         </div>
 </div>
 <br>
@@ -71,7 +71,7 @@
                 <select name="Tipo"  class="form-control">
                         <option value="1">Administrador</option>
                         <option value="2">Guardia</option>
-                        <option value="3">Mesa de ayuda</option>
+<!--                        <option value="3">Mesa de ayuda</option>-->
                 </select>
         </div>
 </div>

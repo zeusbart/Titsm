@@ -42,7 +42,7 @@
      
     $("#EnviarDatos").click(function (){
         var DatosForm = $('#Form_Equipos').serialize();
-           alert(DatosForm);
+//           alert(DatosForm);
            
        $("#Form_Equipos").ajaxForm(
             {

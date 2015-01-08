@@ -3,7 +3,7 @@
         
     $("#EnviarDatos").click(function (){
         var DatosForm = $('#Form_Persona').serialize();
-           alert(DatosForm);
+//           alert(DatosForm);
            
        $("#Form_Persona").ajaxForm(
             {
@@ -16,11 +16,11 @@
                     LimpiarCamposPersona();             
                          } 
                 
-            });
+            });//Fin ajax
         
-        });
+        });//fin EnviarDatos.click
         
-    });
+    });//fin document.ready
     function LimpiarCamposPersona(){
         $("#hiddenidPersona").val("");
         $("#inputNombre").val("");

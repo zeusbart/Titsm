@@ -1,3 +1,20 @@
+<?php session_start();
+    if(!$_SESSION){
+        echo '<script type="text/javascript">
+                    window.location="../index.php";
+                </script>';
+    }
+     $IDUsuarios=$_SESSION['IDUsuarios'];
+     $Nombre=$_SESSION['Nombre'];
+     $Appat=$_SESSION['Appat'];
+     $Tipo_Usuario=$_SESSION['Tipo_Usuario'];
+     if($Tipo_Usuario != 2){
+         session_destroy();
+         echo '<script type="text/javascript">
+                    window.location="../index.php";
+                </script>';
+     }
+    ?>
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -50,7 +67,10 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-                        <a class="navbar-brand" onclick="CambiarContenido('#contenido','Principal.php')" href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Guardias</a>
+                        <a class="navbar-brand" onclick="CambiarContenido('#contenido','Principal.php')" href="#"><span class="glyphicon glyphicon-user"></span>
+                            &nbsp;Guardias: &nbsp;<?php echo $Nombre;?>
+                            
+                        </a>
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
@@ -61,7 +81,7 @@
 						</ul>
 
 						 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">cerrar seción <span class="glyphicon glyphicon-log-out"></span> </a></li>
+                                                     <li><a href="../Salir.php">cerrar seción <span class="glyphicon glyphicon-log-out"></span> </a></li>
 
                 </ul>
 					</div><!-- /.navbar-collapse -->

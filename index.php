@@ -10,6 +10,37 @@
 		<!-- Bootstrap CSS -->
                 <link href="bootstrap_css/bootstrap.min.css" rel="stylesheet">
                 <link href="css/login.css" rel="stylesheet">
+                
+                <script>
+                $(document).ready(function (){
+                     $("#EnviarDatos").click(function (){
+                    var DatosForm = $('#Form_Login').serialize();
+                     // alert(DatosForm);
+           
+       $("#Form_Login").ajaxForm(
+            {
+                url:"login.php",
+                type:"POST",
+                data: DatosForm,        
+//              target:"#resultado",
+                resetForm:true,
+                success:    function(r) { 
+                        $("#resultado").html(r);
+                  
+                }
+               
+                
+            });
+        
+        });
+
+                    
+                    
+                });
+                
+                
+                
+                </script>
 	</head>
 	<body>
 		 <div class="container">
@@ -22,7 +53,7 @@
                                 </div>
                             </div>
                             <div class="panel-body">
-                                <form accept-charset="UTF-8" role="form" action="index.php" method="post" class="form-signin">
+                                <form  role="form" name="Form_Login" id="Form_Login" class="form-signin">
                                     <fieldset>
                                         <label class="panel-login">
                                             <div class="login_result"></div>
@@ -33,29 +64,12 @@
                                        <br>
                                       
                                       
-                                        <button type="submit" class="btn btn-lg btn-block btn-success">Accesar <span class="glyphicon glyphicon-log-in"></span></button>
+                                       <button type="submit" id="EnviarDatos" class="btn btn-lg btn-block btn-success">Accesar <span class="glyphicon glyphicon-log-in"></span></button>
                                         <br>
-                                            <?php
-                                        include_once 'Variables_Conexion.php';
-                                            $bd =new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost);
-                                            $username=$_POST[username];
-                                            $password=$_POST[password];
-
-
-                                                $msql_usuario= $bd ->get_row("select * from usuarios where Usuario='$username' and Contrasena='$password'");
-
-                                                if($msql_usuario != NULL){
-
-                                                  echo "<script language='javascript'>window.location='Contenido_Administrador/Menu_Administrador.php'</script>;";
-
-                                                }else if($username != NULL){
-                                                    echo '<div class="alert alert-danger">
-                                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                                        <strong>Acceso Denegado!</strong> </br> Pongase en contacto con recusos humanos
-                                                    </div>';
-                                                }
-                                                 ?>
+                                        
+                                            <div id="resultado"></div>
                                     </fieldset>
+                                    
                                 </form>
                             </div>
                         </div>
@@ -65,6 +79,8 @@
 	
 		<!-- Bootstrap JavaScript -->
                 <script src="bootstrap_js/bootstrap.min.js"></script>
+                 <!--Jquery Form -->
+                <script src="js/jquery.form.js" type="text/javascript"></script>
 	</body>
 </html>
 

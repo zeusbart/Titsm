@@ -1,4 +1,11 @@
-<?php
+<?php session_start();
+if(!$_SESSION){
+        echo '<script type="text/javascript">
+                    window.location="../index.php";
+                </script>';
+    }
+     $IDUsuarios=$_SESSION['IDUsuarios'];
+     
             include_once '../Variables_Conexion.php';
             $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost,$encoding);
             
@@ -43,10 +50,10 @@
                 }//Fin hidden Persona
                  if($hiddenidPersona == NULL){
                         //registramos los datos del log sin placa ni dscripcion de vehiculo y el id otorgado por el incremental de la bd personas
-                        $Agregar_Log_Persona=$Conexion ->query("insert into logespersonal set IDPersona='$IDPersona', Tipo='$Tipo', Razon='$Razon',Observaciones='$Persona_Obs' ");
+                        $Agregar_Log_Persona=$Conexion ->query("insert into logespersonal set IDUsuarios='$IDUsuarios', IDPersona='$IDPersona', Tipo='$Tipo', Razon='$Razon',Observaciones='$Persona_Obs' ");
                     
                     }else{//cuando la persona ya esta registrada en la bd solo obtengo el $hiddenidPersona
-                         $Agregar_Log_Persona=$Conexion ->query("insert into logespersonal set IDPersona='$hiddenidPersona', Tipo='$Tipo', Razon='$Razon',Observaciones='$Persona_Obs' ");
+                         $Agregar_Log_Persona=$Conexion ->query("insert into logespersonal set IDUsuarios='$IDUsuarios', IDPersona='$hiddenidPersona', Tipo='$Tipo', Razon='$Razon',Observaciones='$Persona_Obs' ");
                     }
 
                     if($Agregar_Log_Persona == 1){//comprobamos que se guardo el registro

@@ -1,4 +1,11 @@
-<?php
+                <?php session_start();
+if(!$_SESSION){
+        echo '<script type="text/javascript">
+                    window.location="../index.php";
+                </script>';
+    }
+     $IDUsuarios=$_SESSION['IDUsuarios'];
+    
             include_once '../Variables_Conexion.php';
             $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost,$encoding);
             
@@ -106,12 +113,12 @@
                         switch ($hiddenPlaca){
                         case NULL:
                             // $hiddenidPersona =null $hiddenPlaca=null los datos de persona y vehiculo  no estan almacenado en la bd
-                          $Agregar_Log_Materiales=$Conexion ->query("insert into logesmateriales set IDMateriales='$ID_material', Placa='$Placa',Vehiculo_Obs='$Vehiculo_Obs' ,IDPersona=$IDPersona, Tipo='$Tipo', Razon='$Razon',Personas_Obs='$Persona_Obs' ");
+                          $Agregar_Log_Materiales=$Conexion ->query("insert into logesmateriales set IDMateriales='$ID_material', Placa='$Placa', IDUsuarios='$IDUsuarios',Vehiculo_Obs='$Vehiculo_Obs' ,IDPersona=$IDPersona, Tipo='$Tipo', Razon='$Razon',Personas_Obs='$Persona_Obs' ");
                             
                             break;
                         case !NULL:
                             // $hiddenidPersona =null $hiddenPlaca=dato los datos de persona no estan almacenado pero vehiculo si
-                             $Agregar_Log_Materiales=$Conexion ->query("insert into logesmateriales set IDMateriales='$ID_material', Placa='$hiddenPlaca',Vehiculo_Obs='$Vehiculo_Obs' ,IDPersona=$IDPersona, Tipo='$Tipo', Razon='$Razon',Personas_Obs='$Persona_Obs' ");
+                             $Agregar_Log_Materiales=$Conexion ->query("insert into logesmateriales set IDMateriales='$ID_material', Placa='$hiddenPlaca',IDUsuarios='$IDUsuarios',Vehiculo_Obs='$Vehiculo_Obs' ,IDPersona=$IDPersona, Tipo='$Tipo', Razon='$Razon',Personas_Obs='$Persona_Obs' ");
                              break;
                         }
                         break;
@@ -119,11 +126,11 @@
                         switch ($hiddenPlaca){
                         case NULL:
                             // $hiddenidPersona =dato $hiddenPlaca=null los datos de persona si estan almacenado en las tablas pero vehiculo no
-                          $Agregar_Log_Materiales=$Conexion ->query("insert into logesmateriales set IDMateriales='$ID_material',Placa='$Placa',Vehiculo_Obs='$Vehiculo_Obs' ,IDPersona='$hiddenidPersona', Tipo='$Tipo', Razon='$Razon',Personas_Obs='$Persona_Obs' ");
+                          $Agregar_Log_Materiales=$Conexion ->query("insert into logesmateriales set IDMateriales='$ID_material',Placa='$Placa',IDUsuarios='$IDUsuarios',Vehiculo_Obs='$Vehiculo_Obs' ,IDPersona='$hiddenidPersona', Tipo='$Tipo', Razon='$Razon',Personas_Obs='$Persona_Obs' ");
                             break;
                         case !NULL:
                             // $hiddenidPersona =dato $hiddenPlaca=dato los datos de persona y vehiculo si estan en la bd
-                             $Agregar_Log_Materiales=$Conexion ->query("insert into logesmateriales set IDMateriales='$ID_material',Placa='$hiddenPlaca',Vehiculo_Obs='$Vehiculo_Obs' ,IDPersona='$hiddenidPersona', Tipo='$Tipo', Razon='$Razon',Personas_Obs='$Persona_Obs' ");
+                             $Agregar_Log_Materiales=$Conexion ->query("insert into logesmateriales set IDMateriales='$ID_material',Placa='$hiddenPlaca',IDUsuarios='$IDUsuarios',Vehiculo_Obs='$Vehiculo_Obs' ,IDPersona='$hiddenidPersona', Tipo='$Tipo', Razon='$Razon',Personas_Obs='$Persona_Obs' ");
                              break;
                         }
                         break;
@@ -134,20 +141,12 @@
                 case null://En caso que el check no este seleccionado
                     if($hiddenidPersona == NULL){
                         //registramos los datos del log sin placa ni dscripcion de vehiculo y el id otorgado por el incremental de la bd personas
-                        $Agregar_Log_Materiales=$Conexion ->query("insert into logesmateriales set IDMateriales='$ID_material',IDPersona='$IDPersona', Tipo='$Tipo', Razon='$Razon',Personas_Obs='$Persona_Obs' ");
+                        $Agregar_Log_Materiales=$Conexion ->query("insert into logesmateriales set IDMateriales='$ID_material',IDUsuarios='$IDUsuarios',IDPersona='$IDPersona', Tipo='$Tipo', Razon='$Razon',Personas_Obs='$Persona_Obs' ");
                     
                     }else{//cuando la persona ya esta registrada en la bd solo obtengo el $hiddenidPersona
-                         $Agregar_Log_Materiales=$Conexion ->query("insert into logesmateriales set IDMateriales='$ID_material',IDPersona='$hiddenidPersona', Tipo='$Tipo', Razon='$Razon',Personas_Obs='$Persona_Obs' ");
-                    }
-                    
+                         $Agregar_Log_Materiales=$Conexion ->query("insert into logesmateriales set IDMateriales='$ID_material',IDUsuarios='$IDUsuarios',IDPersona='$hiddenidPersona', Tipo='$Tipo', Razon='$Razon',Personas_Obs='$Persona_Obs' ");
+                    } 
                     break;
             }//Fin switch  
-            
-            
-// $Agregar_Persona=$Conexion -> query("insert into personas set Nombre='$Nombre',Appat='$Appat',Appat='$Apmat',Telefono='$Telefono',Compania='$Compania");
-//            $ID=$Conexion ->get_row("Select IDUsuarios from usuarios ORDER BY IDUsuarios DESC");
-//           $ImprimirID =$ID -> IDUsuarios;
-
-
-
+ 
  ?>

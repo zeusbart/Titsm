@@ -1,6 +1,7 @@
 
 <script type="text/javascript" class="init">
     $(document).ready(function() {
+       
       $('#TablaPersona').DataTable({
         "searching": true, //desabilita la barra de busqueda
         "paging": true, //Desabilita la paginacion 

@@ -2,25 +2,23 @@
 	//Consulta Usuario
         include_once '../Variables_Conexion.php';
          $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost,$encoding);
-         $Persona=$_POST['IDPersona'];
+         $Usuario=$_POST['IDUsuarios'];
          
-         $Query= $Conexion -> get_results("select * from personas where IDPersona='$Persona' ");
+         $Query= $Conexion -> get_results("select * from usuarios where IDUsuarios='$Usuario' ");
           $Resultado=  array();
          if ($Query!=0) {
          	foreach ($Query as $datos) {
-                $IDPersona=$datos -> IDPersona;
+                        $IDUsuarios=$datos -> IDUsuarios;
          		$Nombre=$datos -> Nombre;
          		$Appat=$datos -> Appat;
          		$Apmat=$datos -> Apmat;
-         		$Telefono=$datos -> Telefono;
-                $Compania=$datos -> Compania;
+         	        $Tipo=$datos -> Tipo;
                         
-                        $Resultado['IDPersona']=$IDPersona;
+                        $Resultado['IDUsuarios']=$IDUsuarios;
                         $Resultado['Nombre']=$Nombre;
                         $Resultado['Appat']=$Appat;
                         $Resultado['Apmat']=$Apmat;
-                        $Resultado['Telefono']=$Telefono;
-                        $Resultado['Compania']=$Compania;
+                        $Resultado['Tipo']=$Tipo;
                         
                         echo json_encode($Resultado);
                  

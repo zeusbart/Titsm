@@ -41,7 +41,7 @@
         <!--<link rel="stylesheet" href="maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>-->
                 <script src="menu.js"></script>
 	</head>
-	<body>
+        <body>
 
 			<div class="container">
 			<!--Encabezado -->
@@ -78,6 +78,7 @@
 						<ul class="nav navbar-nav">
 							<li><a onclick="CambiarContenido('#contenido','ESPersonal.php')" href="#">Acceso Personal</a></li>
 							<li><a onclick="CambiarContenido('#contenido','ESEquipo.php')" href="#">Acceso Equipo</a></li>
+                                                        <li><a onclick="CambiarContenido('#contenido','Cambiar_Contrasena.php')" href="#">Cambiar Contraseña</a></li>
 						</ul>
 
 						 <ul class="nav navbar-nav navbar-right">

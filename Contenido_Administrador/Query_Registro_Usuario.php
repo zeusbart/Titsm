@@ -5,7 +5,7 @@
 	        $Nombre=$_POST[Nombre];
             $Appat=$_POST[Appat];
             $Apmat=$_POST[Apmat];
-            $Pass=$_POST[Pass];
+            $Pass=  md5($_POST[Pass]);
             $Tipo=$_POST[Tipo];
             $Agregar_Usuario=$Conexion ->query("Insert into usuarios set Contrasena='$Pass',Tipo='$Tipo',Nombre='$Nombre',Appat='$Appat',Apmat='$Apmat'");
             $ID=$Conexion ->get_row("Select IDUsuarios from usuarios ORDER BY IDUsuarios DESC");

@@ -15,8 +15,6 @@
                 $(document).ready(function (){
                      $("#EnviarDatos").click(function (){
                     var DatosForm = $('#Form_Login').serialize();
-                     // alert(DatosForm);
-           
        $("#Form_Login").ajaxForm(
             {
                 url:"login.php",
@@ -55,9 +53,9 @@
                             <div class="panel-body">
                                 <form  role="form" name="Form_Login" id="Form_Login" class="form-signin">
                                     <fieldset>
-                                        <label class="panel-login">
+                                        <!--        <label class="panel-login">
                                             <div class="login_result"></div>
-                                        </label>
+                                        </label>-->
 
                                         <input class="form-control" placeholder="Username" id="username" required name="username" type="text">
                                         <input class="form-control" placeholder="Password" id="password" required name="password" type="password">

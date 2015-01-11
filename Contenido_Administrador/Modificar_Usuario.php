@@ -2,7 +2,7 @@
     $(document).ready(function (){
     $("#EnviarDatos").click(function (){
         var DatosForm = $('#Modificar_Usuario').serialize();
-//          alert(DatosForm);  
+//          alert(DatosForm);
        $("#Modificar_Usuario").ajaxForm(
             {
                 url:"Query_Modifica_Usuario.php",
@@ -11,12 +11,13 @@
                 target:"#resultado",
                 success: 
                         function() { 
-                    LimpiarCamposUsuario();             
+                         LimpiarCamposUsuario();             
                          }  
             });//Fin ajax 
         });//fin EnviarDatos.click
-    });//fin document.ready
+      });//fin document.ready
     function LimpiarCamposUsuario(){
+        $("#inputhiddenIDUsuarios").val("");
         $("#inputIDUsuarios").val("");
         $("#inputNombre").val("");
         $("#inputAppat").val("");
@@ -38,16 +39,21 @@
              {
         // alert(respuesta);
                      $('#ModalUsuario').modal('hide');
-                     $('#inputhiddenIDUsuarios').val(respuesta.IDUsuarios);
+                      $('#inputhiddenIDUsuarios').val(respuesta.IDUsuarios);
                      $('#inputIDUsuarios').val(respuesta.IDUsuarios);
                      $("#inputNombre").val(respuesta.Nombre);
                      $("#inputAppat").val(respuesta.Appat);
                      $("#inputApmat").val(respuesta.Apmat);
+                     $("#inputPass").val("");
+                     $("#inputConfirmpass").val("");
+                     
                      $("#Tipo").val(respuesta.Tipo);    
-                                 }
+             }
+                     
          });
      }
-     
+
+   
 </script>
 <form role="form" name="Modificar_Usuario" id="Modificar_Usuario">
 	<legend>Modificar Usuario</legend>
@@ -126,14 +132,12 @@
 </div>
 <br>
 <div id="resultado">
-
 </div>
 <div class="row">
         <div class="col-sm-offset-3 col-md-offset-4 col-lg-5">
-            <button type="button" class="btn btn-warning" onclick="LimpiarCamposUsuario()"><span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Limpiar campos </button>
-            <button type="submit" class="btn btn-success" id="EnviarDatos"><span class="glyphicon glyphicon-floppy-disk"></span>&nbsp;Guardar Datos</button>
+                <button type="button" class="btn btn-warning" onclick="LimpiarCamposUsuario()"><span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Limpiar campos </button>
+                <button type="submit" id="EnviarDatos" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>&nbsp;Guardar Datos</button>
         </div>
-
 </div>
 </div>
 </form>

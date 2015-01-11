@@ -5,7 +5,7 @@
                 session_start();
             }
             $Username=$_POST["Username"];
-            $Password=$_POST["Password"];
+            $password=  md5($_POST["password"]);
             $Comprobacion_Usuario= $Conexion ->get_row("select * from usuarios where IDUsuarios='$username' and Contrasena='$password'");
         
               if($Comprobacion_Usuario == 1){//Comprueba Si el usuario se encuentra en la bd si es 1 es si

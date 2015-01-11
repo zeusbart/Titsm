@@ -8,8 +8,8 @@
             $Pass=  md5($_POST[Pass]);
             $Tipo=$_POST[Tipo];
             $Agregar_Usuario=$Conexion ->query("Insert into usuarios set Contrasena='$Pass',Tipo='$Tipo',Nombre='$Nombre',Appat='$Appat',Apmat='$Apmat'");
-            $ID=$Conexion ->get_row("Select IDUsuarios from usuarios ORDER BY IDUsuarios DESC");
-           $ImprimirID =$ID -> IDUsuarios;
+          //  $ID            $Conexion ->get_row("Select IDUsuarios from usuarios ORDER BY IDUsuarios DESC");
+           $ImprimirID = mysql_insert_id();
 
             if($Agregar_Usuario==1){
               echo "  <div class='row'>

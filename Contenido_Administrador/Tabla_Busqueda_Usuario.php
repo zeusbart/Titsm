@@ -1,4 +1,3 @@
-
 <script type="text/javascript" class="init">
     $(document).ready(function() {
       $('#Tabla_Usuario').DataTable({

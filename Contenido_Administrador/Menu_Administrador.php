@@ -24,10 +24,16 @@
 		<title>Administrador</title>
                 <!--contenido css-->
                 <link rel="stylesheet" href="../css/contenido.css"/>
+            
+                
 		<!-- Bootstrap CSS -->
                 <link href="../bootstrap_css/bootstrap.min.css" rel="stylesheet">
 				<!-- jQuery -->
                 <script src="../js/jquery-1.10.2.js"></script>
+                <link href="../css/datepicker.css">
+                 <script src="../js/bootstrap-datepicker.js"></script>
+                  
+                <!--dataTable-->
                  <script src="../media/js/jquery.dataTables.min.js"></script>
         <!--css extencion dataTable bootstrap-->
         <link href="../media/css/dataTables.bootstrap.css" rel="stylesheet">
@@ -38,11 +44,12 @@
         <!--Extencion bootstrap dataTable js-->
         <script src="../media/js/dataTables.bootstrap.js"></script>
         <!--<link rel="stylesheet" href="maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>-->
-
+        
+       
+       
                 <script src="menu.js"></script>
 	</head>
 	<body>
-
 			<div class="container">
 			<!--Encabezado -->
 				<div class="page-header">
@@ -81,7 +88,7 @@
 				              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Usuario <span class="caret"></span></a>
 				              <ul class="dropdown-menu" role="menu">
 
-				                	<li><a onclick="CambiarContenido('#contenido','Registro_Usuarios.php')" href="#">Registrar</a></li>
+				                	<li><a href="#" onclick="CambiarContenido('#contenido','Registro_Usuarios.php')" href="#">Registrar</a></li>
 				                	<li class="divider"></li>
 				                	<li><a href="#" onclick="CambiarContenido('#contenido','Consulta_Usuarios.php')">Consultar</a></li>
 				                	<li class="divider"></li>
@@ -89,7 +96,15 @@
 				              </ul>
 				            </li>
 
-							<li class="active"><a href="#">Reportes</a></li>
+							<!--<li class="active"><a href="#">Reportes</a></li>-->
+                                                        <li class="dropdown">
+				              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Reportes <span class="caret"></span></a>
+				              <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="#" onclick="CambiarContenido('#contenido','Reporte_Materiales.php')">Log Materiales</a></li>
+				                	<li class="divider"></li>
+                                                        <li><a href="#" onclick="CambiarContenido('#contenido','Reporte_Personas.php')">Log Personas Externas</a></li>
+				              </ul>
+				            </li>
 
 						</ul>
 
@@ -121,6 +136,7 @@
                 <script src="../bootstrap_js/bootstrap.min.js"></script>
                 <!--Jquery Form -->
                 <script src="../js/jquery.form.js" type="text/javascript"></script>
+               
                 <!--carga el contenido principal de la pagina al inicio-->
 
 	</body>

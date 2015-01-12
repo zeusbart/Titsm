@@ -120,7 +120,7 @@
 			</div><!--Fin Contenido-->
 
 
-			<div class="footer">	<!--Inicio pie de pagina-->
+<!--			<div class="footer">	Inicio pie de pagina
 			<div class="row">
 				<div class=" col-md-2">
 					<img src="../img/OSH-LOGO-FONDO-TRANSPAR-RUEDA.png" class="img-responsive" alt="Responsive image">
@@ -129,7 +129,7 @@
 					<p><h1>Pie de pagina	<br>	<small>Sistema de control de acceso</small></h1></p>
 					</div>
 				</div>
-			</div><!--Fin pie de pagina-->
+			</div>Fin pie de pagina-->
 </div>
 
 				<!-- Bootstrap JavaScript -->

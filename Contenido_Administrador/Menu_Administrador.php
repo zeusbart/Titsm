@@ -109,7 +109,7 @@
 						</ul>
 
 						 <ul class="nav navbar-nav navbar-right">
-                                                     <li><a href="../Salir.php">cerrar seción <span class="glyphicon glyphicon-log-out"></span> </a></li>
+                                                     <li><a href="../Salir.php">cerrar sesión <span class="glyphicon glyphicon-log-out"></span> </a></li>
 
                 </ul>
 					</div><!-- /.navbar-collapse -->

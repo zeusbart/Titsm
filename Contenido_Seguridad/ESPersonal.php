@@ -53,7 +53,6 @@
              success:
                      function (respuesta)
              {
-        // alert(respuesta);
                      $('#ModalPersona').modal('hide');
                      $('#hiddenidPersona').val(respuesta.IDPersona);
                      $("#inputNombre").val(respuesta.Nombre);
@@ -61,7 +60,6 @@
                      $("#inputApmat").val(respuesta.Apmat);
                      $("#inputTelefono").val(respuesta.Telefono);
                      $("#inputCompania").val(respuesta.Compania);
-        //         Desabilitamos los campos
                      $("#inputNombre").prop('disabled',true);
                      $("#inputAppat").prop('disabled',true);
                      $("#inputApmat").prop('disabled',true);
@@ -79,8 +77,8 @@
 
 	<div class="form-group">
 		<div class="row">
-			<div class="col-sm-3 col-md-2 col-lg-2">
-			<label for="">Tipo:</label>
+			<div class="col-sm-3 col-md-4 col-lg-2">
+                            <label>Tipo:</label>
 			</div>
 
 			<div class="col-sm-5 col-md-5 col-lg-5">
@@ -100,7 +98,7 @@
 		<br>
 		<div class="row">
 			<div class="col-sm-3 col-md-2 col-lg-2">
-				<label for="">Nombre:</label>
+                            <label>Nombre:</label>
 			</div>
 			<div class="col-sm-5 col-md-3 col-lg-3">
                              <input name="hiddenidPersona" id="hiddenidPersona" class="form-control" value="" type="hidden">

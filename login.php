@@ -12,7 +12,9 @@
                   $_SESSION['IDUsuarios']=$Comprobacion_Usuario -> IDUsuarios;
                   $_SESSION['Nombre']=$Comprobacion_Usuario -> Nombre;
                   $_SESSION['Appat']=$Comprobacion_Usuario -> Appat;
+                  $_SESSION['Apmat']=$Comprobacion_Usuario -> Apmat;
                   $_SESSION['Tipo_Usuario']=$Comprobacion_Usuario -> Tipo;
+                  
                   if($_SESSION['Tipo_Usuario']==1){
                     echo '   <script type="text/javascript">
                                 window.location="Contenido_Administrador/Menu_Administrador.php";

@@ -7,6 +7,7 @@
      $IDUsuarios=$_SESSION['IDUsuarios'];
      $Nombre=$_SESSION['Nombre'];
      $Appat=$_SESSION['Appat'];
+     $Apmat=$_SESSION['Apmat'];
      $Tipo_Usuario=$_SESSION['Tipo_Usuario'];
      if($Tipo_Usuario != 2){
          session_destroy();
@@ -54,6 +55,11 @@
 					<h1>Cerberus	<br>	<small>Sistema de control de acceso</small></h1>
 
 					</div>
+                                    <div class="col-sm-6 col-md-3">
+                                        <p class="nusuario">
+                                             <?php echo "Usuario: ".$Nombre." ".$Appat." ".$Apmat;?>
+                                        </p>
+                                    </div>
 				</div>
 				</div><!--Fin Encabezado-->
 
@@ -68,7 +74,7 @@
 							<span class="icon-bar"></span>
 						</button>
                         <a class="navbar-brand" onclick="CambiarContenido('#contenido','Principal.php')" href="#"><span class="glyphicon glyphicon-user"></span>
-                            &nbsp;Guardias: &nbsp;<?php echo $Nombre;?>
+                            &nbsp;Guardias
                             
                         </a>
 					</div>

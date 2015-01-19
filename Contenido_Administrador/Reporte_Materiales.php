@@ -33,16 +33,16 @@
         </script>
 
         <form action="Tabla_Reporte_Materiales.php" id="FormReporteMateriales" method="POST" role="form">
-<legend><b>Registro Usuario</b></legend>
+<legend><b>Reporte Materiales</b></legend>
 
 <div class="form-group">
    
  <div class="row">
-        <div class="col-sm-3 col-md-offset-2 col-lg-2">
+        <div class="col-sm-3 col-md-offset-4 col-lg-2">
                 <label>Fecha de inicio:</label>
         </div>
         <div class=" col-xs-6 col-sm-3 col-md-2 col-lg-2">
-                <input type="text" name="Fecha_inicio" id="InputFecha_inicio" placeholder="Escriba su nombre" class="form-control"  required="required">
+                <input type="text" name="Fecha_inicio" id="InputFecha_inicio"  class="form-control"  required="required">
         </div>
 
             
@@ -50,11 +50,11 @@
         </div>
     <br>
 <div class="row">
-        <div class="col-sm-3 col-md-offset-2 col-lg-2">
+        <div class="col-sm-3 col-md-offset-4 col-lg-2">
                 <label>Fecha de Final:</label>
         </div>
         <div class=" col-xs-6 col-sm-3 col-md-2 col-lg-2">
-                <input type="text" name="Fecha_Final" id="InputFecha_Final" placeholder="Escriba su nombre" class="form-control"  required="required">
+                <input type="text" name="Fecha_Final" id="InputFecha_Final" class="form-control"  required="required">
         </div>
 
             
@@ -63,7 +63,7 @@
     <br>
 
 <div class="row">
-        <div class="col-sm-offset-3 col-md-offset-4 col-lg-5">
+        <div class="col-sm-offset-3 col-md-offset-6 col-lg-5">
                
                 <button type="submit" class="btn btn-primary">Consultar</button>
         </div>

@@ -2,6 +2,7 @@
     $(document).ready(function() {
           $("#inputBuscar").hide();
           $("#inputLimpiar").hide();
+          
            $("#check").click(function() {
         if ($("#check").is(':checked')) {
           //Activado 
@@ -39,6 +40,37 @@
           $("#inputLimpiar").hide()
         }
       });
+      
+      
+      //checkbox equipo
+       $("#checkEquipos").click(function() {
+        if ($("#checkEquipos").is(':checked')) {
+          //Activado 
+          $('#collapseEquipos').collapse('show');
+          $("#inputIdentEquipo").prop('required', true);
+          $("#DescripcionEquipo").prop('required', true);
+          $("#inputCantidad").prop('required', true);
+          $("#inputUnidad").prop('required', true);
+          $("#inputRazonEquipo").prop('required', true);
+        } else {
+          //check No activado
+          $('#collapseEquipos').collapse('hide');
+          //se limpian los valores
+          $("#inputIdentEquipo").val("");
+          $("#DescripcionEquipo").val("");
+          $("#inputCantidad").val("");
+          $("#inputUnidad").val("");
+          $("#inputRazonEquipo").val("");
+          //Sehace requeridos los campos para ser llenados
+            $("#inputIdentEquipo").prop('required', false);
+          $("#DescripcionEquipo").prop('required', false);
+          $("#inputCantidad").prop('required', false);
+          $("#inputUnidad").prop('required', false);
+          $("#inputRazonEquipo").prop('required', false);
+        }
+      });
+      
+      
      
     $("#EnviarDatos").click(function (){
         var DatosForm = $('#Form_Equipos').serialize();
@@ -174,14 +206,13 @@
   <form  role="form"  name="Form_Equipos" id="Form_Equipos"><!--action="Query_Guarda_Equipo.php"--> <!--method="POST"--> 
 	<legend>Acceso Equipos</legend>
 
-	<div class="form-group">
+	<!--<div class="form-group">-->
 		<div class="row">
+                    <div class="form-group ">
 			<div class="col-sm-1 col-md-1 col-lg-1">
-			<label for="">Tipo:</label>
+                        <label for="inputTipo" class="control-label">Tipo:</label>
 			</div>
-<!--			<div class="col-sm-4 col-md-2 col-lg-2">
-				<input type="text" name="Hora" id="inputHora" class="form-control" value="" required="required"="required"="required">
-			</div>-->
+
 			<div class="col-sm-5 col-md-5 col-lg-5">
 				<div class="radio">
 					<label class="checkbox-inline">
@@ -193,46 +224,17 @@
 						Salida
 					</label>
 				</div>
-
-			</div>
+                        </div>
+                    </div>
 		</div>
-
-		<div class="row">
-			<div class="col-sm-1 col-md-1 col-lg-1">
-				<label>Descripcion:</label>
-			</div>
-			<div class=" col-sm-5 col-md-5 col-lg-5">
-                            <textarea class="form-control" rows="5" id="Descripcion" name="Descripcion" required></textarea>
-			</div>
-		</div>
-		<br>
-		<div class="row">
-			<div class=" col-sm-1 col-md-1 col-lg-1">
-				<label for="inputCantidad">Cantidad:</label>
-			</div>
-			<div class=" col-sm-5 col-md-5 col-lg-5">
-                            <input type="number" name="Cantidad" placeholder="Solo numeros" min="0" id="inputCantidad" class="form-control" required>
-			</div>
-		</div>
-		<br>
-		<div class="row">
-			<div class=" col-sm-1 col-md-1 col-lg-1">
-				<label>Unidad:</label>
-			</div>
-			<div class=" col-sm-5 col-md-5 col-lg-5">
-				<input type="text" name="Unidad" id="inputUnidad" class="form-control" value="" placeholder="Caja,kilo,pieza, etc..." required="required" >
-			</div>
-		</div>
-		<br>
-		<div class="row">
-			<div class=" col-sm-1 col-md-1 col-lg-1">
-				<label for="">Razon:</label>
-			</div>
-			<div class=" col-sm-5 col-md-5 col-lg-5">
-				<input type="text" name="Razon" id="inputRazon" class="form-control" value="" required placeholder="Razon de visita">
-			</div>
-		</div>
-		<br>
+            
+            
+            
+            
+            
+                
+                
+                <!--Formulario Persona-->
 		<div class="row">
 			<div class=" col-sm-6 col-md-6 col-lg-6">
 					<div class="panel panel-default">
@@ -251,7 +253,7 @@
 			</div>
 			<div class="col-sm-5 col-md-8 col-lg-8">
                                 <input name="hiddenidPersona" id="hiddenidPersona" class="form-control" value="" type="hidden">
-				<input type="text" name="Nombre" id="inputNombre" class="form-control" value="" required="required">
+                                <input type="text" name="Nombre" id="inputNombre" placeholder="Nombre completo..." class="form-control" value="" required="required">
 			</div>
 <!--                        <div class="col-sm-4 col-md-2 col-lg-2">
                              <button type="button" class="btn btn-default">Buscar</button>
@@ -262,7 +264,7 @@
 				<label for="">Apellido Paterno:</label>
 			</div>
 			<div class="col-sm-5 col-md-8 col-lg-8">
-				<input type="text" name="Appat" id="inputAppat" class="form-control" value="" required="required">
+                            <input type="text" name="Appat" id="inputAppat" placeholder="Apellido paterno" class="form-control" value="" required="required">
 			</div>
 		</div><br>
 		<div class="row">
@@ -270,7 +272,7 @@
 				<label>Apellido Materno:</label>
 			</div>
 			<div class="col-sm-5 col-md-8 col-lg-8">
-				<input type="text" name="Apmat" id="inputApmat" class="form-control" value="" required="required">
+                            <input type="text" name="Apmat" id="inputApmat" placeholder="Apellido materno" class="form-control" value="" required="required">
 			</div>
 		</div><br>
 		<div class="row">
@@ -278,7 +280,7 @@
 				<label for="">Telefono:</label>
 			</div>
 			<div class="col-sm-5 col-md-8 col-lg-8">
-				<input type="text" name="Telefono" id="inputTelefono" class="form-control" value="" required="required">
+				<input type="tel" name="Telefono" id="inputTelefono"  class="form-control" value="" required="required">
 			</div>
 		</div><br>
 		<div class="row">
@@ -286,7 +288,16 @@
 				<label for="">Compañia:</label>
 			</div>
 			<div class="col-sm-5 col-md-8 col-lg-8">
-				<input type="text" name="Compania" id="inputCompania" class="form-control" value="" required="required">
+                            <input type="text" name="Compania" placeholder="Si no aplica poner -independiente-" id="inputCompania" class="form-control" value="" required="required">
+			</div>
+		</div>
+                <br>
+                  <div class="row">
+			<div class="col-sm-3 col-md-3 col-lg-3">
+				<label for="">Razon:</label>
+			</div>
+			<div class="col-sm-8 col-md-8 col-lg-8">
+                            <input type="text" name="RazonPersona" id="inputRazonPersona" placeholder="Razon de visita, si es salida solo poner s/r" class="form-control" value="" required="required">
 			</div>
 		</div>
                 <br>
@@ -298,12 +309,95 @@
                         <textarea id="inputPersona_Obs" class="form-control" rows="2" name="Persona_Obs"></textarea>
                     </div>
                 </div>
-                <br>
+                
                     </div>
 					</div>
 			</div>
 			
 		</div>
+                <!--Fin de form persona-->
+                
+                
+           
+              <div class="row"> <!--inicia row equipos-->
+                    <div class=" col-sm-6 col-md-6 col-lg-6"> <!--Col de panel-->
+                           <div class="panel-group" id="accordionEquipos" role="tablist" aria-multiselectable="true"><!--Panel group-->
+      <div class="panel panel-default">  <!--Panel Default-->
+        <div class="panel-heading" role="tab" id="headingOne">
+          <h4 class="panel-title">
+               <div class="checkbox">
+                        <label>
+                          <input id="checkEquipos" name="checkEquipos" type="checkbox"> Equipos
+                        </label>
+                      </div>
+                  </h4>
+        </div>
+        <div id="collapseEquipos" class="panel-collapse collapse " role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+                   <div class="row">
+			<div class="col-sm-3 col-md-3 col-lg-3">
+				<label>Identificador:</label>
+			</div>
+			<div class=" col-sm-9 col-md-9 col-lg-9">
+                            <input type="text" name="IdentEquipo" placeholder="serie,factura,recibo,codigo de barras etc.." id="inputIdentEquipo" class="form-control" required>
+			</div>
+		</div>
+		<br>         
+		<div class="row">
+			<div class="col-sm-3 col-md-3 col-lg-3">
+				<label>Descripcion:</label>
+			</div>
+			<div class=" col-sm-9 col-md-9 col-lg-9">
+                            <textarea class="form-control" rows="5" id="DescripcionEquipo" placeholder="Descripcion del equipo o lista de los equipos " name="inputDescripcionEquipo" required></textarea>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class=" col-sm-3 col-md-3 col-lg-3">
+				<label for="inputCantidad">Cantidad:</label>
+			</div>
+			<div class=" col-sm-9 col-md-9 col-lg-9">
+                            <input type="number" name="Cantidad" placeholder="Solo numeros" min="0" id="inputCantidad" class="form-control" required>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class=" col-sm-3 col-md-3 col-lg-3">
+				<label>Unidad:</label>
+			</div>
+			<div class=" col-sm-9 col-md-9 col-lg-9">
+				<input type="text" name="Unidad" id="inputUnidad" class="form-control" value="" placeholder="Caja,kilo,pieza, etc..." required="required" >
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class=" col-sm-3 col-md-3 col-lg-3">
+				<label for="">Razon:</label>
+			</div>
+			<div class=" col-sm-9 col-md-9 col-lg-9">
+				<input type="text" name="RazonEquipo" id="inputRazonEquipo" class="form-control" value="" required placeholder="Razon de entrada/salida">
+			</div>
+		</div>
+                
+		
+                    </div>
+        </div>
+      </div><!--Fin Panel Default-->
+                           </div><!--Fin Panel group-->
+                    </div><!--Fin Col de panel-->
+              </div><!--Final row equipos-->
+             
+                
+            
+            
+                
+                
+                
+                
+                
+                
+                
+                
                 <div class="row">
                     
                     <div class=" col-sm-6 col-md-6 col-lg-6">
@@ -363,6 +457,8 @@
                 <input type="text" name="Color" id="inputColor" class="form-control" value="">
               </div>
             </div>
+           
+          
             <br>
             <div class="row">
               <div class="col-sm-3 col-md-3 col-lg-3">
@@ -382,7 +478,10 @@
     </div>
 			</div>
                 </div>
-	</div>
+                
+                
+                
+<!--	</div>-->
 
 
 

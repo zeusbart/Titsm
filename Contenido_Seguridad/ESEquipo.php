@@ -2,6 +2,8 @@
     $(document).ready(function() {
           $("#inputBuscar").hide();
           $("#inputLimpiar").hide();
+          $("#inputLimpiarEquipo").hide();
+        
           
            $("#check").click(function() {
         if ($("#check").is(':checked')) {
@@ -52,6 +54,7 @@
           $("#inputCantidad").prop('required', true);
           $("#inputUnidad").prop('required', true);
           $("#inputRazonEquipo").prop('required', true);
+          $("#inputLimpiarEquipo").show();
         } else {
           //check No activado
           $('#collapseEquipos').collapse('hide');
@@ -67,6 +70,7 @@
           $("#inputCantidad").prop('required', false);
           $("#inputUnidad").prop('required', false);
           $("#inputRazonEquipo").prop('required', false);
+          $("#inputLimpiarEquipo").hide();
         }
       });
       
@@ -74,7 +78,7 @@
      
     $("#EnviarDatos").click(function (){
         var DatosForm = $('#Form_Equipos').serialize();
-//           alert(DatosForm);
+        alert(DatosForm);
            
        $("#Form_Equipos").ajaxForm(
             {
@@ -100,10 +104,11 @@
     });
  
     function LimpiarCamposEquipos(){
-        $("#Descripcion").val("");
+        $("#DescripcionEquipo").val("");
+        $("#inputIdentEquipo").val("");
         $("#inputCantidad").val("");
         $("#inputUnidad").val("");
-        $("#inputRazon").val("");
+        $("#inputRazonEquipo").val("");
         
         
     }
@@ -130,7 +135,10 @@
         $("#inputApmat").val("");
         $("#inputTelefono").val("");
         $("#inputCompania").val("");
+        $("#inputRazonPersona").val("");
+        
         $("#inputPersona_Obs").val("");
+        
         
         //habilitamos los campos
         $("#inputNombre").prop('disabled',false);
@@ -138,9 +146,6 @@
         $("#inputApmat").prop('disabled',false);
         $("#inputTelefono").prop('disabled',false);
         $("#inputCompania").prop('disabled',false);
-        
-        
-        
     }
     function CargarBusquedaVehiculo(Placa)
      {
@@ -168,7 +173,7 @@
                      $("#inputColor").prop('disabled',true);
              }
                      
-         })
+         });
      }
 
       function CargarBusquedaPersona(IDPersona)
@@ -330,6 +335,7 @@
                           <input id="checkEquipos" name="checkEquipos" type="checkbox"> Equipos
                         </label>
                       </div>
+              <button id="inputLimpiarEquipo" onclick="LimpiarCamposEquipos()" type="button" class="btn btn-default">Limpiar</button> 
                   </h4>
         </div>
         <div id="collapseEquipos" class="panel-collapse collapse " role="tabpanel" aria-labelledby="headingOne">
@@ -339,7 +345,7 @@
 				<label>Identificador:</label>
 			</div>
 			<div class=" col-sm-9 col-md-9 col-lg-9">
-                            <input type="text" name="IdentEquipo" placeholder="serie,factura,recibo,codigo de barras etc.." id="inputIdentEquipo" class="form-control" required>
+                            <input type="text" name="IdentEquipo" placeholder="serie,factura,recibo,codigo de barras etc.." id="inputIdentEquipo" class="form-control">
 			</div>
 		</div>
 		<br>         
@@ -348,7 +354,7 @@
 				<label>Descripcion:</label>
 			</div>
 			<div class=" col-sm-9 col-md-9 col-lg-9">
-                            <textarea class="form-control" rows="5" id="DescripcionEquipo" placeholder="Descripcion del equipo o lista de los equipos " name="inputDescripcionEquipo" required></textarea>
+                            <textarea class="form-control" rows="5" id="DescripcionEquipo" placeholder="Descripcion del equipo o lista de los equipos " name="DescripcionEquipo"></textarea>
 			</div>
 		</div>
 		<br>
@@ -357,7 +363,7 @@
 				<label for="inputCantidad">Cantidad:</label>
 			</div>
 			<div class=" col-sm-9 col-md-9 col-lg-9">
-                            <input type="number" name="Cantidad" placeholder="Solo numeros" min="0" id="inputCantidad" class="form-control" required>
+                            <input type="number" name="Cantidad" placeholder="Solo numeros" min="0" id="inputCantidad" class="form-control">
 			</div>
 		</div>
 		<br>
@@ -366,7 +372,7 @@
 				<label>Unidad:</label>
 			</div>
 			<div class=" col-sm-9 col-md-9 col-lg-9">
-				<input type="text" name="Unidad" id="inputUnidad" class="form-control" value="" placeholder="Caja,kilo,pieza, etc..." required="required" >
+				<input type="text" name="Unidad" id="inputUnidad" class="form-control" value="" placeholder="Caja,kilo,pieza, etc..." >
 			</div>
 		</div>
 		<br>
@@ -375,7 +381,7 @@
 				<label for="">Razon:</label>
 			</div>
 			<div class=" col-sm-9 col-md-9 col-lg-9">
-				<input type="text" name="RazonEquipo" id="inputRazonEquipo" class="form-control" value="" required placeholder="Razon de entrada/salida">
+				<input type="text" name="RazonEquipo" id="inputRazonEquipo" class="form-control" value=""  placeholder="Razon de entrada/salida">
 			</div>
 		</div>
                 

@@ -41,11 +41,20 @@ $Fecha_Final=$_POST["Fecha_Final"]." "."23:59:59";
         include_once '../Variables_Conexion.php';
          $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost,$encoding);
 //         $Consulta=$_POST[Consulta];
-         $Query= $Conexion -> get_results("SELECT logespersonal.Tipo,DATE_FORMAT( Fecha_Hora, '%d/%m/%Y' ) as fecha,date_format(Fecha_Hora,'%h:%i:%s %p') as hora,
-logespersonal.Razon,logespersonal.Observaciones,usuarios.Nombre as Nombre_u,usuarios.Appat as Appat_u,usuarios.Apmat as Apmat_u,
-personas.Nombre as Nombre_p,personas.Appat as Appat_p, personas.Apmat as Apmat_p,personas.Telefono,personas.Compania 
-from logespersonal join usuarios on logespersonal.IDUsuarios=usuarios.IDUsuarios join personas on logespersonal.IDPersona=personas.IDPersona
-                 where Fecha_Hora>='$Fecha_inicio' and Fecha_Hora<='$Fecha_Final'");
+         $Query= $Conexion -> get_results("SELECT loges.Tipo,
+                                            DATE_FORMAT(Hora_Fecha, '%d/%m/%Y' ) as fecha,
+                                            date_format(Hora_Fecha,'%h:%i:%s %p') as hora,
+                                            loges.RazonPersona,
+                                            loges.Personas_Obs,
+                                            usuarios.Nombre as Nombre_u,
+                                            usuarios.Appat as Appat_u,
+                                            usuarios.Apmat as Apmat_u,
+                                            personas.Nombre as Nombre_p,
+                                            personas.Appat as Appat_p,
+                                            personas.Apmat as Apmat_p,
+                                            personas.Telefono,
+                                            personas.Compania 
+                                            from loges join Usuarios on loges.IDUsuarios=usuarios.IDUsuarios join personas on loges.IDPersona=personas.                                             IDPersona where Hora_Fecha>='$Fecha_inicio' and Hora_Fecha<='$Fecha_Final'");
          if ($Query!=0) {
          	foreach ($Query as $datos) {
                    $Tipo=$datos -> Tipo ; 
@@ -54,8 +63,8 @@ from logespersonal join usuarios on logespersonal.IDUsuarios=usuarios.IDUsuarios
                      $Nombre_p=$datos -> Nombre_p ;
                     $Appat_p=$datos -> Appat_p;
                     $Apmat_p=$datos ->Apmat_p;
-                     $Observaciones=$datos -> Observaciones   ;
-                    $Razon=$datos->Razon;
+                     $Observaciones=$datos -> Personas_Obs;
+                    $Razon=$datos->RazonPersona;
                     $Nombre_u=$datos->Nombre_u;
                     $Appat_u=$datos->Appat_u;
                     $Apmat_u=$datos->Apmat_u;

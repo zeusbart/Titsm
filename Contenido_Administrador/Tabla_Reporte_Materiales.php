@@ -24,15 +24,16 @@
                   <th>Tipo</th>
                   <th>fecha</th>
                   <th>hora</th>
-                  <th>Descripcion</th>
+                  <th>Identificador Materiales</th>
+                  <th>Descripcion Materiales</th>
                   <th>Cantidad</th>
                   <th>Unidad</th>
                   <th>Persona de acceso</th>          
-                  <th>Observacion Persona</th>
+                  <th>Razon Equipo</th>
                   <th>Usuario que lo registro</th>
                 
-                  <th>Placa</th>
-                  <th>Vehiculo_Obs</th>
+                  <th>Vehiculo Trasporte</th>
+                 
                 </tr>
               </thead>
               <tbody id="Tabla_Persona">            
@@ -43,11 +44,10 @@ $Fecha_Final=$_POST["Fecha_Final"]." "."23:59:59";
         include_once '../Variables_Conexion.php';
          $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost,$encoding);
 //         $Consulta=$_POST[Consulta];
-         $Query= $Conexion -> get_results("SELECT logesmateriales.Tipo,DATE_FORMAT( Hora_Fecha, '%d/%m/%Y' ) as fecha,
-date_format(Hora_Fecha,'%h:%i:%s %p') as hora,materiales.Descripcion,materiales.Cantidad,materiales.Unidad, personas.Nombre as Nombre_p,personas.Appat as Appat_p
-,personas.Apmat as Apmat_p,logesmateriales.Personas_Obs,usuarios.Nombre,usuarios.Appat,usuarios.Apmat,logesmateriales.Placa,
-logesmateriales.Vehiculo_Obs FROM logesmateriales join personas ON logesmateriales.IDPersona=personas.IDPersona join materiales on 
-logesmateriales.IDMateriales=materiales.IDMateriales join usuarios on logesmateriales.IDUsuarios= usuarios.IDUsuarios 
+         $Query= $Conexion -> get_results("SELECT loges.Tipo,DATE_FORMAT( Hora_Fecha, '%d/%m/%Y' ) as fecha,
+date_format(Hora_Fecha,'%h:%i:%s %p') as hora,materiales.Identificador,materiales.Descripcion,materiales.Cantidad,materiales.Unidad, personas.Nombre as Nombre_p,personas.Appat as Appat_p
+,personas.Apmat as Apmat_p,loges.RazonEquipo,usuarios.Nombre,usuarios.Appat,usuarios.Apmat,loges.Placa FROM loges join personas ON loges.IDPersona=personas.IDPersona join materiales on 
+loges.IDMateriales=materiales.IDMateriales join usuarios on loges.IDUsuarios= usuarios.IDUsuarios 
  where Hora_Fecha>='$Fecha_inicio' and Hora_Fecha<='$Fecha_Final'
 ");
          if ($Query!=0) {
@@ -56,18 +56,19 @@ logesmateriales.IDMateriales=materiales.IDMateriales join usuarios on logesmater
                    $Tipo=$datos -> Tipo ; 
                     $fecha=$datos -> fecha ;
                      $hora =$datos -> hora;
+                     $Identificador=$datos -> Identificador;
                     $Descripcion=$datos -> Descripcion   ;
                     $Cantidad=$datos -> Cantidad;
                     $Unidad =$datos -> Unidad   ;
                      $Nombre_p=$datos -> Nombre_p ;
                     $Appat_p=$datos -> Appat_p;
                     $Apmat_p=$datos ->Apmat_p;
-                    $Personas_Obs=$datos->Personas_Obs;
+                    $RazonEquipo=$datos->RazonEquipo;
                     $Nombre=$datos->Nombre;
                     $Appat=$datos->Appat;
                     $Apmat=$datos->Apmat;
                     $Placa=$datos->Placa;
-                    $Vehiculo_Obs=$datos->Vehiculo_Obs;
+               
                            
                     
                 ?>
@@ -86,15 +87,16 @@ logesmateriales.IDMateriales=materiales.IDMateriales join usuarios on logesmater
                     ?></td>
                     <td><?php echo "$fecha";  ?></td>                                                       
                     <td><?php echo "$hora";  ?></td>
+                    <td><?php echo "$Identificador"; ?></td>
                     <td><?php echo "$Descripcion";  ?></td>
                     <td><?php echo "$Cantidad";  ?></td>
                     <td><?php echo "$Unidad";  ?></td>
                     <td><?php echo $Nombre_p." ".$Appat_p." ".$Apmat_p;?></td>
                     
-                    <td><?php echo "$Personas_Obs";  ?></td>
+                    <td><?php echo "$RazonEquipo";  ?></td>
                     <td><?php echo $Nombre.' '.$Appat.' '.$Apmat;  ?></td>
                     <td><?php echo "$Placa";  ?></td>
-                    <td><?php echo "$Vehiculo_Obs";  ?></td>
+                  
                     
                 
                    

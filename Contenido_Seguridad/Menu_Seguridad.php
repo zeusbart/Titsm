@@ -82,8 +82,8 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse navbar-ex1-collapse">
 						<ul class="nav navbar-nav">
-							<li><a onclick="CambiarContenido('#contenido','ESPersonal.php')" href="#">Acceso Personal</a></li>
-							<li><a onclick="CambiarContenido('#contenido','ESEquipo.php')" href="#">Acceso Equipo</a></li>
+							<!--<li><a onclick="CambiarContenido('#contenido','ESPersonal.php')" href="#">Acceso Personal</a></li>-->
+							<li><a onclick="CambiarContenido('#contenido','ESEquipo.php')" href="#">Acceso Personal/Equipo</a></li>
                                                         <li><a onclick="CambiarContenido('#contenido','Cambiar_Contrasena.php')" href="#">Cambiar Contraseña</a></li>
 						</ul>
 

@@ -39,7 +39,7 @@ if(!$_SESSION){
             
                     
 		   if($checkEquipos=="on"){
-		    $Agregar_Materiales=$Conexion ->query("insert into materiales set Identificador='$IdentEquipo', Descripcion='$Descripcion',Cantidad='$Cantidad',Unidad='$Unidad'");
+		    $Agregar_Materiales=$Conexion ->query("insert into materiales set Identificador='$IdentEquipo', Descripcion='$DescripcionEquipo',Cantidad='$Cantidad',Unidad='$Unidad'");
             $ID_material = mysql_insert_id(); 
           
                 if($Agregar_Materiales == 1){//comprobamos que se guardo el registro MATERIALES

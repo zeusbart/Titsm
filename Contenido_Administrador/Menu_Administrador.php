@@ -109,7 +109,8 @@
                                                         <li><a href="#" onclick="CambiarContenido('#contenido','Reporte_Materiales.php')">Log Materiales</a></li>
 				                	<li class="divider"></li>
                                                         <li><a href="#" onclick="CambiarContenido('#contenido','Reporte_Personas.php')">Log Personas Externas</a></li>
-				              </ul>
+                                                        <li class="divider"></li>
+                                                        <li><a href="#" onclick="CambiarContenido('#contenido','Reporte_Vehiculos.php')">Log Vehiculos</a></li>		              </ul>
 				            </li>
 
 						</ul>

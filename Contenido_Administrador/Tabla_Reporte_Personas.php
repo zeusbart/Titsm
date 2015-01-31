@@ -43,7 +43,7 @@ $Fecha_Final=$_POST["Fecha_Final"]." "."23:59:59";
 //         $Consulta=$_POST[Consulta];
          $Query= $Conexion -> get_results("SELECT loges.Tipo,
                                             DATE_FORMAT(Hora_Fecha, '%d/%m/%Y' ) as fecha,
-                                            date_format(Hora_Fecha,'%h:%i:%s %p') as hora,
+                                            DATE_FORMAT(Hora_Fecha,'%h:%i:%s %p') as hora,
                                             loges.RazonPersona,
                                             loges.Personas_Obs,
                                             usuarios.Nombre as Nombre_u,
@@ -94,17 +94,11 @@ $Fecha_Final=$_POST["Fecha_Final"]." "."23:59:59";
                     <td><?php echo "$Razon";  ?></td>
                     <td><?php echo "$Observaciones";  ?></td>
                     <td><?php echo $Nombre_u.' '.$Appat_u.' '.$Apmat_u;  ?></td>
-                    
-                    
-                
-                   
                     </tr>
          	<?php }
          }else{
                 echo "problemas en la consulta";
          }?>
-
- 
  </tbody>
             </table>
   </div>

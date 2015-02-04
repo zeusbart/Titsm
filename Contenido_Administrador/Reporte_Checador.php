@@ -31,8 +31,8 @@
             });
         </script>
 
-        <form action="Tabla_Reporte_Personas.php" id="FormReportePersona" method="POST" role="form">
-<legend><b>Reporte Persona Externas</b></legend>
+        <form action="Tabla_Reporte_checador.php" id="FormReporteChecador" method="POST" role="form">
+<legend><b>Reporte Reloj checador</b></legend>
 
 <div class="form-group">
    
@@ -40,7 +40,7 @@
         <div class="col-sm-3 col-md-offset-4 col-lg-2">
                 <label>Fecha de inicio:</label>
         </div>
-        <div class=" col-xs-6 col-sm-3 col-md-2 col-lg-2">
+        <div class="col-sm-3 col-md-2 col-lg-2">
                 <input type="text" name="Fecha_inicio" id="InputFecha_inicio"  class="form-control"  required="required">
         </div>
 
@@ -52,7 +52,7 @@
         <div class="col-sm-3 col-md-offset-4 col-lg-2">
                 <label>Fecha de Final:</label>
         </div>
-        <div class=" col-xs-6 col-sm-3 col-md-2 col-lg-2">
+        <div class=" col-sm-3 col-md-2 col-lg-2">
                 <input type="text" name="Fecha_Final" id="InputFecha_Final"  class="form-control"  required="required">
         </div>
 
@@ -60,7 +60,27 @@
 
         </div>
     <br>
-
+     <div class="row">
+        <div class="col-sm-3 col-md-offset-4 col-lg-2">
+                <label>Personal:</label>
+        </div>
+        <div class="col-sm-6 col-md-3 col-lg-4">
+                <select name="Personal" id="input" class="form-control">
+                    <?php
+                     include_once '../Variables_Conexion.php';
+            $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre2, $bdhost,$encoding);
+            $Query= $Conexion ->get_results("select USERID,NAME from userinfo order by NAME");
+            
+                     foreach ($Query as $datos) {
+                        $ID=$datos -> USERID;
+                        $Nombre=$datos -> NAME;
+                        echo "<option value=$ID>$Nombre</option>";
+                        }   
+            ?>
+                </select>          
+        </div>
+        </div>
+ <br>
 <div class="row">
         <div class="col-sm-offset-3 col-md-offset-6 col-lg-5">
                
@@ -80,11 +100,9 @@
         
         <script type="text/javascript">
 	$(document).ready(function(){
-
-		$("#FormReportePersona").ajaxForm({
-
+		$("#FormReporteChecador").ajaxForm({
             type:"POST",
-			target:"#resultado",
+            target:"#resultado",
             resetForm:true
 		});
 	});

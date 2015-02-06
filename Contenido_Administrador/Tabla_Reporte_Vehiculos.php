@@ -23,7 +23,9 @@
              
                   <th>Tipo</th>
                   <th>fecha</th>
-                  <th>hora</th>                  
+                  <th>hora</th> 
+                  <th>Persona de acceso</th> 
+                  
                   <th>placa</th>  
                    <th>marca</th>
                   <th>modelo</th>
@@ -40,21 +42,27 @@ $Fecha_Final=$_POST["Fecha_Final"]." "."23:59:59";
          $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost,$encoding);
 //         $Consulta=$_POST[Consulta];
          $Query= $Conexion -> get_results("SELECT 
-                                            loges.tipo,
+                                            loges.Tipo,
                                             DATE_FORMAT(loges.Hora_Fecha, '%d/%m/%Y' ) as fecha,
                                             DATE_FORMAT(loges.Hora_Fecha,'%h:%i:%s %p') as hora,
+                                             personas.Nombre as Nombre_p,
+                                            personas.Appat as Appat_p,
+                                            personas.Apmat as Apmat_p,
                                             loges.Placa,
                                             vehiculos.Marca,
                                             vehiculos.Modelo,
                                             vehiculos.Color,
                                             loges.Vehiculo_Obs
                                             from 
-                                            loges join vehiculos on loges.Placa = vehiculos.Placa where Hora_Fecha>='$Fecha_inicio' and Hora_Fecha<='$Fecha_Final'");
+                                            loges join vehiculos on loges.Placa = vehiculos.Placa join personas on loges.IDPersona=personas.                                             IDPersona where Hora_Fecha>='$Fecha_inicio' and Hora_Fecha<='$Fecha_Final'");
          if ($Query!=0) {
          	foreach ($Query as $datos) {
                     $Tipo=$datos -> Tipo ; 
                     $fecha=$datos -> fecha ;
                     $hora =$datos -> hora;
+                     $Nombre_p=$datos -> Nombre_p ;
+                    $Appat_p=$datos -> Appat_p;
+                    $Apmat_p=$datos ->Apmat_p;
                     $placa=$datos -> Placa ;
                     $Marca=$datos -> Marca;
                     $Modelo=$datos ->Modelo;
@@ -62,7 +70,8 @@ $Fecha_Final=$_POST["Fecha_Final"]." "."23:59:59";
                     $Vehiculo_Obs=$datos->Vehiculo_Obs;  
                 ?>
                 <tr>
-              <td><?php                      
+              <td><?php  
+              
                     switch($Tipo){
                         case 0:
                             $impTipo="Entrada";
@@ -76,6 +85,7 @@ $Fecha_Final=$_POST["Fecha_Final"]." "."23:59:59";
                     ?></td>
                     <td><?php echo "$fecha";  ?></td>                                                       
                     <td><?php echo "$hora";  ?></td>
+                    <td><?php echo $Nombre_p." ".$Appat_p." ".$Apmat_p;?></td>
                     <td><?php echo "$placa";  ?></td>
                     <td><?php echo "$Marca";  ?></td>
                     <td><?php echo "$Modelo";  ?></td>

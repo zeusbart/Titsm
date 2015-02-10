@@ -56,14 +56,14 @@
    
 </script>
 <form role="form" name="Modificar_Usuario" id="Modificar_Usuario">
-	<legend>Modificar Usuario</legend>
+    <legend><b>Modificar Usuario</b></legend>
 <div class="form-group">
    <br>
    <div class="row">
-        <div class="col-sm-3 col-md-offset-2 col-lg-2">
+        <div class="col-sm-3 col-md-offset-3 col-lg-2">
                 <label>ID:</label>
         </div>
-        <div class="col-sm-4 col-md-2 col-lg-2">
+        <div class="col-sm-4 col-md-3 col-lg-2">
             <input type="hidden" name="hiddenIDUsuarios" id="inputhiddenIDUsuarios" class="form-control" >
                 <input type="text" name="IDUsuarios" id="inputIDUsuarios" class="form-control"  disabled="true">
         </div>
@@ -73,55 +73,55 @@
 </div>
    <br>
 <div class="row">
-        <div class="col-sm-3 col-md-offset-2 col-lg-2">
+        <div class="col-sm-3 col-md-offset-3 col-lg-2">
                 <label>Nombre:</label>
         </div>
-        <div class="col-sm-6 col-md-5 col-lg-5">
+        <div class="col-sm-6 col-md-3 col-lg-3">
                 <input type="text" name="Nombre" id="inputNombre" placeholder="Escriba su nombre" class="form-control"  required="required">
         </div>
 </div>
 <br>
 <div class="row">
-        <div class="col-sm-3 col-md-offset-2 col-lg-2">
+        <div class="col-sm-3 col-md-offset-3 col-lg-2">
                 <label>Apellido Paterno:</label>
         </div>
-        <div class="col-sm-6 col-md-5 col-lg-5">
+        <div class="col-sm-6 col-md-3 col-lg-3">
                 <input type="text" name="Appat" id="inputAppat" placeholder="Escriba su primer Apellido" class="form-control" value="" required="required" >
         </div>
 </div>
 <br>
 <div class="row">
-        <div class="col-sm-3 col-md-offset-2 col-lg-2">
+        <div class="col-sm-3 col-md-offset-3 col-lg-2">
                  <label>Apellido Materno:</label>
         </div>
-        <div class="col-sm-6 col-md-5 col-lg-5">
+        <div class="col-sm-6 col-md-3 col-lg-3">
                 <input type="text" name="Apmat" id="inputApmat" placeholder="Escriba su segundo apellido" class="form-control" value="" required="required" >
         </div>
 </div>
 <br>
 <div class="row">
-        <div class="col-sm-3 col-md-offset-2 col-lg-2">
+        <div class="col-sm-3 col-md-offset-3 col-lg-2">
                 <label>Nueva Contraseña:</label>
         </div>
-        <div class="col-sm-6 col-md-5 col-lg-5">
+        <div class="col-sm-6 col-md-3 col-lg-3">
             <input type="password" name="Pass" id="inputPass" placeholder="Escriba su contraseña" class="form-control" value="" required="required" onchange="form.Confirmpass.pattern = this.value;">
         </div>
 </div>
 <br>
 <div class="row">
-        <div class="col-sm-3 col-md-offset-2 col-lg-2">
+        <div class="col-sm-3 col-md-offset-3 col-lg-2">
                 <label>Confirmar Contraseña:</label>
         </div>
-        <div class="col-sm-6 col-md-5 col-lg-5">
+        <div class="col-sm-6 col-md-3 col-lg-3">
             <input type="password" name="Confirmpass" id="inputConfirmpass" placeholder="Repita su contraseña" class="form-control" value="" required="required" >
         </div>
 </div>
 <br>
 <div class="row">
-        <div class="col-sm-3 col-md-offset-2 col-lg-2">
+        <div class="col-sm-3 col-md-offset-3 col-lg-2">
                 <label>Tipo Usuario:</label>
         </div>
-        <div class="col-sm-6 col-md-5 col-lg-5">
+        <div class="col-sm-6 col-md-3 col-lg-3">
                 <select name="Tipo" id="Tipo" class="form-control">
                         <option value="1">Administrador</option>
                         <option value="2">Guardia</option>

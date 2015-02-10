@@ -64,7 +64,7 @@
         <div class="col-sm-3 col-md-offset-4 col-lg-2">
                 <label>Personal:</label>
         </div>
-        <div class="col-sm-6 col-md-3 col-lg-4">
+        <div class="col-sm-6 col-md-3 col-lg-3">
                 <select name="Personal" id="input" class="form-control">
                     <?php
                      include_once '../Variables_Conexion.php';

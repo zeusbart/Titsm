@@ -15,7 +15,7 @@
       });
     });
   </script> 
-
+<div class="col-sm-12 col-md-offset-2 col-md-8 col-lg-8">
 <div class="table-responsive">
             <table id="Tabla_Reporte_checador" class="table table-bordered table-striped table-hover"  width="100%">
               <thead>
@@ -78,3 +78,4 @@ checkinout.CHECKTYPE as Tipo FROM checkinout join userinfo on checkinout.USERID=
  </tbody>
             </table>
   </div>
+</div>

@@ -78,7 +78,7 @@
      
     $("#EnviarDatos").click(function (){
         var DatosForm = $('#Form_Equipos').serialize();
-        alert(DatosForm);
+//        alert(DatosForm);
            
        $("#Form_Equipos").ajaxForm(
             {
@@ -94,7 +94,7 @@
                     LimpiarCamposEquipos();
                     LimpiarCamposPersona();        
                    LimpiarCamposVehiculos();
-                  
+                
                 } 
                 
             });
@@ -108,9 +108,7 @@
         $("#inputIdentEquipo").val("");
         $("#inputCantidad").val("");
         $("#inputUnidad").val("");
-        $("#inputRazonEquipo").val("");
-        
-        
+        $("#inputRazonEquipo").val("");  
     }
   
     function LimpiarCamposVehiculos(){
@@ -208,23 +206,23 @@
          });
      }
   </script>
-  <form  role="form"  name="Form_Equipos" id="Form_Equipos"><!--action="Query_Guarda_Equipo.php"--> <!--method="POST"--> 
-	<legend>Acceso Equipos</legend>
+  <form  role="form"  name="Form_Equipos"  id="Form_Equipos"><!--action="Query_Guarda_Equipo.php"--> <!--method="POST"--> 
+      <legend><b>Acceso Equipos</b></legend>
 
 	<!--<div class="form-group">-->
 		<div class="row">
-                    <div class="form-group ">
-			<div class="col-sm-1 col-md-1 col-lg-1">
+                    <div class="form-group form-inline">
+			<div class="col-sm-1 col-md-offset-3 col-md-1 col-lg-1">
                         <label for="inputTipo" class="control-label">Tipo:</label>
 			</div>
 
 			<div class="col-sm-5 col-md-5 col-lg-5">
 				<div class="radio">
-					<label class="checkbox-inline">
+					<label>
 						<input type="radio" name="Tipo" id="inputTipo" value="0" checked="checked">
 						Entrada
 					</label>
-					<label class="checkbox-inline">
+					<label>
 						<input type="radio" name="Tipo" id="inputTipo" value="1">
 						Salida
 					</label>
@@ -232,18 +230,13 @@
                         </div>
                     </div>
 		</div>
-            
-            
-            
-            
-            
-                
-                
+        <br>
+
                 <!--Formulario Persona-->
 		<div class="row">
-			<div class=" col-sm-6 col-md-6 col-lg-6">
+			<div class=" col-sm-10 col-md-offset-3 col-md-6 col-lg-6">
 					<div class="panel panel-default">
-                        <div class="panel-heading">Datos de Persona
+                                            <div class="panel-heading"> <label>Datos de Persona</label>
                                 <button type="button" class="btn btn-primary" onclick="CambiarContenido('#body_tabla_Persona','Tabla_Busqueda_Persona.php')" data-toggle="modal" data-target="#ModalPersona">
                                     Buscar
                                     <span class="glyphicon glyphicon-eye-open"></span>
@@ -256,7 +249,7 @@
 			<div class="col-sm-3 col-md-3 col-lg-3">
 				<label for="">Nombre:</label>
 			</div>
-			<div class="col-sm-5 col-md-8 col-lg-8">
+			<div class="col-sm-5 col-md-5 col-lg-5">
                                 <input name="hiddenidPersona" id="hiddenidPersona" class="form-control" value="" type="hidden">
                                 <input type="text" name="Nombre" id="inputNombre" placeholder="Nombre completo..." class="form-control" value="" required="required">
 			</div>
@@ -268,7 +261,7 @@
 			<div class="col-sm-3 col-md-3 col-lg-3">
 				<label for="">Apellido Paterno:</label>
 			</div>
-			<div class="col-sm-5 col-md-8 col-lg-8">
+			<div class="col-sm-5 col-md-5 col-lg-5">
                             <input type="text" name="Appat" id="inputAppat" placeholder="Apellido paterno" class="form-control" value="" required="required">
 			</div>
 		</div><br>
@@ -276,7 +269,7 @@
 			<div class="col-sm-3 col-md-3 col-lg-3">
 				<label>Apellido Materno:</label>
 			</div>
-			<div class="col-sm-5 col-md-8 col-lg-8">
+			<div class="col-sm-5 col-md-5 col-lg-5">
                             <input type="text" name="Apmat" id="inputApmat" placeholder="Apellido materno" class="form-control" value="" required="required">
 			</div>
 		</div><br>
@@ -284,7 +277,7 @@
 			<div class="col-sm-3 col-md-3 col-lg-3">
 				<label for="">Telefono:</label>
 			</div>
-			<div class="col-sm-5 col-md-8 col-lg-8">
+			<div class="col-sm-5 col-md-5 col-lg-5">
 				<input type="tel" name="Telefono" id="inputTelefono"  class="form-control" value="" required="required">
 			</div>
 		</div><br>
@@ -292,7 +285,7 @@
 			<div class="col-sm-3 col-md-3 col-lg-3">
 				<label for="">Compañia:</label>
 			</div>
-			<div class="col-sm-5 col-md-8 col-lg-8">
+			<div class="col-sm-9 col-md-9 col-lg-9">
                             <input type="text" name="Compania" placeholder="Si no aplica poner -independiente-" id="inputCompania" class="form-control" value="" required="required">
 			</div>
 		</div>
@@ -301,7 +294,7 @@
 			<div class="col-sm-3 col-md-3 col-lg-3">
 				<label for="">Razon:</label>
 			</div>
-			<div class="col-sm-8 col-md-8 col-lg-8">
+			<div class="col-sm-9 col-md-9 col-lg-9">
                             <input type="text" name="RazonPersona" id="inputRazonPersona" placeholder="Razon de visita, si es salida solo poner s/r" class="form-control" value="" required="required">
 			</div>
 		</div>
@@ -310,8 +303,8 @@
                     <div class="col-sm-3 col-md-3 col-lg-3">
                             <label for="">Observaciones</label>
                     </div>
-                    <div class="col-sm-8 col-md-8 col-lg-8">
-                        <textarea id="inputPersona_Obs" class="form-control" rows="2" name="Persona_Obs"></textarea>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                        <textarea id="inputPersona_Obs" class="form-control" rows="5" name="Persona_Obs"></textarea>
                     </div>
                 </div>
                 
@@ -325,7 +318,7 @@
                 
            
               <div class="row"> <!--inicia row equipos-->
-                    <div class=" col-sm-6 col-md-6 col-lg-6"> <!--Col de panel-->
+                    <div class=" col-sm-10 col-md-offset-3 col-md-6 col-lg-6"> <!--Col de panel-->
                            <div class="panel-group" id="accordionEquipos" role="tablist" aria-multiselectable="true"><!--Panel group-->
       <div class="panel panel-default">  <!--Panel Default-->
         <div class="panel-heading" role="tab" id="headingOne">
@@ -341,11 +334,11 @@
         <div id="collapseEquipos" class="panel-collapse collapse " role="tabpanel" aria-labelledby="headingOne">
           <div class="panel-body">
                    <div class="row">
-			<div class="col-sm-3 col-md-3 col-lg-3">
+			<div class="col-sm-3  col-md-3 col-lg-3">
 				<label>Identificador:</label>
 			</div>
-			<div class=" col-sm-9 col-md-9 col-lg-9">
-                            <input type="text" name="IdentEquipo" placeholder="serie,factura,recibo,codigo de barras etc.." id="inputIdentEquipo" class="form-control">
+			<div class=" col-sm-5 col-md-5 col-lg-5">
+                            <input type="text" name="IdentEquipo" placeholder="" id="inputIdentEquipo" class="form-control">
 			</div>
 		</div>
 		<br>         
@@ -362,8 +355,8 @@
 			<div class=" col-sm-3 col-md-3 col-lg-3">
 				<label for="inputCantidad">Cantidad:</label>
 			</div>
-			<div class=" col-sm-9 col-md-9 col-lg-9">
-                            <input type="number" name="Cantidad" placeholder="Solo numeros" min="0" id="inputCantidad" class="form-control">
+			<div class=" col-sm-2 col-md-3 col-lg-3">
+                            <input type="number" name="Cantidad" placeholder="" min="0" id="inputCantidad" class="form-control">
 			</div>
 		</div>
 		<br>
@@ -371,7 +364,7 @@
 			<div class=" col-sm-3 col-md-3 col-lg-3">
 				<label>Unidad:</label>
 			</div>
-			<div class=" col-sm-9 col-md-9 col-lg-9">
+			<div class=" col-sm-4 col-md-4 col-lg-4">
 				<input type="text" name="Unidad" id="inputUnidad" class="form-control" value="" placeholder="Caja,kilo,pieza, etc..." >
 			</div>
 		</div>
@@ -406,7 +399,7 @@
                 
                 <div class="row">
                     
-                    <div class=" col-sm-6 col-md-6 col-lg-6">
+                    <div class=" col-sm-10 col-md-offset-3 col-md-6 col-lg-6">
                                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
       <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingOne">
@@ -431,7 +424,7 @@
               <div class="col-sm-3 col-md-3 col-lg-3">
                 <label for="">Placa:</label>
               </div>
-              <div class="col-sm-6 col-md-6 col-lg-6">
+              <div class="col-sm-4 col-md-4 col-lg-4">
                   <input type="hidden" name="hiddenPlaca" id="hiddenPlaca" class="form-control" value="">
                   <input type="text" name="Placa" id="inputPlaca" class="form-control" value="">
               </div>
@@ -441,7 +434,7 @@
               <div class="col-sm-3 col-md-3 col-lg-3">
                 <label for="">Marca:</label>
               </div>
-              <div class="col-sm-6 col-md-6 col-lg-6">
+              <div class="col-sm-4 col-md-4 col-lg-4">
                 <input type="text" name="Marca" id="inputMarca" class="form-control" value="">
               </div>
             </div>
@@ -450,7 +443,7 @@
               <div class="col-sm-3 col-md-3 col-lg-3">
                 <label for="">Modelo:</label>
               </div>
-              <div class="col-sm-6 col-md-6 col-lg-6">
+              <div class="col-sm-4 col-md-4 col-lg-4">
                 <input type="text" name="Modelo" id="inputModelo" class="form-control" value="" >
               </div>
             </div>
@@ -459,7 +452,7 @@
               <div class="col-sm-3 col-md-3 col-lg-3">
                 <label for="">Color:</label>
               </div>
-              <div class="col-sm-6 col-md-6 col-lg-6">
+              <div class="col-sm-4 col-md-4 col-lg-4">
                 <input type="text" name="Color" id="inputColor" class="form-control" value="">
               </div>
             </div>
@@ -470,8 +463,8 @@
               <div class="col-sm-3 col-md-3 col-lg-3">
                 <label for="">Observaciones</label>
               </div>
-              <div class=" col-sm-8 col-md-8 col-lg-8">
-                <textarea class="form-control" id="inputVehiculo_Obs" rows="2" name="Vehiculo_Obs"></textarea>
+              <div class=" col-sm-9 col-md-9 col-lg-9">
+                <textarea class="form-control" id="inputVehiculo_Obs" rows="5" name="Vehiculo_Obs"></textarea>
               </div>
             </div>
 
@@ -490,9 +483,12 @@
 <!--	</div>-->
 
 
-
+<div class="col-md-offset-3">
         <button type="submit" id="EnviarDatos" class="btn btn-primary btn-lg">Registrar Entrada/Salida</button>
+        </div>
+<br>
          <div id="resultado"></div>
+        
 </form>
   
  

@@ -17,14 +17,15 @@
   </script> 
 
   
-
+<legend><b>Modificar Usuario</b></legend>
 <div class="table-responsive">
-    <div class="col-sm-12 col-md-12 col-lg-12">
+    <div class="col-sm-12 col-md-offset-2 col-md-8 col-lg-8">
+        
             <table id="Tabla_Usuario" class="table table-bordered  table-hover"  width="100%">
               <thead>
                 <tr class='info'>
                  
-                  <th>IDUsuario</th>
+                  <th WIDTH=20>IDUsuario</th>
                   <th>Nombre</th>
                   <th>Appat</th>
                   <th>Apmat</th>

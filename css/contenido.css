@@ -1,8 +1,8 @@
- body {
-        background-color: #e38d13;
-        background-image: url(../img/fondo_madera.png);
-    }
-     .container {
+body {
+    background-color: #e38d13;
+    background-image: url(../img/fondo_madera.png);
+}
+.container {
     padding: 10px;
     margin-bottom: 20px;
     background-color: rgba(255, 255, 255, 0.50);
@@ -10,39 +10,39 @@
     border-radius: 4px;
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
     box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-    }
+}
 
-    #logo{
-    	background-image: url("../img/OSH-LOGO-FONDO-TRANSPAR-RUEDA.png");
-   background-repeat: no-repeat;
-   background-position: bottom right;
-       /* position: absolute;
-		bottom: 0;
-		right: 0;
-		float: right;*/
-    }
-   .footer{
-        padding-top: 6px;
-        background-color: #FFFFFF;
-        border-radius: 5px;
+#logo{
+    background-image: url("../img/OSH-LOGO-FONDO-TRANSPAR-RUEDA.png");
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    /* position: absolute;
+             bottom: 0;
+             right: 0;
+             float: right;*/
+}
+.footer{
+    padding-top: 6px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
 
-    }
-    textarea{
-        max-width: 100%;
-    }
-    .nusuario{
-        font-size: large;
-        font-family: Georgia, Cambria, Times, "Times New Roman";
-    }
-    label{
-        font-weight: normal !important;
-        font-family: Georgia, Cambria, Times, "Times New Roman";
-        color:#5c5f72;
-        font-size: small;
-    }
-    .Descripcion{
-        font-family: Georgia, Cambria, Times, "Times New Roman";
-        font-size: large;
-        color:#5c5f72;
-    }
+}
+textarea{
+    max-width: 100%;
+}
+.nusuario{
+    font-size: large;
+    font-family: Georgia, Cambria, Times, "Times New Roman";
+}
+label{
+    font-weight: normal !important;
+    font-family: Georgia, Cambria, Times, "Times New Roman";
+    color:#5c5f72;
+    font-size: small;
+}
+.Descripcion{
+    font-family: Georgia, Cambria, Times, "Times New Roman";
+    font-size: large;
+    color:#5c5f72;
+}
 

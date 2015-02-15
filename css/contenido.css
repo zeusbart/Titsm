@@ -45,4 +45,13 @@ label{
     font-size: large;
     color:#5c5f72;
 }
+.menu-mensajeria{
+    background-color:#F8F8F8;
+}
+ #myTable td{
+ cursor:pointer;
+ /*background: -moz-linear-gradient(top, #ffffff, #D1E3E9);
+       background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff), to(#D1E3E9));
+         text-align:center;*/
+}
 

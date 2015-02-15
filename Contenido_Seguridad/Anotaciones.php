@@ -1,84 +1,65 @@
+<script>
+    $(document).ready(function() {
+        $("#myTable td").click(function() {
 
-<form  role="form"  name="Form_Equipos"  id="Form_Equipos">
-    <div class="row">
-        <div class=" col-sm-10 col-md-offset-3 col-md-6 col-lg-6">
-            <div class="panel panel-default">
-                <div class="panel-heading"> <label>Datos de Persona</label>
-                    <button type="button" class="btn btn-primary" onclick="CambiarContenido('#body_tabla_Persona', 'Tabla_Busqueda_Persona.php')" data-toggle="modal" data-target="#ModalPersona">
-                        Buscar
-                        <span class="glyphicon glyphicon-eye-open"></span>
-                    </button>
-                    <button id="inputLimpiarPersona" onclick="LimpiarCamposPersona()" type="button" class="btn btn-default">Limpiar</button>
-                </div>
-                <div class="panel-body">
-                    <!-- Panel content-->
-                    <div class="row">
-                        <div class="col-sm-3 col-md-3 col-lg-3">
-                            <label for="">Nombre:</label>
-                        </div>
-                        <div class="col-sm-5 col-md-5 col-lg-5">
-                            <input name="hiddenidPersona" id="hiddenidPersona" class="form-control" value="" type="hidden">
-                            <input type="text" name="Nombre" id="inputNombre" placeholder="Nombre completo..." class="form-control" value="" required="required">
-                        </div>
-                        <!--                        <div class="col-sm-4 col-md-2 col-lg-2">
-                                                     <button type="button" class="btn btn-default">Buscar</button>
-                                                </div>                                       -->
-                    </div><br>
-                    <div class="row">
-                        <div class="col-sm-3 col-md-3 col-lg-3">
-                            <label for="">Apellido Paterno:</label>
-                        </div>
-                        <div class="col-sm-5 col-md-5 col-lg-5">
-                            <input type="text" name="Appat" id="inputAppat" placeholder="Apellido paterno" class="form-control" value="" required="required">
-                        </div>
-                    </div><br>
-                    <div class="row">
-                        <div class="col-sm-3 col-md-3 col-lg-3">
-                            <label>Apellido Materno:</label>
-                        </div>
-                        <div class="col-sm-5 col-md-5 col-lg-5">
-                            <input type="text" name="Apmat" id="inputApmat" placeholder="Apellido materno" class="form-control" value="" required="required">
-                        </div>
-                    </div><br>
-                    <div class="row">
-                        <div class="col-sm-3 col-md-3 col-lg-3">
-                            <label for="">Telefono:</label>
-                        </div>
-                        <div class="col-sm-5 col-md-5 col-lg-5">
-                            <input type="tel" name="Telefono" id="inputTelefono"  class="form-control" value="" required="required">
-                        </div>
-                    </div><br>
-                    <div class="row">
-                        <div class="col-sm-3 col-md-3 col-lg-3">
-                            <label for="">Compañia:</label>
-                        </div>
-                        <div class="col-sm-9 col-md-9 col-lg-9">
-                            <input type="text" name="Compania" placeholder="Si no aplica poner -independiente-" id="inputCompania" class="form-control" value="" required="required">
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-3 col-md-3 col-lg-3">
-                            <label for="">Razon:</label>
-                        </div>
-                        <div class="col-sm-9 col-md-9 col-lg-9">
-                            <input type="text" name="RazonPersona" id="inputRazonPersona" placeholder="Razon de visita, si es salida solo poner s/r" class="form-control" value="" required="required">
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-3 col-md-3 col-lg-3">
-                            <label for="">Observaciones</label>
-                        </div>
-                        <div class="col-sm-9 col-md-9 col-lg-9">
-                            <textarea id="inputPersona_Obs" class="form-control" rows="5" name="Persona_Obs"></textarea>
-                        </div>
-                    </div>
+            var column_num = parseInt($(this).index()) + 1;
+            var row_num = parseInt($(this).parent().index()) + 1;
 
-                </div>
-            </div>
+            $("#result").html("Row_num =" + row_num + "  ,  Rolumn_num =" + column_num);
+        });
+    });
+</script>
+<div class="row">
+
+    <div class="col-md-3 ">
+        <div class="menu-mensajeria">
+            <ul class="nav nav-pills nav-stacked">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Acciones <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+
+                        <li><a href="#" onclick="CambiarContenido('#contenido', 'Registro_Usuarios.php')" href="#">Nuevo</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#" onclick="CambiarContenido('#contenido', 'Consulta_Usuarios.php')">Responder</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#" onclick="CambiarContenido('#contenido', 'Modificar_Usuario.php')">Eliminar</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Bandeja de entrada</a></li>
+                <li><a href="#">Enviados</a></li>
+                
+            </ul>
         </div>
+    </div>
+    
+    
+    <div class="col-md-9">
+        <div id="result"> </div>
+        <table class="table table-hover" id="myTable" width="100%">
+            <thead>
+                <tr>
+                    <th width="30%">Remitente</th>
+                    <th width="10%">Estado</th>
+                    <th>Asunto</th>
+                    <th width="10%">fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><b>Bartolo Capetillo Velazquez</b></td>
+                    <td><span class="label label-primary">Nuevo</span></td>
+                    <td>sdfsdf</td>
+                    <td>10/07/2015</td>
+                </tr>
+                <tr>
+                    <td>sdf</td>
+                    <td><span class="label label-success">Leido</span></td>
+                    <td>sdf</td>
+                    <td>sdf</td>
+                </tr>
+                
+            </tbody>
+        </table>
 
     </div>
-    <div id="resultado"></div>
-</form>
+</div>

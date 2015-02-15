@@ -111,11 +111,12 @@ if ($Tipo_Usuario != 1) {
                                 <li class="divider"></li>
                                 <li><a href="#" onclick="CambiarContenido('#contenido', 'Reporte_Personas.php')">Log Personas Externas</a></li>
                                 <li class="divider"></li>
-                                <li><a href="#" onclick="CambiarContenido('#contenido', 'Reporte_Vehiculos.php')">Log Vehiculos</a></li>		         
+                                <li><a href="#" onclick="CambiarContenido('#contenido', 'Reporte_Vehiculos.php')">Log Vehiculos</a></li>
                                 <li class="divider"></li>
                                 <li><a href="#" onclick="CambiarContenido('#contenido', 'Reporte_Checador.php')">Reporte checador</a></li>	
                             </ul>
                         </li>
+                        
 
                     </ul>
 

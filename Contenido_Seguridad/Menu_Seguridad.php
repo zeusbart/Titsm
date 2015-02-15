@@ -76,8 +76,8 @@ if ($Tipo_Usuario != 2) {
                     </button>
                     <a class="navbar-brand" onclick="CambiarContenido('#contenido', 'Principal.php')" href="#"><span class="glyphicon glyphicon-user"></span>
                         &nbsp;Guardias
-
                     </a>
+                   
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -86,6 +86,7 @@ if ($Tipo_Usuario != 2) {
                         <!--<li><a onclick="CambiarContenido('#contenido','ESPersonal.php')" href="#">Acceso Personal</a></li>-->
                         <li><a onclick="CambiarContenido('#contenido', 'ESEquipo.php')" href="#">Acceso Personal/Equipo</a></li>
                         <li><a onclick="CambiarContenido('#contenido', 'Cambiar_Contrasena.php')" href="#">Cambiar Contraseña</a></li>
+                        <li><a href="#" onclick="CambiarContenido('#contenido','Anotaciones.php')" >Anotaciones</a></li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">

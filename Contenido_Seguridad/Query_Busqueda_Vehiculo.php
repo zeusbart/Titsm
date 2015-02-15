@@ -4,7 +4,7 @@ include_once '../Variables_Conexion.php';
 $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost, $encoding);
 $Pla = $_POST['Placa'];
 
-$Query = $Conexion->get_results("select * from vehiculos where Placa='$Pla' ");
+$Query = $Conexion->get_results("select * from vehiculos where Placa='$Pla'");
 $Resultado = array();
 if ($Query != 0) {
     foreach ($Query as $datos) {

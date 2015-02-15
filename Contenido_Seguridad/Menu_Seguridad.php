@@ -42,6 +42,28 @@ if ($Tipo_Usuario != 2) {
         <script src="../media/js/dataTables.bootstrap.js"></script>
         <!--<link rel="stylesheet" href="maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>-->
         <script src="menu.js"></script>
+        <script>
+            $(document).ready(function() {
+                Mensajes_Nuevos();
+                        function Mensajes_Nuevos() {
+//                            var Usuario = "Usuario=" + ;
+                            
+                            $.ajax({
+                                url: "Contador_Mensajes.php",
+//                                data: Usuario,
+                                type: "POST",
+                                dataType: "json",
+                                success:
+                                        function(respuesta)
+                                        {
+                                            $("#Resultado_Contador").text(respuesta.Contador);
+                                        }
+                            });
+                        }
+                setInterval(Mensajes_Nuevos, 5000);
+            });
+        </script>
+
     </head>
     <body>
 
@@ -58,7 +80,7 @@ if ($Tipo_Usuario != 2) {
                     </div>
                     <div class="col-sm-6 col-md-3">
                         <p class="nusuario">
-<?php echo "Usuario: " . $Nombre . " " . $Appat . " " . $Apmat; ?>
+                            <?php echo "Usuario: " . $Nombre . " " . $Appat . " " . $Apmat; ?>
                         </p>
                     </div>
                 </div>
@@ -77,7 +99,7 @@ if ($Tipo_Usuario != 2) {
                     <a class="navbar-brand" onclick="CambiarContenido('#contenido', 'Principal.php')" href="#"><span class="glyphicon glyphicon-user"></span>
                         &nbsp;Guardias
                     </a>
-                   
+
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -86,7 +108,7 @@ if ($Tipo_Usuario != 2) {
                         <!--<li><a onclick="CambiarContenido('#contenido','ESPersonal.php')" href="#">Acceso Personal</a></li>-->
                         <li><a onclick="CambiarContenido('#contenido', 'ESEquipo.php')" href="#">Acceso Personal/Equipo</a></li>
                         <li><a onclick="CambiarContenido('#contenido', 'Cambiar_Contrasena.php')" href="#">Cambiar Contraseña</a></li>
-                        <li><a href="#" onclick="CambiarContenido('#contenido','Anotaciones.php')" >Anotaciones</a></li>
+                        <li><a href="#" onclick="CambiarContenido('#contenido', 'Anotaciones.php')" >Mensajes <span class="badge"><div id="Resultado_Contador"></div></span></a></li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">

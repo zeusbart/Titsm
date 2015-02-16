@@ -47,7 +47,6 @@ if ($Tipo_Usuario != 2) {
                 Mensajes_Nuevos();
                         function Mensajes_Nuevos() {
 //                            var Usuario = "Usuario=" + ;
-                            
                             $.ajax({
                                 url: "Contador_Mensajes.php",
 //                                data: Usuario,

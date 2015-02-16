@@ -18,8 +18,8 @@ if ($Tipo_Usuario != 2) {
 }
 include_once '../Variables_Conexion.php';
 $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost, $encoding);
-$Query = $Conexion->get_var("select count(*) from mensajes where Receptor='$IDUsuarios' and Estado=1");
+$Query_Contador = $Conexion->get_var("select count(*) from mensajes where Receptor='$IDUsuarios' and Estado=1");
 $Resultado = array();
-$Resultado['Contador'] = $Query;
+$Resultado['Contador'] = $Query_Contador;
 echo json_encode($Resultado);
 ?>

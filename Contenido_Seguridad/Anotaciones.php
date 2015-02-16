@@ -1,13 +1,34 @@
 <script>
-        var bandera=false;
+    var Mensaje;
+    var bandera = false;
     function borrar(i) {
-         bandera=true;
-           $("table#myTable tr#"+i).remove();          
-        }
-        $(document).ready(function(){
-         CambiarContenido('#contenido_msn','msn/Entrada_msn.php')
-         
+        bandera = true;
+        var Fila_Mensaje = "Fila_Mensaje=" + i;
+        var Fila_tabla = myTable.rows.length;
+
+        $.ajax({
+            url: "msg/Elimina_msg.php",
+            data: Fila_Mensaje,
+            type: "POST",
+            dataType: "json",
+            success:
+                    function()
+                    {
+//                      alert(Fila_Mensaje);
+                        $("table#myTable tr#" + i).remove();
+                        alert(Fila_tabla);
+                        if (Fila_tabla <= 2) {
+                            CambiarContenido('#contenido_msg', 'msg/Entrada_msg.php');
+                        }
+                    }
         });
+    }
+    
+    $(document).ready(function() {
+        CambiarContenido('#contenido_msg', 'msg/Entrada_msg.php');
+        
+     
+    });
 </script>
 
 <legend><b>Mensajes</b></legend>
@@ -20,15 +41,15 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Acciones <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
 
-                        <li><a href="#" onclick="CambiarContenido('#contenido_msn', 'msn/Escribir_msn.php')" href="#">Nuevo</a></li>
+                        <li><a href="#" onclick="CambiarContenido('#contenido_msg', 'msg/Escribir_msg.php')" href="#">Nuevo</a></li>
                         <li class="divider"></li>
                         <li><a href="#" onclick="CambiarContenido('#contenido', 'Consulta_Usuarios.php')">Responder</a></li>
                         <li class="divider"></li>
                         <li><a href="#" onclick="CambiarContenido('#contenido', 'Consulta_Usuarios.php')">Eliminar</a></li>
                     </ul>
                 </li>
-                <li><a href="#" onclick="CambiarContenido('#contenido_msn','msn/Entrada_msn.php')">Bandeja de entrada</a></li>
-                <li><a href="#">Enviados</a></li>
+                <li><a href="#" onclick="CambiarContenido('#contenido_msg', 'msg/Entrada_msg.php')">Bandeja de entrada</a></li>
+                <li><a href="#" onclick="CambiarContenido('#contenido_msg', 'msg/Enviados_msg.php')">Enviados</a></li>
 
             </ul>
         </div>
@@ -36,8 +57,8 @@
 
 
     <div class="col-md-9">
-        <div id="result"> </div>
-        <div id="contenido_msn"> </div>
+
+        <div id="contenido_msg"> </div>
     </div>
 </div>
 

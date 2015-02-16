@@ -10,8 +10,7 @@ $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost, $encoding);
         <select name="Para" id="inputPara" class="form-control">
             <?php
             $Query = $Conexion->get_results("select IDUsuarios,Nombre,Appat,Apmat,Tipo from usuarios where Tipo <> 3  order by Nombre");
-            foreach ($Query as $datos) {
-                
+            foreach ($Query as $datos) {      
                 $ID = $datos->IDUsuarios;
                 $Nombre = $datos->Nombre;
                 $Appat=$datos->Appat;

@@ -24,11 +24,11 @@
                     }
         });
     }
-    
+
     $(document).ready(function() {
         CambiarContenido('#contenido_msg', 'msg/Entrada_msg.php');
-        
-     
+
+
     });
 </script>
 
@@ -38,17 +38,18 @@
     <div class="col-md-3 ">
         <div class="menu-mensajeria">
             <ul class="nav nav-pills nav-stacked">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Acciones <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-
-                        <li><a href="#" onclick="CambiarContenido('#contenido_msg', 'msg/Escribir_msg.php')" href="#">Nuevo</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#" onclick="CambiarContenido('#contenido', 'Consulta_Usuarios.php')">Responder</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#" onclick="CambiarContenido('#contenido', 'Consulta_Usuarios.php')">Eliminar</a></li>
-                    </ul>
-                </li>
+                <!--                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Acciones <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                
+                                        <li><a href="#" onclick="CambiarContenido('#contenido_msg', 'msg/Escribir_msg.php')">Nuevo</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#" onclick="CambiarContenido('#contenido', 'Consulta_Usuarios.php')">Responder</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#" onclick="CambiarContenido('#contenido', 'Consulta_Usuarios.php')">Eliminar</a></li>
+                                    </ul>
+                                </li>-->
+                <li><a href="#" onclick="CambiarContenido('#contenido_msg', 'msg/Escribir_msg.php')">Nuevo mensaje</a></li>
                 <li><a href="#" onclick="CambiarContenido('#contenido_msg', 'msg/Entrada_msg.php')">Bandeja de entrada</a></li>
                 <li><a href="#" onclick="CambiarContenido('#contenido_msg', 'msg/Enviados_msg.php')">Enviados</a></li>
 

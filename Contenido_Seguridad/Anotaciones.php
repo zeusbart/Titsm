@@ -1,5 +1,6 @@
 <script>
     var Mensaje;
+    var E_S_msg;//1 si es entrada 2 si es salida
     var bandera = false;
     function borrar(i) {
         bandera = true;
@@ -16,7 +17,7 @@
                     {
 //                      alert(Fila_Mensaje);
                         $("table#myTable tr#" + i).remove();
-                        alert(Fila_tabla);
+//                        alert(Fila_tabla);
                         if (Fila_tabla <= 2) {
                             CambiarContenido('#contenido_msg', 'msg/Entrada_msg.php');
                         }

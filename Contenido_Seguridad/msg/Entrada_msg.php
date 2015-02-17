@@ -17,15 +17,15 @@ if ($Tipo_Usuario != 2) {
                 </script>';
 }
 ?>
-
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
+        E_S_msg = "1";
         $("#myTable tr").click(
-                function() {
+                function () {
                     if (bandera == false) {
                         CambiarContenido('#contenido_msg', 'msg/Leer_msg.php');
-                        Mensajes= $(this).attr("id");
-                        alert(Mensajes);
+                        Mensaje = $(this).attr("id");
+//                        alert(Mensaje);
                     }
                 });
 
@@ -46,10 +46,9 @@ if ($Tipo_Usuario != 2) {
     <tbody>
 
         <?php
-        //Consulta Usuario
         include_once '../../Variables_Conexion.php';
         $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost, $encoding);
-//         $Consulta=$_POST[Consulta];
+
         $Query = $Conexion->get_results("SELECT IDMensajes,Remitente,Estado,Asunto,Fecha,usuarios.Nombre,usuarios.Appat,usuarios.Apmat  FROM mensajes join usuarios on Remitente=IDUsuarios WHERE Receptor=$IDUsuarios AND Estado <> 3");
         if ($Query != 0) {
             foreach ($Query as $datos) {

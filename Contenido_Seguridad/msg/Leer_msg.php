@@ -1,31 +1,40 @@
 <script>
-// $(document).ready(function() {
-//         $.ajax({
-//            url: "msg/Elimina_msg.php",
-//            data: Fila_Mensaje,
-//            type: "POST",
-//            dataType: "json",
-//            success:
-//                    function()
-//                    {
-////                      alert(Fila_Mensaje);
-//                        $("table#myTable tr#" + i).remove();
-//                        alert(Fila_tabla);
-//                        if (Fila_tabla <= 2) {
-//                            CambiarContenido('#contenido_msg', 'msg/Entrada_msg.php');
-//                        }
-//                    }
-//        });
-//     
-//    });
+    $(document).ready(function () {
+//        var dato = "{Mensaje:" + Mensajes",E_S_msg:"+E_S_msg"}";
+//        var dato=JSON.stringify({ Mensaje: Mensajes,E_S_msg:E_S_msg });
+//        alert(Mensaje);
+        $.ajax({
+            url: "msg/Query_Leer_msg.php",
+            data: {"Mensaje":Mensaje,"E_S_msg":E_S_msg},
+            type: "POST",
+            dataType: "json",
+            success:
+                    function (respuesta)
+                    {
+                        
+                        $("#inputRemitente").val(respuesta.Remitente);
+                        $("#inputAsunto").val(respuesta.Asunto);
+                        $("#inputAsunto").val(respuesta.Asunto);
+                        $("#inputMensaje").val(respuesta.Mensaje);
+                        if(E_S_msg=="1"){
+                            $("#destino_msg").html("<label>De:</label>");
+                            
+                        }else if(E_S_msg=="2"){
+                            $("#destino_msg").html("<label>Para:</label>");
+                        }
+                        
+                    }
+        });
+
+    });
 </script>
 <div class="row">
-    <div class="col-sm-12 col-md-1 col-lg-1">
-        <label>De:</label>
+    <div class="col-sm-12 col-md-1 col-lg-1 " id="destino_msg">
+        
     </div>
     <div class="col-sm-12 col-md-4 col-lg-4">
-        <input type="hidden" name="idmensaje" id="inputidmensaje" class="form-control" value="1">
-        <input type="text" name="Para" id="inputPara" class="form-control" value="Bartolo Capetillo Sanchez" readonly>
+
+        <input type="text" name="Remitente" id="inputRemitente" class="form-control" readonly>
     </div>
 
 </div>
@@ -45,7 +54,7 @@
                     <label>Mensaje:</label>
             </div>-->
     <div class="col-sm-12 col-md-12 col-lg-12">
-        <textarea id="Mensaje" class="form-control" rows="20" name="Mensaje" readonly></textarea>
+        <textarea id="inputMensaje" class="form-control" rows="20" name="Mensaje" readonly></textarea>
     </div>
 
 </div>

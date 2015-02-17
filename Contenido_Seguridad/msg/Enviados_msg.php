@@ -19,16 +19,15 @@ if ($Tipo_Usuario != 2) {
 ?>
 
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
+        E_S_msg = "2";
         $("#myTable tr").click(
-                function() {
+                function () {
                     if (bandera == false) {
-//          var column_num = parseInt($(this).index()) + 1;
-//                        var row_num = parseInt($(this).parent().index()) + 1;
-//                        $("#result").html("Row_num =" + row_num);
+
                         CambiarContenido('#contenido_msg', 'msg/Leer_msg.php');
-                        var oID= $(this).attr("id");
-                        alert(oID);
+                        Mensaje = $(this).attr("id");
+//                        alert(Mensaje);
                     }
                 });
 
@@ -67,10 +66,10 @@ if ($Tipo_Usuario != 2) {
 
                     <td><b><?php echo $Nombre_u . " " . $Appat_u . " " . $Apmat_u; ?></b></td>
 
-               
+
 
                     <td><?php echo "$Asunto"; ?></td>
-                    
+
                     <td><?php echo date_format($Fecha, 'd-m-y'); ?></td>
 
                 </tr>

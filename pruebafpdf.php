@@ -1,4 +1,3 @@
-
 <?php
 require_once './lib/fpdf/fpdf.php';
 include_once './Variables_Conexion.php';

@@ -29,6 +29,10 @@
             todayHighlight: true
         });
     });
+    function imprimir(){
+  
+    }
+    
 </script>
 
 <form action="Tabla_Reporte_Personas.php" id="FormReportePersona" method="POST" role="form">

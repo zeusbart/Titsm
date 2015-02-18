@@ -23,20 +23,17 @@
 
                 <th>Tipo</th>
                 <th>fecha</th>
-                <th>hora</th>
-                <th>Identificador Materiales</th>
-                <th>Descripcion Materiales</th>
-                <th>Cantidad</th>
-                <th>Unidad</th>
-                <th>Persona de acceso</th>          
-                <th>Razon Equipo</th>
-                <th>Usuario que lo registro</th>
+                <th>hora</th> 
+                <th>Persona de acceso</th> 
 
-                <th>Vehiculo Trasporte</th>
-
+                <th>placa</th>  
+                <th>marca</th>
+                <th>modelo</th>
+                <th>color</th>                   
+                <th>observaciones</th>                  
             </tr>
         </thead>
-        <tbody id="Tabla_Persona">            
+        <tbody id="Tabla_vehiculos">            
             <?php
             $Fecha_inicio = $_POST["Fecha_inicio"] . " " . "00:00:00";
             $Fecha_Final = $_POST["Fecha_Final"] . " " . "23:59:59";
@@ -44,30 +41,33 @@
             include_once '../Variables_Conexion.php';
             $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost, $encoding);
 //         $Consulta=$_POST[Consulta];
-            $Query = $Conexion->get_results("SELECT loges.Tipo,DATE_FORMAT( Hora_Fecha, '%d/%m/%Y' ) as fecha,
-date_format(Hora_Fecha,'%h:%i:%s %p') as hora,materiales.Identificador,materiales.Descripcion,materiales.Cantidad,materiales.Unidad, personas.Nombre as Nombre_p,personas.Appat as Appat_p
-,personas.Apmat as Apmat_p,loges.RazonEquipo,usuarios.Nombre,usuarios.Appat,usuarios.Apmat,loges.Placa FROM loges join personas ON loges.IDPersona=personas.IDPersona join materiales on 
-loges.IDMateriales=materiales.IDMateriales join usuarios on loges.IDUsuarios= usuarios.IDUsuarios 
- where Hora_Fecha>='$Fecha_inicio' and Hora_Fecha<='$Fecha_Final'
-");
+            $Query = $Conexion->get_results("SELECT 
+                                            loges.Tipo,
+                                            DATE_FORMAT(loges.Hora_Fecha, '%d/%m/%Y' ) as fecha,
+                                            DATE_FORMAT(loges.Hora_Fecha,'%h:%i:%s %p') as hora,
+                                             personas.Nombre as Nombre_p,
+                                            personas.Appat as Appat_p,
+                                            personas.Apmat as Apmat_p,
+                                            loges.Placa,
+                                            vehiculos.Marca,
+                                            vehiculos.Modelo,
+                                            vehiculos.Color,
+                                            loges.Vehiculo_Obs
+                                            from 
+                                            loges join vehiculos on loges.Placa = vehiculos.Placa join personas on loges.IDPersona=personas.                                             IDPersona where Hora_Fecha>='$Fecha_inicio' and Hora_Fecha<='$Fecha_Final'");
             if ($Query != 0) {
                 foreach ($Query as $datos) {
-
                     $Tipo = $datos->Tipo;
                     $fecha = $datos->fecha;
                     $hora = $datos->hora;
-                    $Identificador = $datos->Identificador;
-                    $Descripcion = $datos->Descripcion;
-                    $Cantidad = $datos->Cantidad;
-                    $Unidad = $datos->Unidad;
                     $Nombre_p = $datos->Nombre_p;
                     $Appat_p = $datos->Appat_p;
                     $Apmat_p = $datos->Apmat_p;
-                    $RazonEquipo = $datos->RazonEquipo;
-                    $Nombre = $datos->Nombre;
-                    $Appat = $datos->Appat;
-                    $Apmat = $datos->Apmat;
-                    $Placa = $datos->Placa;
+                    $placa = $datos->Placa;
+                    $Marca = $datos->Marca;
+                    $Modelo = $datos->Modelo;
+                    $Color = $datos->Color;
+                    $Vehiculo_Obs = $datos->Vehiculo_Obs;
                     ?>
                     <tr>
                         <td><?php
@@ -83,28 +83,19 @@ loges.IDMateriales=materiales.IDMateriales join usuarios on loges.IDUsuarios= us
                             ?></td>
                         <td><?php echo "$fecha"; ?></td>                                                       
                         <td><?php echo "$hora"; ?></td>
-                        <td><?php echo "$Identificador"; ?></td>
-                        <td><?php echo "$Descripcion"; ?></td>
-                        <td><?php echo "$Cantidad"; ?></td>
-                        <td><?php echo "$Unidad"; ?></td>
                         <td><?php echo $Nombre_p . " " . $Appat_p . " " . $Apmat_p; ?></td>
-
-                        <td><?php echo "$RazonEquipo"; ?></td>
-                        <td><?php echo $Nombre . ' ' . $Appat . ' ' . $Apmat; ?></td>
-                        <td><?php echo "$Placa"; ?></td>
-
-
-
-
+                        <td><?php echo "$placa"; ?></td>
+                        <td><?php echo "$Marca"; ?></td>
+                        <td><?php echo "$Modelo"; ?></td>
+                        <td><?php echo "$Color"; ?></td>
+                        <td><?php echo "$Vehiculo_Obs"; ?></td>
                     </tr>
-                    <?php
-                }
-            } else {
-                echo "problemas en la consulta";
-            }
-            ?>
-
-
+    <?php
+    }
+} else {
+    echo "problemas en la consulta";
+}
+?>
         </tbody>
     </table>
 </div>

@@ -1,3 +1,3 @@
-function CambiarContenido(div,pagina){
+function CambiarContenido(div, pagina) {
     $(div).load(pagina);
 }

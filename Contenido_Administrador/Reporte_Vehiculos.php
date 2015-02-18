@@ -31,8 +31,8 @@
     });
 </script>
 
-<form action="Tabla_Reporte_Personas.php" id="FormReportePersona" method="POST" role="form">
-    <legend><b>Reporte Persona Externas</b></legend>
+<form action="Tabla_Reporte_vehiculos.php" id="FormReporteVehiculos" method="POST" role="form">
+    <legend><b>Reporte Vehiculo</b></legend>
 
     <div class="form-group">
 
@@ -81,7 +81,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
 
-        $("#FormReportePersona").ajaxForm({
+        $("#FormReporteVehiculos").ajaxForm({
             type: "POST",
             target: "#resultado",
             resetForm: true

@@ -49,7 +49,7 @@ if ($Tipo_Usuario != 2) {
         include_once '../../Variables_Conexion.php';
         $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost, $encoding);
 
-        $Query = $Conexion->get_results("SELECT IDMensajes,Remitente,Estado,Asunto,Fecha,usuarios.Nombre,usuarios.Appat,usuarios.Apmat  FROM mensajes join usuarios on Remitente=IDUsuarios WHERE Receptor=$IDUsuarios AND Estado <> 3");
+        $Query = $Conexion->get_results("SELECT IDMensajes,Remitente,Estado,Asunto,Fecha,usuarios.Nombre,usuarios.Appat,usuarios.Apmat  FROM mensajes join usuarios on Remitente=IDUsuarios WHERE Receptor=$IDUsuarios AND Estado <> 3 ORDER BY Fecha DESC");
         if ($Query != 0) {
             foreach ($Query as $datos) {
                 $IDMensajes = $datos->IDMensajes;

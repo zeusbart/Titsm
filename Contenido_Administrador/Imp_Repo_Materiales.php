@@ -1,24 +1,31 @@
-<?php $html = '<table id="Tabla_Usuario" class="table table-bordered table-striped table-hover"  width="100%">
+<?php 
+$otro='<div class="col-sm-5 col-md-3">
+                        <img src="www/cerberus/img/logo_OSH.png" height="451" width="300">
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        <h1>Cerberus	<br>	<small>Sistema de control de acceso</small></h1>
+
+                    </div> <br>';
+
+$html = '<table border="1" id="Tabla_Usuario" class="table table-bordered table-striped table-hover"   width="100%">
         <thead>
             <tr class="info">
-
-                <th>Tipo</th>
-                <th>fecha</th>
-                <th>hora</th>                  
-                <th>Persona de acceso</th>  
-                <th>Telefono</th>
-                <th>Compania</th>
-                <th>Razon</th>                   
-                <th>Observacion Persona</th>                  
-                <th>Usuario que lo registro</th>
+                <td>Tipo</td>
+                <td>fecha</td>
+                <td>hora</td>                  
+                <td>Persona de acceso</td>  
+                <td>Telefono</td>
+                <td>Compania</td>
+                <td>Razon</td>                   
+                <td>Observacion Persona</td>                  
+                <td>Usuario que lo registro</td>
 
             </tr>
         </thead>
-        <tbody id="Tabla_Persona">'; ?>
-<?php
-
-$Fecha_inicio = $_POST["Fecha_inicio"] . " " . "00:00:00";
-$Fecha_Final = $_POST["Fecha_Final"] . " " . "23:59:59";
+        <tbody id="Tabla_Persona">';
+//
+//$Fecha_inicio = $_POST["Fecha_inicio"] . " " . "00:00:00";
+//$Fecha_Final = $_POST["Fecha_Final"] . " " . "23:59:59";
 //Consulta Usuario
 include_once '../Variables_Conexion.php';
 $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost, $encoding);
@@ -54,44 +61,41 @@ if ($Query != 0) {
         $Compania = $datos->Compania;
         switch ($Tipo) {
             case 0:
-                $impTipo = "Entrada";
+                $Tipo = "Entrada";
                 break;
             case 1:
-                $impTipo = "Salida";
+                $Tipo = "Salida";
                 break;
         }
-        ?>
-        <?php
         $html2 = $html2 . ' <tr>
                         <td>
-                ' . $impTipo . '
+                ' . $Tipo . '
           
                     </td>
                         <td>' . $fecha . '</td>                                                       
                         <td>' . $hora . '</td>
-                        <td>' . $Nombre_p .' " " '. $Appat_p . '" " '. $Apmat_p . '</td>
+                        <td>' . $Nombre_p .' '. $Appat_p . ' '. $Apmat_p . '</td>
                         <td>' . $Telefono . '</td>
                         <td>' . $Compania . '</td>
-                        <td>' . $Razon . 'td>
+                        <td>' . $Razon . '</td>
                         <td>' . $Observaciones . '</td>
-                        <td>' . $Nombre_u . '" " '. $Appat_u .' " " '. $Apmat_u . '</td>
+                        <td>' . $Nombre_u . ' '. $Appat_u .' '. $Apmat_u . '</td>
                     </tr>';
     }
     $html3 = '</tbody>
     </table>';
-    $codigo = $html . $html2 . $html3;
-} else {
-    $html = "problemas en la consulta";
-    $codigo = $html;
-}
-?>
-<?php
+} 
+//else {
+//    $html = "problemas en la consulta";
+//    $codigo = $html;
+//}
 require_once ("../dompdf/dompdf_config.inc.php");
-//$codigo=$html.$html2.$html3;
+$codigo = $otro.$html.$html2.$html3;
 $codigo = utf8_decode($codigo);
 $dompdf = new DOMPDF();
 $dompdf->load_html($codigo);
 ini_set("memory_limit", "32M");
+$dompdf->set_paper("letter","landscape"); 
 $dompdf->render();
 $dompdf->stream("ejemplo.pdf");
 ?>

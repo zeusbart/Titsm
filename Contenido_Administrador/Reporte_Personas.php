@@ -29,9 +29,27 @@
             todayHighlight: true
         });
     });
-    function imprimir(){
-  
+    var hora_inicio=0;
+    var hora_final=0;
+    function  setdatos(){
+        hora_inicio=$("#InputFecha_inicio").val();
+        hora_final=$("#InputFecha_Final").val();
+        alert(hora_inicio+hora_final);
+            
     }
+//    function imprimir(){
+//             $.ajax({
+//            url: "Imp_Repo_Materiales.php",
+//            data: {"hora_inicio": hora_inicio, "hora_final": hora_final},
+//            type: "POST",
+//            dataType: "json",
+//         
+//                    error:function (){
+//                        alert("error");
+//                         
+//                    }                            
+//        });
+//    }
     
 </script>
 
@@ -45,6 +63,7 @@
                 <label>Fecha de inicio:</label>
             </div>
             <div class=" col-xs-6 col-sm-3 col-md-2 col-lg-2">
+                
                 <input type="text" name="Fecha_inicio" id="InputFecha_inicio"  class="form-control"  required="required">
             </div>
 
@@ -68,7 +87,7 @@
         <div class="row">
             <div class="col-sm-offset-3 col-md-offset-6 col-lg-5">
 
-                <button type="submit" class="btn btn-primary">Consultar</button>
+                <button type="submit" onclick="setdatos()" class="btn btn-primary">Consultar</button>
             </div>
 
         </div>

@@ -1,31 +1,28 @@
 <?php 
-$otro='<div class="col-sm-5 col-md-3">
-                        <img src="www/cerberus/img/logo_OSH.png" height="451" width="300">
-                    </div>
-                    <div class="col-sm-6 col-md-6">
-                        <h1>Cerberus	<br>	<small>Sistema de control de acceso</small></h1>
+$otro='   <div class="col-sm-6 col-md-6">
+                        <h1>Cerberus	<br>	<small>Reporte Persona Externas</small></h1>
 
                     </div> <br>';
 
 $html = '<table border="1" id="Tabla_Usuario" class="table table-bordered table-striped table-hover"   width="100%">
         <thead>
             <tr class="info">
-                <td>Tipo</td>
-                <td>fecha</td>
-                <td>hora</td>                  
-                <td>Persona de acceso</td>  
-                <td>Telefono</td>
-                <td>Compania</td>
-                <td>Razon</td>                   
-                <td>Observacion Persona</td>                  
-                <td>Usuario que lo registro</td>
+                <td><b>Tipo</b></td>
+                <td><b>Fecha</b></td>
+                <td><b>Hora</b></td>                  
+                <td><b>Persona de acceso</b></td>  
+                <td><b>Telefono</b></td>
+                <td><b>Compania</b></td>
+                <td><b>Razon</b></td>                   
+                <td><b>Observacion Persona</b></td>                  
+                <td><b>Usuario que lo registro</b></td>
 
             </tr>
         </thead>
         <tbody id="Tabla_Persona">';
 //
-//$Fecha_inicio = $_POST["Fecha_inicio"] . " " . "00:00:00";
-//$Fecha_Final = $_POST["Fecha_Final"] . " " . "23:59:59";
+$Fecha_inicio = $_GET["Fecha_inicio"] . " " . "00:00:00";
+$Fecha_Final = $_GET["Fecha_Final"] . " " . "23:59:59";
 //Consulta Usuario
 include_once '../Variables_Conexion.php';
 $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost, $encoding);
@@ -43,7 +40,7 @@ $Query = $Conexion->get_results("SELECT loges.Tipo,
                                             personas.Apmat as Apmat_p,
                                             personas.Telefono,
                                             personas.Compania 
-                                            from loges join Usuarios on loges.IDUsuarios=usuarios.IDUsuarios join personas on loges.IDPersona=personas.IDPersona where Hora_Fecha>='2015-02-01 00:00:00' and Hora_Fecha<='2015-04-04 23:59:59'");
+                                            from loges join Usuarios on loges.IDUsuarios=usuarios.IDUsuarios join personas on loges.IDPersona=personas.IDPersona where Hora_Fecha>=$Fecha_inicio and Hora_Fecha<=$Fecha_Final");
 if ($Query != 0) {
     foreach ($Query as $datos) {
         $Tipo = $datos->Tipo;

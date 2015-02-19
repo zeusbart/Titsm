@@ -15,7 +15,8 @@
         });
     });
 </script> 
-<button type="button" onclick="imprimir()" class="btn btn-success">Imprimir</button>
+<!--<button type="button" onclick="imprimir()" class="btn btn-success">Imprimir</button>-->
+
 <div class="table-responsive" id="tabla">
     <table id="Tabla_Usuario" class="table table-bordered table-striped table-hover"  width="100%">
         <thead>
@@ -101,3 +102,4 @@
         </tbody>
     </table>
 </div>
+<a href="Imp_Repo_Materiales.php?Fecha_inicio=2015-02-01&Fecha_Final=2015-04-04">Paso varibles por URL</a> 

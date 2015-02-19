@@ -8,5 +8,5 @@ $bdhost = "localhost";
 $encoding = "utf8";
 
 //conexion bd checador
-$bdnombre2 = "checador";
+//$bdnombre2 = "checador";
 ?>

@@ -29,17 +29,18 @@
             todayHighlight: true
         });
     });
-    var hora_inicio=0;
-    var hora_final=0;
+    var fecha_inicio=0;
+    var fecha_final=0;
     function  setdatos(){
-        hora_inicio=$("#InputFecha_inicio").val();
-        hora_final=$("#InputFecha_Final").val();
+        fecha_inicio=$("#InputFecha_inicio").val();
+        fecha_final=$("#InputFecha_Final").val();
         alert(hora_inicio+hora_final);
-            
+//            $("#hInputFecha_inicio").val(fecha_inicio);
+//            $("#hInputFecha_Final").val(fecha_final);
     }
 //    function imprimir(){
 //             $.ajax({
-//            url: "Imp_Repo_Materiales.php",
+//            url: "Imp_Repo_Personas.php",
 //            data: {"hora_inicio": hora_inicio, "hora_final": hora_final},
 //            type: "POST",
 //            dataType: "json",
@@ -50,8 +51,12 @@
 //                    }                            
 //        });
 //    }
-    
+//    
 </script>
+
+<!--    <input type="hidden" name="hFecha_inicio" id="hiddenFecha_inicio"  class="form-control">
+    <input type="hidden" name="hFecha_Final" id="hiddenFecha_Final"  class="form-control"  >
+ -->
 
 <form action="Tabla_Reporte_Personas.php" id="FormReportePersona" method="POST" role="form">
     <legend><b>Reporte Persona Externas</b></legend>

@@ -15,6 +15,7 @@ if ($Tipo_Usuario != 1) {
     echo '<script type="text/javascript">
                     window.location="../index.php";
                 </script>';
+    alert("se cae");
 }
 ?>
 <!DOCTYPE html>

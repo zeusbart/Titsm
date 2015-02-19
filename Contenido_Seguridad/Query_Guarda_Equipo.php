@@ -1,6 +1,7 @@
 <?php
 session_start();
 if (!$_SESSION) {
+//    echo '<script>alert() </script>';
     echo '<script type="text/javascript">
                     window.location="../index.php";
                 </script>';

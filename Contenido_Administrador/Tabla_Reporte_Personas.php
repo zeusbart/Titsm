@@ -102,4 +102,4 @@
         </tbody>
     </table>
 </div>
-<a href="Imp_Repo_Materiales.php?Fecha_inicio=2015-02-01&Fecha_Final=2015-04-04">Paso varibles por URL</a> 
+<?php echo "<a href='Imp_Repo_Personas.php?Fecha_inicio=$Fecha_inicio&Fecha_Final=$Fecha_Final'>Imprimir Reporte</a>"?>

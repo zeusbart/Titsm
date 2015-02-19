@@ -108,3 +108,4 @@ loges.IDMateriales=materiales.IDMateriales join usuarios on loges.IDUsuarios= us
         </tbody>
     </table>
 </div>
+<?php echo "<a href='Imp_Repo_Materiales.php?Fecha_inicio=$Fecha_inicio&Fecha_Final=$Fecha_Final'>Imprimir Reporte</a>"?>

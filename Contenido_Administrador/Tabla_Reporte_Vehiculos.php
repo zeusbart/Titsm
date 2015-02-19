@@ -99,3 +99,4 @@
         </tbody>
     </table>
 </div>
+<?php echo "<a href='Imp_Repo_Vehiculos.php?Fecha_inicio=$Fecha_inicio&Fecha_Final=$Fecha_Final'>Imprimir Reporte</a>"?>

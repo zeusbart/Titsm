@@ -1,5 +1,4 @@
 <?php
-
 $otro = '   <div class="col-sm-6 col-md-6">
                         <h1>Cerberus	<br>	<small>Reporte Materiales</small></h1>
 
@@ -7,18 +6,18 @@ $otro = '   <div class="col-sm-6 col-md-6">
 $html = '<table border="1" id="Tabla_Usuario" class="table table-bordered table-striped table-hover"  width="100%">
         <thead>
             <tr class="info">
-                <th>Tipo</th>
-                <th>fecha</th>
-                <th>hora</th>
-                <th>Identificador Materiales</th>
-                <th>Descripcion Materiales</th>
-                <th>Cantidad</th>
-                <th>Unidad</th>
-                <th>Persona de acceso</th>          
-                <th>Razon Equipo</th>
-                <th>Usuario que lo registro</th>
+                <td><b>Tipo</b></td>
+                <td><b>fecha</b></td>
+                <td><b>hora</b></td>
+                <td><b>Identificador Materiales</b></td>
+                <td><b>Descripcion Materiales</b></td>
+                <td><b>Cantidad</b></td>
+                <td><b>Unidad</b></td>
+                <td><b>Persona de acceso</b></td>          
+                <td><b>Razon Equipo</b></td>
+                <td><b>Usuario que lo registro</b></td>
 
-                <th>Vehiculo Trasporte</th>
+                <td><b>Vehiculo Trasporte</b></td>
 
             </tr>
         </thead>

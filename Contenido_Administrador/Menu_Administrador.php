@@ -133,8 +133,8 @@ if ($Tipo_Usuario != 1) {
                                 <li><a href="#" onclick="CambiarContenido('#contenido', 'Reporte_Personas.php')">Log Personas Externas</a></li>
                                 <li class="divider"></li>
                                 <li><a href="#" onclick="CambiarContenido('#contenido', 'Reporte_Vehiculos.php')">Log Vehiculos</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#" onclick="CambiarContenido('#contenido', 'Reporte_Checador.php')">Reporte checador</a></li>	
+                                <!--<li class="divider"></li>-->
+                                <!--<li><a href="#" onclick="CambiarContenido('#contenido', 'Reporte_Checador.php')">Reporte checador</a></li>-->	
                             </ul>
                         </li>
                         <li><a href="#" onclick="CambiarContenido('#contenido', 'Anotaciones.php')" >Mensajes <span class="badge"><div id="Resultado_Contador"></div></span></a></li>

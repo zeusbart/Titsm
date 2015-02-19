@@ -1,5 +1,5 @@
-<?php 
-$otro='   <div class="col-sm-6 col-md-6">
+<?php
+$otro = '   <div class="col-sm-6 col-md-6">
                         <h1>Cerberus	<br>	<small>Reporte Persona Externas</small></h1>
 
                     </div> <br>';
@@ -71,28 +71,28 @@ if ($Query != 0) {
                     </td>
                         <td>' . $fecha . '</td>                                                       
                         <td>' . $hora . '</td>
-                        <td>' . $Nombre_p .' '. $Appat_p . ' '. $Apmat_p . '</td>
+                        <td>' . $Nombre_p . ' ' . $Appat_p . ' ' . $Apmat_p . '</td>
                         <td>' . $Telefono . '</td>
                         <td>' . $Compania . '</td>
                         <td>' . $Razon . '</td>
                         <td>' . $Observaciones . '</td>
-                        <td>' . $Nombre_u . ' '. $Appat_u .' '. $Apmat_u . '</td>
+                        <td>' . $Nombre_u . ' ' . $Appat_u . ' ' . $Apmat_u . '</td>
                     </tr>';
     }
     $html3 = '</tbody>
     </table>';
-} 
+}
 //else {
 //    $html = "problemas en la consulta";
 //    $codigo = $html;
 //}
 require_once ("../dompdf/dompdf_config.inc.php");
-$codigo = $otro.$html.$html2.$html3;
+$codigo = $otro . $html . $html2 . $html3;
 $codigo = utf8_decode($codigo);
 $dompdf = new DOMPDF();
 $dompdf->load_html($codigo);
 ini_set("memory_limit", "32M");
-$dompdf->set_paper("letter","landscape"); 
+$dompdf->set_paper("letter", "landscape");
 $dompdf->render();
-$dompdf->stream("ejemplo.pdf");
+$dompdf->stream("Reporte Personas.pdf");
 ?>

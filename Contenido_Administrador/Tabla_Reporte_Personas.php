@@ -15,8 +15,9 @@
         });
     });
 </script> 
+<!--<button type="button" onclick="imprimir()" class="btn btn-success">Imprimir</button>-->
 
-<div class="table-responsive">
+<div class="table-responsive" id="tabla">
     <table id="Tabla_Usuario" class="table table-bordered table-striped table-hover"  width="100%">
         <thead>
             <tr class='info'>
@@ -101,3 +102,4 @@
         </tbody>
     </table>
 </div>
+<?php echo "<a href='Imp_Repo_Personas.php?Fecha_inicio=$Fecha_inicio&Fecha_Final=$Fecha_Final'>Imprimir Reporte</a>"?>

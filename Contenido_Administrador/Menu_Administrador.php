@@ -15,6 +15,7 @@ if ($Tipo_Usuario != 1) {
     echo '<script type="text/javascript">
                     window.location="../index.php";
                 </script>';
+    alert("se cae");
 }
 ?>
 <!DOCTYPE html>
@@ -50,6 +51,26 @@ if ($Tipo_Usuario != 1) {
 
 
         <script src="menu.js"></script>
+         <script>
+            $(document).ready(function() {
+                Mensajes_Nuevos();
+                        function Mensajes_Nuevos() {
+//                            var Usuario = "Usuario=" + ;
+                            $.ajax({
+                                url: "Contador_Mensajes.php",
+//                                data: Usuario,
+                                type: "POST",
+                                dataType: "json",
+                                success:
+                                        function(respuesta)
+                                        {
+                                            $("#Resultado_Contador").text(respuesta.Contador);
+                                        }
+                            });
+                        }
+                setInterval(Mensajes_Nuevos, 5000);
+            });
+        </script>
     </head>
     <body>
         <div class="container">
@@ -65,7 +86,7 @@ if ($Tipo_Usuario != 1) {
                     </div>
                     <div class="col-sm-6 col-md-3">
                         <p class="nusuario">
-<?php echo "Usuario: " . $Nombre . " " . $Appat . " " . $Apmat; ?>
+                            <?php echo "Usuario: " . $Nombre . " " . $Appat . " " . $Apmat; ?>
                         </p>
                     </div>
                 </div>
@@ -112,11 +133,11 @@ if ($Tipo_Usuario != 1) {
                                 <li><a href="#" onclick="CambiarContenido('#contenido', 'Reporte_Personas.php')">Log Personas Externas</a></li>
                                 <li class="divider"></li>
                                 <li><a href="#" onclick="CambiarContenido('#contenido', 'Reporte_Vehiculos.php')">Log Vehiculos</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#" onclick="CambiarContenido('#contenido', 'Reporte_Checador.php')">Reporte checador</a></li>	
+                                <!--<li class="divider"></li>-->
+                                <!--<li><a href="#" onclick="CambiarContenido('#contenido', 'Reporte_Checador.php')">Reporte checador</a></li>-->	
                             </ul>
                         </li>
-                        
+                        <li><a href="#" onclick="CambiarContenido('#contenido', 'Anotaciones.php')" >Mensajes <span class="badge"><div id="Resultado_Contador"></div></span></a></li>
 
                     </ul>
 

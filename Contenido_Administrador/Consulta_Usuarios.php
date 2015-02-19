@@ -17,7 +17,7 @@
 </script> 
 
 
-<legend><b>Modificar Usuario</b></legend>
+<legend><b>Consultar Usuarios</b></legend>
 <div class="table-responsive">
     <div class="col-sm-12 col-md-offset-2 col-md-8 col-lg-8">
 

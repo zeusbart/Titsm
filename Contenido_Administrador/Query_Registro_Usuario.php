@@ -5,11 +5,11 @@ if (!$_SESSION) {
                     window.location="../index.php";
                 </script>';
 }
-$IDUsuarios = $_SESSION['IDUsuarios'];
-$Nombre = $_SESSION['Nombre'];
-$Appat = $_SESSION['Appat'];
-$Tipo_Usuario = $_SESSION['Tipo_Usuario'];
-if ($Tipo_Usuario != 1) {
+$IDUsuarios_session= $_SESSION['IDUsuarios'];
+$Nombre_session = $_SESSION['Nombre'];
+$Appat_session = $_SESSION['Appat'];
+$Tipo_Usuario_session = $_SESSION['Tipo_Usuario'];
+if ($Tipo_Usuario_session != 1) {
     session_destroy();
     echo '<script type="text/javascript">
                     window.location="../index.php";
@@ -18,12 +18,12 @@ if ($Tipo_Usuario != 1) {
 include_once '../Variables_Conexion.php';
 $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost, $encoding);
 $Conexion2 = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost, $encoding);
-$Nombre = $_POST[Nombre];
-$Appat = $_POST[Appat];
-$Apmat = $_POST[Apmat];
+$Nombre_post = $_POST[Nombre];
+$Appat_post = $_POST[Appat];
+$Apmat_post = $_POST[Apmat];
 $Pass = md5($_POST[Pass]);
 $Tipo = $_POST[Tipo];
-$Agregar_Usuario = $Conexion->query("Insert into usuarios set Contrasena='$Pass',Tipo='$Tipo',Nombre='$Nombre',Appat='$Appat',Apmat='$Apmat'");
+$Agregar_Usuario = $Conexion->query("Insert into usuarios set Contrasena='$Pass',Tipo='$Tipo',Nombre='$Nombre_post',Appat='$Appat_post',Apmat='$Apmat_post'");
 //  $ID            $Conexion ->get_row("Select IDUsuarios from usuarios ORDER BY IDUsuarios DESC");
 $ImprimirID = mysql_insert_id();
 

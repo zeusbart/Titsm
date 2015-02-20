@@ -5,17 +5,27 @@ if (!$_SESSION) {
                     window.location="../index.php";
                 </script>';
 }
+$IDUsuarios_session= $_SESSION['IDUsuarios'];
+$Nombre_session = $_SESSION['Nombre'];
+$Appat_session = $_SESSION['Appat'];
+$Tipo_Usuario_session = $_SESSION['Tipo_Usuario'];
+if ($Tipo_Usuario_session != 1) {
+    session_destroy();
+    echo '<script type="text/javascript">
+                    window.location="../index.php";
+                </script>';
+}
 include_once '../Variables_Conexion.php';
 $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost, $encoding);
 
 $hiddenIDUsuarios = $_POST["hiddenIDUsuarios"];
-$Nombre = $_POST["Nombre"];
-$Appat = $_POST["Appat"];
-$Apmat = $_POST["Apmat"];
+$Nombre_post = $_POST["Nombre"];
+$Appat_post = $_POST["Appat"];
+$Apmat_post = $_POST["Apmat"];
 $Pass = md5($_POST["Pass"]);
 $Tipo = $_POST["Tipo"];
 
-$Actualizar_Usuario = $Conexion->query("update usuarios set Nombre='$Nombre',Appat='$Appat',Apmat='$Apmat',Contrasena='$Pass',Tipo='$Tipo' where IDUsuarios='$hiddenIDUsuarios'");
+$Actualizar_Usuario = $Conexion->query("update usuarios set Nombre='$Nombre_post',Appat='$Appat_post',Apmat='$Apmat_post',Contrasena='$Pass',Tipo='$Tipo' where IDUsuarios='$hiddenIDUsuarios'");
 
 if ($Actualizar_Usuario == 1) {//comprobamos que se guardo el registro
     echo "  <div class='row'>

@@ -4,7 +4,7 @@ $otro = '   <div class="col-sm-6 col-md-6">
 
                     </div> <br>';
 $html = '<table border="1" id="Tabla_Usuario" class="table table-bordered table-striped table-hover"  width="100%">
-        <thead>
+        
             <tr class="info">
                <td><b>Tipo</b></td>
                <td><b>fecha</b></td>
@@ -16,8 +16,8 @@ $html = '<table border="1" id="Tabla_Usuario" class="table table-bordered table-
                <td><b>color</b></td>                   
                <td><b>observaciones</b></td>                  
             </tr>
-        </thead>
-        <tbody id="Tabla_vehiculos">';
+        
+       ';
 
 $Fecha_inicio = $_GET["Fecha_inicio"] . " " . "00:00:00";
 $Fecha_Final = $_GET["Fecha_Final"] . " " . "23:59:59";
@@ -77,7 +77,7 @@ if ($Query != 0) {
                         <td> ' . $Vehiculo_Obs . '</td>
                     </tr>';
     }
-    $html3 = '  </tbody>
+    $html3 = '
     </table>';
 }
 //else {

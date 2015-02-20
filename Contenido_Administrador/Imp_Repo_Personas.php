@@ -5,7 +5,7 @@ $otro = '   <div class="col-sm-6 col-md-6">
                     </div> <br>';
 
 $html = '<table border="1" id="Tabla_Usuario" class="table table-bordered table-striped table-hover"   width="100%">
-        <thead>
+        
             <tr class="info">
                 <td><b>Tipo</b></td>
                 <td><b>Fecha</b></td>
@@ -18,8 +18,8 @@ $html = '<table border="1" id="Tabla_Usuario" class="table table-bordered table-
                 <td><b>Usuario que lo registro</b></td>
 
             </tr>
-        </thead>
-        <tbody id="Tabla_Persona">';
+       
+        ';
 //
 $Fecha_inicio = $_GET["Fecha_inicio"];
 $Fecha_Final = $_GET["Fecha_Final"];
@@ -79,7 +79,7 @@ if ($Query != 0) {
                         <td>' . $Nombre_u . ' ' . $Appat_u . ' ' . $Apmat_u . '</td>
                     </tr>';
     }
-    $html3 = '</tbody>
+    $html3 = '
     </table>';
 }
 //else {

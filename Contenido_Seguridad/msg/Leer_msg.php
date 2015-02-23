@@ -1,8 +1,6 @@
 <script>
     $(document).ready(function () {
-//        var dato = "{Mensaje:" + Mensajes",E_S_msg:"+E_S_msg"}";
-//        var dato=JSON.stringify({ Mensaje: Mensajes,E_S_msg:E_S_msg });
-//        alert(Mensaje);
+
         $.ajax({
             url: "msg/Query_Leer_msg.php",
             data: {"Mensaje":Mensaje,"E_S_msg":E_S_msg},

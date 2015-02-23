@@ -20,13 +20,13 @@ $html = '<table border="1" id="Tabla_Usuario" class="table table-bordered table-
             </tr>
        
         ';
-//
+
 $Fecha_inicio = $_GET["Fecha_inicio"];
 $Fecha_Final = $_GET["Fecha_Final"];
 //Consulta Usuario
 include_once '../Variables_Conexion.php';
 $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost, $encoding);
-//         $Consulta=$_POST[Consulta];
+
 $Query = $Conexion->get_results("SELECT loges.Tipo,
                                             DATE_FORMAT(Hora_Fecha, '%d/%m/%Y' ) as fecha,
                                             DATE_FORMAT(Hora_Fecha,'%h:%i:%s %p') as hora,
@@ -82,10 +82,7 @@ if ($Query != 0) {
     $html3 = '
     </table>';
 }
-//else {
-//    $html = "problemas en la consulta";
-//    $codigo = $html;
-//}
+
 require_once ("../dompdf/dompdf_config.inc.php");
 $codigo = $otro . $html . $html2 . $html3;
 $codigo = utf8_decode($codigo);

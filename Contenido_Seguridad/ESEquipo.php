@@ -14,7 +14,6 @@
                 $("#inputMarca").prop('required', true);
                 $("#inputModelo").prop('required', true);
                 $("#inputColor").prop('required', true);
-//          $("#inputBuscar").prop('disabled', false);
                 $("#inputBuscar").show();
                 $("#inputLimpiar").show();
             } else {
@@ -88,9 +87,6 @@
                         target: "#resultado",
                         success: function() {
 
-//                    $("#check").prop('checked',true);  
-
-//                   $('#collapseOne').collapse('hide');
                             LimpiarCamposEquipos();
                             LimpiarCamposPersona();
                             LimpiarCamposVehiculos();
@@ -186,7 +182,7 @@
             success:
                     function(respuesta)
                     {
-                        // alert(respuesta);
+                      
                         $('#ModalPersona').modal('hide');
                         $('#hiddenidPersona').val(respuesta.IDPersona);
                         $("#inputNombre").val(respuesta.Nombre);

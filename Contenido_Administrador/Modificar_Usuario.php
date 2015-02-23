@@ -2,7 +2,7 @@
     $(document).ready(function() {
         $("#EnviarDatos").click(function() {
             var DatosForm = $('#Modificar_Usuario').serialize();
-//          alert(DatosForm);
+
             $("#Modificar_Usuario").ajaxForm(
                     {
                         url: "Query_Modifica_Usuario.php",
@@ -28,7 +28,6 @@
     function CargarBusquedaUsuario(IDUsuarios)
     {
         var Usuarios = "IDUsuarios=" + IDUsuarios;
-//        alert(Usuarios);
         $.ajax({
             url: "Query_Busqueda_Usuarios.php",
             data: Usuarios,
@@ -37,7 +36,7 @@
             success:
                     function(respuesta)
                     {
-                        // alert(respuesta);
+                   
                         $('#ModalUsuario').modal('hide');
                         $('#inputhiddenIDUsuarios').val(respuesta.IDUsuarios);
                         $('#inputIDUsuarios').val(respuesta.IDUsuarios);

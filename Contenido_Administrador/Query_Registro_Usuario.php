@@ -25,7 +25,7 @@ $Apmat_post = $_POST[Apmat];
 $Pass = md5($_POST[Pass]);
 $Tipo = $_POST[Tipo];
 $Agregar_Usuario = $Conexion->query("Insert into usuarios set Contrasena='$Pass',Tipo='$Tipo',Nombre='$Nombre_post',Appat='$Appat_post',Apmat='$Apmat_post'");
-//  $ID            $Conexion ->get_row("Select IDUsuarios from usuarios ORDER BY IDUsuarios DESC");
+
 $ImprimirID = mysql_insert_id();
 
 if ($Agregar_Usuario == 1) {

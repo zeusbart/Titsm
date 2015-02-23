@@ -30,10 +30,9 @@
         </thead>
         <tbody id="Tabla_Persona">            
             <?php
-            //Consulta Usuario
+           
             include_once '../Variables_Conexion.php';
             $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost, $encoding);
-//         $Consulta=$_POST[Consulta];
             $Query = $Conexion->get_results("select * from usuarios");
             if ($Query != 0) {
                 foreach ($Query as $datos) {

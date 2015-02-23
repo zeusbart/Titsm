@@ -25,7 +25,7 @@ $Fecha_Final = $_GET["Fecha_Final"] . " " . "23:59:59";
 //Consulta Usuario
 include_once '../Variables_Conexion.php';
 $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost, $encoding);
-//         $Consulta=$_POST[Consulta];
+
 $Query = $Conexion->get_results("SELECT 
                                             loges.Tipo,
                                             DATE_FORMAT(loges.Hora_Fecha, '%d/%m/%Y' ) as fecha,
@@ -80,9 +80,6 @@ if ($Query != 0) {
     $html3 = '
     </table>';
 }
-//else {
-//    echo "problemas en la consulta";
-//}
 require_once ("../dompdf/dompdf_config.inc.php");
 $codigo = $otro . $html . $html2 . $html3;
 $codigo = utf8_decode($codigo);

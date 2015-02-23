@@ -1,6 +1,6 @@
 
 <script type="text/javascript">
-    // When the document is ready
+  
     $(document).ready(function() {
         $.fn.datepicker.dates [ 'es' ] = {
             days: ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"],

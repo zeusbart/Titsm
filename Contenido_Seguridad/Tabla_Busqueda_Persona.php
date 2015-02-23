@@ -36,7 +36,7 @@
             //Consulta Usuario
             include_once '../Variables_Conexion.php';
             $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost, $encoding);
-//         $Consulta=$_POST[Consulta];
+
 
             $Query = $Conexion->get_results("select * from personas");
 

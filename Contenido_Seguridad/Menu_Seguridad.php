@@ -46,10 +46,10 @@ if ($Tipo_Usuario_session != 2) {
             $(document).ready(function() {
                 Mensajes_Nuevos();
                         function Mensajes_Nuevos() {
-//                            var Usuario = "Usuario=" + ;
+
                             $.ajax({
                                 url: "Contador_Mensajes.php",
-//                                data: Usuario,
+
                                 type: "POST",
                                 dataType: "json",
                                 success:

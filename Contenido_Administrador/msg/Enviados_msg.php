@@ -27,7 +27,6 @@ if ($Tipo_Usuario_session != 1) {
 
                         CambiarContenido('#contenido_msg', 'msg/Leer_msg.php');
                         Mensaje = $(this).attr("id");
-//                        alert(Mensaje);
                     }
                 });
 

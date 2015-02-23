@@ -40,10 +40,10 @@
             <?php
             $Fecha_inicio = $_POST["Fecha_inicio"] . " " . "00:00:00";
             $Fecha_Final = $_POST["Fecha_Final"] . " " . "23:59:59";
-            //Consulta Usuario
+           
             include_once '../Variables_Conexion.php';
             $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost, $encoding);
-//         $Consulta=$_POST[Consulta];
+
             $Query = $Conexion->get_results("SELECT loges.Tipo,DATE_FORMAT( Hora_Fecha, '%d/%m/%Y' ) as fecha,
 date_format(Hora_Fecha,'%h:%i:%s %p') as hora,materiales.Identificador,materiales.Descripcion,materiales.Cantidad,materiales.Unidad, personas.Nombre as Nombre_p,personas.Appat as Appat_p
 ,personas.Apmat as Apmat_p,loges.RazonEquipo,usuarios.Nombre,usuarios.Appat,usuarios.Apmat,loges.Placa FROM loges join personas ON loges.IDPersona=personas.IDPersona join materiales on 

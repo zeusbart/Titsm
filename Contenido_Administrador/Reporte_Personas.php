@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    // When the document is ready
+    
     $(document).ready(function() {
         $.fn.datepicker.dates [ 'es' ] = {
             days: ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"],
@@ -35,28 +35,8 @@
         fecha_inicio=$("#InputFecha_inicio").val();
         fecha_final=$("#InputFecha_Final").val();
         alert(hora_inicio+hora_final);
-//            $("#hInputFecha_inicio").val(fecha_inicio);
-//            $("#hInputFecha_Final").val(fecha_final);
-    }
-//    function imprimir(){
-//             $.ajax({
-//            url: "Imp_Repo_Personas.php",
-//            data: {"hora_inicio": hora_inicio, "hora_final": hora_final},
-//            type: "POST",
-//            dataType: "json",
-//         
-//                    error:function (){
-//                        alert("error");
-//                         
-//                    }                            
-//        });
-//    }
-//    
-</script>
 
-<!--    <input type="hidden" name="hFecha_inicio" id="hiddenFecha_inicio"  class="form-control">
-    <input type="hidden" name="hFecha_Final" id="hiddenFecha_Final"  class="form-control"  >
- -->
+</script>
 
 <form action="Tabla_Reporte_Personas.php" id="FormReportePersona" method="POST" role="form">
     <legend><b>Reporte Persona Externas</b></legend>

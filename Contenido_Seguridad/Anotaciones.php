@@ -15,9 +15,9 @@
             success:
                     function()
                     {
-//                      alert(Fila_Mensaje);
+
                         $("table#myTable tr#" + i).remove();
-//                        alert(Fila_tabla);
+
                         if (Fila_tabla <= 2) {
                             CambiarContenido('#contenido_msg', 'msg/Entrada_msg.php');
                         }

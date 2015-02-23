@@ -18,7 +18,6 @@ if ($Tipo_Usuario_session != 2) {
 }
 include_once '../Variables_Conexion.php';
 $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost, $encoding);
-//$IDUsuarios = $_SESSION['IDUsuarios'];
 $PassActual = md5($_POST["PassActual"]);
 $PassNueva = md5($_POST["PassNueva"]);
 $Actualizar_Usuario = $Conexion->query("update usuarios set Contrasena='$PassNueva' where IDUsuarios='$IDUsuarios_session' and Contrasena='$PassActual'");

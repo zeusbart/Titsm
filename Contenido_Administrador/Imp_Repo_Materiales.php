@@ -27,7 +27,7 @@ $Fecha_Final = $_GET["Fecha_Final"];
 //Consulta Usuario
 include_once '../Variables_Conexion.php';
 $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost, $encoding);
-//         $Consulta=$_POST[Consulta];
+
 $Query = $Conexion->get_results("SELECT loges.Tipo,DATE_FORMAT( Hora_Fecha, '%d/%m/%Y' ) as fecha,
 date_format(Hora_Fecha,'%h:%i:%s %p') as hora,materiales.Identificador,materiales.Descripcion,materiales.Cantidad,materiales.Unidad, personas.Nombre as Nombre_p,personas.Appat as Appat_p
 ,personas.Apmat as Apmat_p,loges.RazonEquipo,usuarios.Nombre,usuarios.Appat,usuarios.Apmat,loges.Placa FROM loges join personas ON loges.IDPersona=personas.IDPersona join materiales on 
@@ -79,9 +79,7 @@ if ($Query != 0) {
     $html3 = '
     </table>';
 }
-//            else {
-//                echo "problemas en la consulta";
-//            }
+
 
 require_once ("../dompdf/dompdf_config.inc.php");
 $codigo = $otro . $html . $html2 . $html3;

@@ -27,7 +27,6 @@ if ($Tipo_Usuario_session != 2) {
 
                         CambiarContenido('#contenido_msg', 'msg/Leer_msg.php');
                         Mensaje = $(this).attr("id");
-//                        alert(Mensaje);
                     }
                 });
 
@@ -49,7 +48,7 @@ if ($Tipo_Usuario_session != 2) {
         //Consulta Usuario
         include_once '../../Variables_Conexion.php';
         $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost, $encoding);
-//         $Consulta=$_POST[Consulta];
+
         $Query = $Conexion->get_results("SELECT IDMensajes,Receptor,Estado,Asunto,Fecha,usuarios.Nombre,usuarios.Appat,usuarios.Apmat  FROM mensajes join usuarios on Receptor=IDUsuarios WHERE Remitente=$IDUsuarios_session  ORDER BY Fecha DESC");
         if ($Query != 0) {
             foreach ($Query as $datos) {

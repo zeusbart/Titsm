@@ -37,10 +37,8 @@
             <?php
             $Fecha_inicio = $_POST["Fecha_inicio"] . " " . "00:00:00";
             $Fecha_Final = $_POST["Fecha_Final"] . " " . "23:59:59";
-            //Consulta Usuario
             include_once '../Variables_Conexion.php';
             $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost, $encoding);
-//         $Consulta=$_POST[Consulta];
             $Query = $Conexion->get_results("SELECT 
                                             loges.Tipo,
                                             DATE_FORMAT(loges.Hora_Fecha, '%d/%m/%Y' ) as fecha,

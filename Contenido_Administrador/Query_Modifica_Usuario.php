@@ -28,7 +28,7 @@ $Tipo = $_POST["Tipo"];
 
 $Actualizar_Usuario = $Conexion->query("update usuarios set Nombre='$Nombre_post',Appat='$Appat_post',Apmat='$Apmat_post',Contrasena='$Pass',Tipo='$Tipo' where IDUsuarios='$hiddenIDUsuarios'");
 
-if ($Actualizar_Usuario == 1) {//comprobamos que se guardo el registro
+if ($Actualizar_Usuario == 1) {
     echo "  <div class='row'>
                     <div class='col-sm-5 col-md-offset-4 col-lg-5'>
                         <div class='alert alert-success'>
@@ -46,5 +46,5 @@ if ($Actualizar_Usuario == 1) {//comprobamos que se guardo el registro
                 </div>
                 </div>
                 </div>";
-}//fin else comprobacion registro Persona
+}
 ?>

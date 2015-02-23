@@ -1,5 +1,4 @@
 <?php
-
 include_once '../../Variables_Conexion.php';
 $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost, $encoding);
 $Mensaje = $_POST["Mensaje"];

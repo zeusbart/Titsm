@@ -2,18 +2,18 @@
 session_start();
 if (!$_SESSION) {
     echo '<script type="text/javascript">
-                    window.location="../index.php";
+                    window.location="../../index.php";
                 </script>';
 }
-$IDUsuarios = $_SESSION['IDUsuarios'];
-$Nombre = $_SESSION['Nombre'];
-$Appat = $_SESSION['Appat'];
-$Apmat = $_SESSION['Apmat'];
-$Tipo_Usuario = $_SESSION['Tipo_Usuario'];
-if ($Tipo_Usuario != 2) {
+$IDUsuarios_session= $_SESSION['SesionIDUsuarios'];
+$Nombre_session = $_SESSION['SesionNombre'];
+$Appat_session = $_SESSION['SesionAppat'];
+$Apmat_session=$_SESSION['SesionApmat'];
+$Tipo_Usuario_session = $_SESSION['SesionTipo_Usuario'];
+if ($Tipo_Usuario_session != 2) {
     session_destroy();
     echo '<script type="text/javascript">
-                    window.location="../index.php";
+                    window.location="../../index.php";
                 </script>';
 }
 ?>
@@ -48,7 +48,7 @@ if ($Tipo_Usuario != 2) {
             include_once '../../Variables_Conexion.php';
             $Conexion = new ezSQL_mysql($bdusuario, $bdpass, $bdnombre, $bdhost, $encoding);
 
-            $Query = $Conexion->get_results("SELECT IDMensajes,Remitente,Estado,Asunto,Fecha,usuarios.Nombre,usuarios.Appat,usuarios.Apmat  FROM mensajes join usuarios on Remitente=IDUsuarios WHERE Receptor=$IDUsuarios AND Estado <> 3 ORDER BY Fecha DESC");
+            $Query = $Conexion->get_results("SELECT IDMensajes,Remitente,Estado,Asunto,Fecha,usuarios.Nombre,usuarios.Appat,usuarios.Apmat  FROM mensajes join usuarios on Remitente=IDUsuarios WHERE Receptor=$IDUsuarios_session AND Estado <> 3 ORDER BY Fecha DESC");
             if ($Query != 0) {
                 foreach ($Query as $datos) {
                     $IDMensajes = $datos->IDMensajes;

@@ -5,12 +5,12 @@ if (!$_SESSION) {
                     window.location="../index.php";
                 </script>';
 }
-$IDUsuarios = $_SESSION['IDUsuarios'];
-$Nombre = $_SESSION['Nombre'];
-$Appat = $_SESSION['Appat'];
-$Apmat = $_SESSION['Apmat'];
-$Tipo_Usuario = $_SESSION['Tipo_Usuario'];
-if ($Tipo_Usuario != 2) {
+$IDUsuarios_session= $_SESSION['SesionIDUsuarios'];
+$Nombre_session = $_SESSION['SesionNombre'];
+$Appat_session = $_SESSION['SesionAppat'];
+$Apmat_session=$_SESSION['SesionApmat'];
+$Tipo_Usuario_session = $_SESSION['SesionTipo_Usuario'];
+if ($Tipo_Usuario_session != 2) {
     session_destroy();
     echo '<script type="text/javascript">
                     window.location="../index.php";
@@ -79,7 +79,7 @@ if ($Tipo_Usuario != 2) {
                     </div>
                     <div class="col-sm-6 col-md-3">
                         <p class="nusuario">
-                            <?php echo "Usuario: " . $Nombre . " " . $Appat . " " . $Apmat; ?>
+                            <?php echo "Usuario: " . $Nombre_session . " " . $Appat_session . " " . $Apmat_session; ?>
                         </p>
                     </div>
                 </div>

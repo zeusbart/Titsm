@@ -9,17 +9,17 @@ $password = md5($_POST["password"]);
 $Comprobacion_Usuario = $Conexion->get_row("select * from usuarios where IDUsuarios='$username' and Contrasena='$password'");
 
 if ($Comprobacion_Usuario == 1) {//Comprueba Si el usuario se encuentra en la bd si es 1 es si
-    $_SESSION['IDUsuarios'] = $Comprobacion_Usuario->IDUsuarios;
-    $_SESSION['Nombre'] = $Comprobacion_Usuario->Nombre;
-    $_SESSION['Appat'] = $Comprobacion_Usuario->Appat;
-    $_SESSION['Apmat'] = $Comprobacion_Usuario->Apmat;
-    $_SESSION['Tipo_Usuario'] = $Comprobacion_Usuario->Tipo;
+    $_SESSION['SesionIDUsuarios'] = $Comprobacion_Usuario->IDUsuarios;
+    $_SESSION['SesionNombre'] = $Comprobacion_Usuario->Nombre;
+    $_SESSION['SesionAppat'] = $Comprobacion_Usuario->Appat;
+    $_SESSION['SesionApmat'] = $Comprobacion_Usuario->Apmat;
+    $_SESSION['SesionTipo_Usuario'] = $Comprobacion_Usuario->Tipo;
 
-    if ($_SESSION['Tipo_Usuario'] == 1) {
+    if ($_SESSION['SesionTipo_Usuario'] == 1) {
         echo '   <script type="text/javascript">
                                 window.location="Contenido_Administrador/Menu_Administrador.php";
                                     </script>';
-    } else if ($_SESSION['Tipo_Usuario'] == 2) {
+    } else if ($_SESSION['SesionTipo_Usuario'] == 2) {
         echo '   <script type="text/javascript">
                                 window.location="Contenido_Seguridad/Menu_Seguridad.php";
                                     </script>';

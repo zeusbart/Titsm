@@ -63,16 +63,13 @@
             <div class=" col-xs-6 col-sm-3 col-md-2 col-lg-2">
                 <input type="text" name="Fecha_Final" id="InputFecha_Final"  class="form-control"  required="required">
             </div>
-
-
-
         </div>
         <br>
 
         <div class="row">
             <div class="col-sm-offset-3 col-md-offset-6 col-lg-5">
 
-                <button type="submit" onclick="setdatos()" class="btn btn-primary">Consultar</button>
+                <button type="submit" class="btn btn-primary">Consultar</button>
             </div>
 
         </div>

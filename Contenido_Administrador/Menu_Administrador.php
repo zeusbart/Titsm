@@ -32,7 +32,7 @@ if ($Tipo_Usuario_session != 1) {
         <link href="../bootstrap_css/bootstrap.min.css" rel="stylesheet">
         <!-- jQuery -->
         <script src="../js/jquery-1.10.2.js"></script>
-        <link href="../css/datepicker.css">
+        <link href="../css/datepicker.css" rel="stylesheet">
         <script src="../js/bootstrap-datepicker.js"></script>
 
         <!--dataTable-->

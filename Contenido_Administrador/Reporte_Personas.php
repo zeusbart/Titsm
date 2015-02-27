@@ -29,12 +29,12 @@
             todayHighlight: true
         });
     });
-    var fecha_inicio=0;
-    var fecha_final=0;
-    function  setdatos(){
-        fecha_inicio=$("#InputFecha_inicio").val();
-        fecha_final=$("#InputFecha_Final").val();
-        alert(hora_inicio+hora_final);
+//    var fecha_inicio=0;
+//    var fecha_final=0;
+//    function  setdatos(){
+//        fecha_inicio=$("#InputFecha_inicio").val();
+//        fecha_final=$("#InputFecha_Final").val();
+//        alert(hora_inicio+hora_final);
 
 </script>
 
